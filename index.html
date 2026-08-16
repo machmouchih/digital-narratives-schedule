@@ -20,7 +20,7 @@ body{
   margin:0; font-family:'Inter',sans-serif; background:var(--bg); color:var(--text);
   -webkit-font-smoothing:antialiased;
 }
-.wrap{max-width:1120px; margin:0 auto; padding:0 24px}
+.wrap{max-width:1120px; margin:0 auto; padding:0 40px; width:100%}
 .mono{font-family:'JetBrains Mono',monospace}
 
 /* ---------- nav ---------- */
@@ -61,19 +61,28 @@ nav a.nl:hover{color:var(--text)}
   mask-image:radial-gradient(ellipse 75% 65% at 50% 40%,#000 35%,transparent 100%);
 }
 .hero-veil{position:absolute; inset:0; background:linear-gradient(to bottom,transparent 45%,var(--bg) 99%)}
-.hero-in{position:relative; padding:104px 0 76px}
+.hero-in{position:relative; padding:112px 0 88px}
 .eyebrow{
   font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--indigo);
   font-weight:600; margin:0 0 20px;
 }
 h1.title{
-  font-size:clamp(42px,7.2vw,80px); line-height:.96; font-weight:900;
-  letter-spacing:-.035em; margin:0 0 22px; max-width:15ch;
+  font-size:clamp(40px,6.4vw,74px); line-height:.98; font-weight:900;
+  letter-spacing:-.035em; margin:0 0 24px; max-width:12ch;
 }
 h1.title em{font-style:normal; color:var(--indigo)}
-.lede{font-size:clamp(16px,2vw,19px); color:var(--muted); max-width:60ch; line-height:1.62; margin:0}
-.meta{display:flex; flex-wrap:wrap; gap:10px 26px; margin:32px 0 34px; font-size:13.5px; color:var(--dim)}
-.meta b{color:var(--text); font-weight:600}
+.lede{font-size:clamp(15.5px,1.7vw,18px); color:var(--muted); max-width:52ch; line-height:1.6; margin:0}
+.meta{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:0; margin:38px 0 34px; max-width:760px;
+  border-top:1px solid var(--line2); border-bottom:1px solid var(--line2);
+}
+.meta div{padding:14px 20px 14px 0; border-right:1px solid var(--line2)}
+.meta div:last-child{border-right:0}
+.meta .k{font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--dim); font-weight:700; margin-bottom:5px}
+.meta .v{font-size:14px; color:var(--text); font-weight:600; line-height:1.35}
+.meta .v span{color:var(--dim); font-weight:400}
+@media(max-width:560px){.meta div{border-right:0; border-bottom:1px solid var(--line);}.meta div:last-child{border-bottom:0}}
 .btns{display:flex; flex-wrap:wrap; gap:10px}
 .btn{
   display:inline-flex; align-items:center; gap:7px; padding:10px 19px; border-radius:9px;
@@ -203,7 +212,8 @@ p{line-height:1.65}
 footer{padding:44px 0 58px; color:var(--dim); font-size:13.5px; text-align:center}
 footer a{color:var(--muted)}
 @media(max-width:640px){
-  .hero-in{padding:66px 0 54px}
+  .wrap{padding:0 22px}
+  .hero-in{padding:72px 0 56px}
   .wk{grid-template-columns:1fr; gap:7px}
   section{padding:56px 0}
 }
@@ -240,10 +250,10 @@ footer a{color:var(--muted)}
       then build a world and a mechanic of your own in Unreal Engine 5.
     </p>
     <div class="meta">
-      <span><b>Mondays</b> 4:00 PM EST</span>
-      <span><b>Online</b> via Zoom</span>
-      <span><b>Aug 24 &ndash; Nov 30</b>, 2026</span>
-      <span><b>Hamze Machmouchi</b> &middot; Office hours 4&ndash;6 PM</span>
+      <div><div class="k">Meets</div><div class="v">Mondays, 4:00 PM <span>EST</span></div></div>
+      <div><div class="k">Location</div><div class="v">Online <span>via Zoom</span></div></div>
+      <div><div class="k">Term</div><div class="v">Aug 24 &ndash; Nov 30 <span>2026</span></div></div>
+      <div><div class="k">Instructor</div><div class="v">Hamze Machmouchi <span>&middot; Office hrs 4&ndash;6 PM</span></div></div>
     </div>
     <div class="btns">
       <a class="btn btn-i" href="https://the-bac.zoom.us/j/2720645727?pwd=NlVrZzJmZjFPMmhkNTRPelhsWWlsdz09" target="_blank">Zoom</a>
@@ -314,7 +324,7 @@ footer a{color:var(--muted)}
     </p>
     <div class="games">
       <div class="game">
-        <div class="game-art" style="background-image:url('images/games/jedi-survivor.jpg'),linear-gradient(150deg,#3a2a1a,#171018)">
+        <div class="game-art" style="background-image:url('images/games/jedi-survivor.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1774580/header.jpg'),linear-gradient(150deg,#3a2a1a,#171018)">
           <div class="game-txt"><div class="game-grp">Group 1 &middot; World Weavers</div><div class="game-name">Star Wars Jedi: Survivor</div></div>
         </div>
         <div class="game-buy">
@@ -325,7 +335,7 @@ footer a{color:var(--muted)}
         </div>
       </div>
       <div class="game">
-        <div class="game-art" style="background-image:url('images/games/cyberpunk.jpg'),linear-gradient(150deg,#3d2f10,#14121c)">
+        <div class="game-art" style="background-image:url('images/games/cyberpunk.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg'),linear-gradient(150deg,#3d2f10,#14121c)">
           <div class="game-txt"><div class="game-grp">Group 1 &middot; World Weavers</div><div class="game-name">Cyberpunk 2077</div></div>
         </div>
         <div class="game-buy">
@@ -336,7 +346,7 @@ footer a{color:var(--muted)}
         </div>
       </div>
       <div class="game">
-        <div class="game-art" style="background-image:url('images/games/alan-wake-2.jpg'),linear-gradient(150deg,#1c2b34,#0f1116)">
+        <div class="game-art" style="background-image:url('images/games/alan-wake-2.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1903340/header.jpg'),linear-gradient(150deg,#1c2b34,#0f1116)">
           <div class="game-txt"><div class="game-grp">Group 2 &middot; Mind Benders</div><div class="game-name">Alan Wake 2</div></div>
         </div>
         <div class="game-buy">
@@ -348,7 +358,7 @@ footer a{color:var(--muted)}
         </div>
       </div>
       <div class="game">
-        <div class="game-art" style="background-image:url('images/games/control.jpg'),linear-gradient(150deg,#33202c,#121017)">
+        <div class="game-art" style="background-image:url('images/games/control.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/870780/header.jpg'),linear-gradient(150deg,#33202c,#121017)">
           <div class="game-txt"><div class="game-grp">Group 2 &middot; Mind Benders</div><div class="game-name">Control</div></div>
         </div>
         <div class="game-buy">
@@ -359,7 +369,7 @@ footer a{color:var(--muted)}
         </div>
       </div>
       <div class="game">
-        <div class="game-art" style="background-image:url('images/games/edith-finch.jpg'),linear-gradient(150deg,#23331f,#101317)">
+        <div class="game-art" style="background-image:url('images/games/edith-finch.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/501300/header.jpg'),linear-gradient(150deg,#23331f,#101317)">
           <div class="game-txt"><div class="game-grp">Group 3 &middot; Intimate Storytellers</div><div class="game-name">What Remains of Edith Finch</div></div>
         </div>
         <div class="game-buy">
@@ -370,7 +380,7 @@ footer a{color:var(--muted)}
         </div>
       </div>
       <div class="game">
-        <div class="game-art" style="background-image:url('images/games/stray.jpg'),linear-gradient(150deg,#2c3320,#111318)">
+        <div class="game-art" style="background-image:url('images/games/stray.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1332010/header.jpg'),linear-gradient(150deg,#2c3320,#111318)">
           <div class="game-txt"><div class="game-grp">Group 3 &middot; Intimate Storytellers</div><div class="game-name">Stray</div></div>
         </div>
         <div class="game-buy">
@@ -381,7 +391,7 @@ footer a{color:var(--muted)}
         </div>
       </div>
       <div class="game">
-        <div class="game-art" style="background-image:url('images/games/plague-tale.jpg'),linear-gradient(150deg,#332618,#121016)">
+        <div class="game-art" style="background-image:url('images/games/plague-tale.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1182900/header.jpg'),linear-gradient(150deg,#332618,#121016)">
           <div class="game-txt"><div class="game-grp">Group 4 &middot; Historical Architects</div><div class="game-name">A Plague Tale: Requiem</div></div>
         </div>
         <div class="game-buy">
@@ -392,7 +402,7 @@ footer a{color:var(--muted)}
         </div>
       </div>
       <div class="game">
-        <div class="game-art" style="background-image:url('images/games/ac-mirage.jpg'),linear-gradient(150deg,#38301a,#141218)">
+        <div class="game-art" style="background-image:url('images/games/ac-mirage.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/2308700/header.jpg'),linear-gradient(150deg,#38301a,#141218)">
           <div class="game-txt"><div class="game-grp">Group 4 &middot; Historical Architects</div><div class="game-name">Assassin's Creed Mirage</div></div>
         </div>
         <div class="game-buy">

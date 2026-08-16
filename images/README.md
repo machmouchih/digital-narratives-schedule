@@ -1,8 +1,16 @@
 # Images
 
 Drop files here with these exact names and the page picks them up automatically.
-Until a file exists, its slot falls back to a gradient panel with the title on it,
-so the page always looks finished.
+
+Each image slot has three layers, in order of priority:
+
+1. A local file in this folder (what you add here)
+2. Official Steam header art, loaded from Steam's CDN at view time
+3. A gradient panel
+
+So the game covers already show artwork with no files present. Adding a file
+here overrides the Steam art for that game. Use this to replace anything that
+looks wrong, or to swap in a frame you prefer over the store header.
 
 ## Hero background
 
