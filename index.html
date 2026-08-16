@@ -171,6 +171,11 @@ p{line-height:1.65}
 .cols ul{margin:0; padding:0; list-style:none; font-size:14px; color:var(--muted); line-height:2.05}
 .numlist{margin:0; padding-left:20px; color:var(--muted); font-size:14.5px; line-height:1.95}
 .numlist strong{color:var(--text); font-weight:600}
+.deflist{margin:0; padding:0; list-style:none}
+.deflist li{padding:11px 0; border-bottom:1px solid var(--line); font-size:14px; color:var(--muted); line-height:1.55}
+.deflist li:last-child{border-bottom:0}
+.deflist b{color:var(--text); font-weight:650; display:block; margin-bottom:2px; font-size:14.5px}
+.deflist i{color:var(--dim); font-style:normal; font-size:12.5px}
 .speclist{margin:0; padding:0; list-style:none}
 .speclist li{padding:13px 0; border-bottom:1px solid var(--line); font-size:14.5px; color:var(--muted); line-height:1.6}
 .speclist li:last-child{border-bottom:0}
@@ -291,8 +296,8 @@ footer a{color:var(--muted)}
     <div class="grid g3" style="margin-top:38px">
       <div class="card">
         <span class="tag">Expectation 01</span>
-        <h3>No text, dialogue, or interface</h3>
-        <p>The narrative is delivered through space alone. Light, threshold, material, and sequence do the work.</p>
+        <h3>Play is research</h3>
+        <p>Students are required to play their assigned games and study their spaces and narratives. Play with a notebook open. What you find in the game is the material for what you build.</p>
       </div>
       <div class="card">
         <span class="tag">Expectation 02</span>
@@ -492,29 +497,54 @@ footer a{color:var(--muted)}
       this verb by choosing one <strong>Building Part</strong> as your primary tool for storytelling, and to tell that story
       through your assigned medium.
     </p>
-    <div class="cols">
-      <div>
-        <h4>Verbs (Assigned)</h4>
-        <ul>
-          <li>Framing a View</li><li>Guiding Movement</li><li>Creating Thresholds</li>
-          <li>Compressing &amp; Releasing</li><li>Ascending &amp; Descending</li><li>Sheltering &amp; Exposing</li>
-          <li>Revealing &amp; Concealing</li><li>Scaling &amp; Dominating</li><li>Grounding &amp; Floating</li>
-          <li>Reflecting &amp; Distorting</li>
+    <div class="grid g2" style="margin-bottom:30px">
+      <div class="card">
+        <span class="tag">Assigned</span>
+        <h3>Architectural Verb</h3>
+        <p style="margin-bottom:14px">What the space does to a body. You do not choose this one.</p>
+        <ul class="cols" style="display:grid; grid-template-columns:1fr 1fr; gap:0 20px; padding:0; list-style:none; font-size:14px; color:var(--muted); line-height:2">
+          <li>Framing a View</li><li>Guiding Movement</li>
+          <li>Creating Thresholds</li><li>Compressing &amp; Releasing</li>
+          <li>Ascending &amp; Descending</li><li>Sheltering &amp; Exposing</li>
+          <li>Revealing &amp; Concealing</li><li>Scaling &amp; Dominating</li>
+          <li>Grounding &amp; Floating</li><li>Reflecting &amp; Distorting</li>
         </ul>
       </div>
-      <div>
-        <h4>Parts (Choose One)</h4>
-        <ul>
-          <li>Wall / Fa&ccedil;ade</li><li>Floor / Ground Plane</li><li>Ceiling / Roof</li><li>Door / Opening</li>
-          <li>Window / Aperture</li><li>Stair / Ramp</li><li>Column / Structure</li><li>Pathway / Corridor</li>
+      <div class="card">
+        <span class="tag">Assigned</span>
+        <h3>Medium</h3>
+        <p style="margin-bottom:14px">The drawing convention you work in, which also sets your camera in Unreal. Listed in full below.</p>
+        <ul class="cols" style="display:grid; grid-template-columns:1fr 1fr; gap:0 20px; padding:0; list-style:none; font-size:14px; color:var(--muted); line-height:2">
+          <li>Section</li><li>Plan</li><li>Axonometric</li><li>Elevation</li>
+          <li>Worm's-Eye / RCP</li><li>Exploded Assembly</li>
+          <li>Cutaway Diorama</li><li>One-Point Perspective</li>
+          <li>Collage / Montage</li><li>Panel Grid</li>
+          <li>Text / Typography</li>
         </ul>
       </div>
-      <div>
-        <h4>Media (Assigned)</h4>
-        <ul>
-          <li>Section</li><li>Plan</li><li>Axonometric</li><li>Elevation</li><li>Worm's-Eye / RCP</li>
-          <li>Exploded Assembly</li><li>Collage / Photomontage</li><li>Panel Grid</li>
-          <li>One-Point Perspective</li><li>Cutaway Diorama</li>
+    </div>
+
+    <div class="card">
+      <span class="tag" style="color:var(--emerald)">Choose One</span>
+      <h3 style="font-size:21px; margin-bottom:6px">Building Part</h3>
+      <p style="margin-bottom:6px; font-size:15px">
+        Your primary tool for storytelling. One part, worked hard, for the whole semester. Everything else in the scene
+        supports it.
+      </p>
+      <div class="cols" style="margin-top:20px; gap:0 34px">
+        <ul class="deflist">
+          <li><b>Wall / Fa&ccedil;ade</b> The barrier and the face. What it hides on one side, what it announces on the other.</li>
+          <li><b>Floor / Ground Plane</b> What carries the body. Level change, material underfoot, and what lies below.</li>
+          <li><b>Ceiling / Roof</b> The overhead condition. Shelter, weight, and access to sky.</li>
+        </ul>
+        <ul class="deflist">
+          <li><b>Door / Opening</b> The controlled passage. Who may pass, when, and at what cost.</li>
+          <li><b>Window / Aperture</b> The framed view. What is shown, what is withheld, and from where.</li>
+          <li><b>Stair / Ramp</b> Movement through height. Effort, rhythm, and the moment of arrival.</li>
+        </ul>
+        <ul class="deflist">
+          <li><b>Column / Structure</b> The order of the space. Rhythm, grid, and what the building admits about how it stands.</li>
+          <li><b>Pathway / Corridor</b> The enforced route. Duration, compression, and the pace it imposes.</li>
         </ul>
       </div>
     </div>
@@ -532,103 +562,32 @@ footer a{color:var(--muted)}
       one convention. It sets the drawings you produce and the camera you build in Unreal Engine. A locked view cannot be fixed
       with camera movement, so the space has to carry the narrative.
     </p>
-    <div class="glyphs">
-      <div class="glyph">
-        <svg viewBox="0 0 120 60" fill="none" stroke="#7c7cf0" stroke-width="1.6">
-          <path d="M12 46h96" stroke="#2e2e3d"/>
-          <path d="M22 46V22h30v24M52 30h22v16M74 24h24v22" />
-          <path d="M12 14v40" stroke="#f0607c" stroke-dasharray="4 3"/>
-          <circle cx="12" cy="34" r="2.6" fill="#f0607c" stroke="none"/>
-          <path d="M15 34h9" stroke="#f0607c" stroke-width="1.2"/>
-        </svg>
-        <h3>Section</h3>
-        <p>The model is cut and the camera sits in the cut plane. <span class="ref">Inside, Limbo</span></p>
+    <div class="cols" style="gap:26px 34px">
+      <div>
+        <h4>Orthographic</h4>
+        <ul class="deflist">
+          <li><b>Section</b> The model is cut and the camera sits in the cut plane. <i>Inside, Limbo</i></li>
+          <li><b>Plan</b> Top down, narrative carried by choreography of movement. <i>Death's Door</i></li>
+          <li><b>Axonometric</b> Orthographic and locked, with no vanishing point. <i>Monument Valley, Hades</i></li>
+          <li><b>Elevation</b> A flat, fixed camera with narrative built in parallax layers. <i>GRIS</i></li>
+        </ul>
       </div>
-      <div class="glyph">
-        <svg viewBox="0 0 120 60" fill="none" stroke="#7c7cf0" stroke-width="1.6">
-          <rect x="18" y="12" width="40" height="36"/>
-          <rect x="66" y="12" width="36" height="20"/>
-          <rect x="66" y="38" width="36" height="10"/>
-          <path d="M58 26h8M58 36h8" stroke="#14141d" stroke-width="3.4"/>
-          <path d="M30 44c8-6 8-16 18-20" stroke="#f0607c" stroke-dasharray="3 3"/>
-          <circle cx="30" cy="44" r="2.4" fill="#f0607c" stroke="none"/>
-        </svg>
-        <h3>Plan</h3>
-        <p>Top-down, where narrative is carried by choreography of movement. <span class="ref">Death's Door</span></p>
+      <div>
+        <h4>Constructed</h4>
+        <ul class="deflist">
+          <li><b>Worm's-Eye / RCP</b> The camera only looks up.</li>
+          <li><b>Exploded Assembly</b> The building comes apart as the narrative advances.</li>
+          <li><b>Cutaway Diorama</b> Walls removed, the interior seen whole.</li>
+          <li><b>One-Point Perspective</b> A fixed vanishing point and a symmetrical frame.</li>
+        </ul>
       </div>
-      <div class="glyph">
-        <svg viewBox="0 0 120 60" fill="none" stroke="#7c7cf0" stroke-width="1.6">
-          <path d="M60 8 96 28 60 48 24 28Z"/>
-          <path d="M24 28v10l36 20 36-20V28"/>
-          <path d="M60 48v10"/>
-          <path d="M45 21 81 41" stroke="#2e2e3d"/>
-        </svg>
-        <h3>Axonometric</h3>
-        <p>Orthographic and locked, with no vanishing point. <span class="ref">Monument Valley, Hades</span></p>
-      </div>
-      <div class="glyph">
-        <svg viewBox="0 0 120 60" fill="none" stroke="#7c7cf0" stroke-width="1.6">
-          <path d="M10 50h100" stroke="#2e2e3d"/>
-          <rect x="20" y="18" width="26" height="32" opacity=".45"/>
-          <rect x="50" y="10" width="30" height="40"/>
-          <rect x="84" y="24" width="22" height="26" opacity=".45"/>
-          <path d="M58 20h6v8h-6zM68 20h6v8h-6zM58 34h6v8h-6zM68 34h6v8h-6z" stroke-width="1.1"/>
-        </svg>
-        <h3>Elevation</h3>
-        <p>A flat, fixed camera with narrative built in parallax layers. <span class="ref">GRIS</span></p>
-      </div>
-      <div class="glyph">
-        <svg viewBox="0 0 120 60" fill="none" stroke="#7c7cf0" stroke-width="1.6">
-          <path d="M60 52 24 14M60 52 96 14M60 52V14" stroke="#2e2e3d"/>
-          <path d="M30 18h60M36 26h48M43 34h34"/>
-          <circle cx="60" cy="52" r="3" fill="#f0607c" stroke="none"/>
-        </svg>
-        <h3>Worm's-Eye / RCP</h3>
-        <p>The camera only looks up.</p>
-      </div>
-      <div class="glyph">
-        <svg viewBox="0 0 120 60" fill="none" stroke="#7c7cf0" stroke-width="1.6">
-          <path d="M36 12h48M36 26h48M36 40h48M36 52h48"/>
-          <path d="M60 14v10M60 28v10M60 42v8" stroke="#f0607c" stroke-dasharray="3 3"/>
-        </svg>
-        <h3>Exploded Assembly</h3>
-        <p>The building comes apart as the narrative advances.</p>
-      </div>
-      <div class="glyph">
-        <svg viewBox="0 0 120 60" fill="none" stroke="#7c7cf0" stroke-width="1.6">
-          <rect x="18" y="10" width="38" height="24" opacity=".5"/>
-          <rect x="40" y="22" width="42" height="28"/>
-          <rect x="70" y="12" width="32" height="22" opacity=".7"/>
-        </svg>
-        <h3>Collage / Photomontage</h3>
-        <p>Narrative assembled in layered plates. <span class="ref">Kentucky Route Zero</span></p>
-      </div>
-      <div class="glyph">
-        <svg viewBox="0 0 120 60" fill="none" stroke="#7c7cf0" stroke-width="1.6">
-          <rect x="18" y="10" width="40" height="20"/><rect x="62" y="10" width="40" height="20"/>
-          <rect x="18" y="34" width="40" height="16"/><rect x="62" y="34" width="40" height="16"/>
-        </svg>
-        <h3>Panel Grid</h3>
-        <p>Several simultaneous cameras read together. <span class="ref">Gorogoa</span></p>
-      </div>
-      <div class="glyph">
-        <svg viewBox="0 0 120 60" fill="none" stroke="#7c7cf0" stroke-width="1.6">
-          <rect x="46" y="22" width="28" height="18"/>
-          <path d="M14 6 46 22M106 6 74 22M14 54 46 40M106 54 74 40" stroke="#2e2e3d"/>
-          <rect x="14" y="6" width="92" height="48" opacity=".35"/>
-        </svg>
-        <h3>One-Point Perspective</h3>
-        <p>A fixed vanishing point and a symmetrical frame.</p>
-      </div>
-      <div class="glyph">
-        <svg viewBox="0 0 120 60" fill="none" stroke="#7c7cf0" stroke-width="1.6">
-          <path d="M28 50V20l32-12 32 12v30"/>
-          <path d="M28 50h64M60 8v42M28 34h32" stroke-dasharray="0"/>
-          <path d="M60 34h32" stroke="#2e2e3d"/>
-          <path d="M92 20 60 8" stroke="#f0607c" stroke-dasharray="3 3"/>
-        </svg>
-        <h3>Cutaway Diorama</h3>
-        <p>Walls removed, the interior seen whole.</p>
+      <div>
+        <h4>Composite</h4>
+        <ul class="deflist">
+          <li><b>Collage / Photomontage</b> Narrative assembled in layered plates. <i>Kentucky Route Zero</i></li>
+          <li><b>Panel Grid</b> Several simultaneous cameras read together. <i>Gorogoa</i></li>
+          <li><b>Text / Typography</b> Language placed in space as inscription, signage, or projection. Letterforms are built, sited, and lit like any other element. <i>The Stanley Parable, NaissanceE</i></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -669,68 +628,14 @@ footer a{color:var(--muted)}
     </div>
 
     <p class="shead" style="margin-bottom:14px">Six Required Diagrams</p>
-    <div class="glyphs">
-      <div class="glyph">
-        <svg viewBox="0 0 120 60" fill="none" stroke="#7c7cf0" stroke-width="1.6">
-          <path d="M20 30h18M46 22 62 14M46 38 62 46M70 14h18M70 46h18M96 20v20" stroke="#2e2e3d"/>
-          <path d="M20 30h18M46 22 62 14M70 14h18" stroke="#f0607c"/>
-          <circle cx="14" cy="30" r="5"/><circle cx="42" cy="30" r="5"/><circle cx="66" cy="12" r="5"/>
-          <circle cx="66" cy="48" r="5"/><circle cx="93" cy="12" r="5"/><circle cx="93" cy="48" r="5"/>
-        </svg>
-        <h3>01 &middot; Level graph</h3>
-        <p>Nodes and edges, with gates marked and the critical path distinguished.</p>
-      </div>
-      <div class="glyph">
-        <svg viewBox="0 0 120 60" fill="none" stroke="#7c7cf0" stroke-width="1.6">
-          <rect x="16" y="12" width="42" height="36"/><rect x="66" y="12" width="38" height="16"/>
-          <rect x="66" y="34" width="38" height="14"/>
-          <path d="M58 24h8M58 40h8" stroke="#14141d" stroke-width="3.4"/>
-          <circle cx="34" cy="30" r="2.6" fill="#f0b03c" stroke="none"/>
-          <circle cx="86" cy="20" r="2.6" fill="#f0b03c" stroke="none"/>
-        </svg>
-        <h3>02 &middot; Annotated plan</h3>
-        <p>One level redrawn, with landmarks and sightlines marked.</p>
-      </div>
-      <div class="glyph">
-        <svg viewBox="0 0 120 60" fill="none" stroke="#7c7cf0" stroke-width="1.6">
-          <path d="M14 48h92" stroke="#2e2e3d"/>
-          <path d="M24 48V30h26v18M50 20h26v28M76 36h26v12"/>
-          <path d="M28 42 96 24" stroke="#f0607c" stroke-dasharray="4 3"/>
-        </svg>
-        <h3>03 &middot; Section</h3>
-        <p>Through a significant vertical moment, showing what becomes visible and when.</p>
-      </div>
-      <div class="glyph">
-        <svg viewBox="0 0 120 60" fill="none" stroke="#7c7cf0" stroke-width="1.6">
-          <path d="M26 30 96 8v44Z" fill="#7c7cf015" stroke="#f0607c" stroke-dasharray="4 3"/>
-          <circle cx="24" cy="30" r="4.5" fill="#f0607c" stroke="none"/>
-          <path d="M96 8v44" stroke="#7c7cf0"/>
-          <rect x="60" y="34" width="12" height="12" stroke="#2e2e3d"/>
-        </svg>
-        <h3>04 &middot; Sightline diagram</h3>
-        <p>A single reveal drawn as cones of vision.</p>
-      </div>
-      <div class="glyph">
-        <svg viewBox="0 0 120 60" fill="none" stroke="#7c7cf0" stroke-width="1.6">
-          <path d="M60 12a18 18 0 1 1-.1 0" stroke-dasharray="7 5"/>
-          <path d="M74 20l4-8 8 4" stroke="#f0607c"/>
-          <circle cx="60" cy="12" r="3.4" fill="#7c7cf0" stroke="none"/>
-          <circle cx="78" cy="30" r="3.4" fill="#7c7cf0" stroke="none"/>
-          <circle cx="60" cy="48" r="3.4" fill="#7c7cf0" stroke="none"/>
-          <circle cx="42" cy="30" r="3.4" fill="#7c7cf0" stroke="none"/>
-        </svg>
-        <h3>05 &middot; Core loop</h3>
-        <p>Action, feedback, reward, and the next action.</p>
-      </div>
-      <div class="glyph">
-        <svg viewBox="0 0 120 60" fill="none" stroke="#7c7cf0" stroke-width="1.6">
-          <path d="M12 50h96" stroke="#2e2e3d"/><path d="M12 8v42" stroke="#2e2e3d"/>
-          <path d="M12 44c8 0 10-18 18-18s8 16 16 16 10-26 18-26 10 22 18 22 12-10 20-10" stroke="#f0607c"/>
-        </svg>
-        <h3>06 &middot; Intensity curve</h3>
-        <p>Pacing across thirty minutes of play.</p>
-      </div>
-    </div>
+    <ol class="numlist" style="max-width:74ch">
+      <li><strong>Level graph.</strong> Nodes and edges, with gates marked and the critical path distinguished.</li>
+      <li><strong>Plan of one level,</strong> redrawn and annotated with landmarks and sightlines.</li>
+      <li><strong>Section</strong> through a significant vertical moment, showing what becomes visible and when.</li>
+      <li><strong>Sightline diagram</strong> of a single reveal, drawn as cones of vision.</li>
+      <li><strong>Core loop diagram.</strong> Action, feedback, reward, and the next action.</li>
+      <li><strong>Intensity curve</strong> across thirty minutes of play.</li>
+    </ol>
     <p class="intro" style="margin-top:26px; margin-bottom:0">
       In Week 8 you will draw these same six diagrams for your own project.
     </p>
@@ -837,7 +742,7 @@ footer a{color:var(--muted)}
       <span><i style="background:var(--amber)"></i>BAC closed</span>
     </div>
 
-    <p class="cyc">Narrative Cycle 1 &mdash; The 8-Second Loop</p>
+    <p class="cyc">Narrative Cycle 1: The 8-Second Loop</p>
 
     <div class="wk">
       <div class="wk-date">Aug 24<span class="n">Week 1</span></div>
@@ -860,7 +765,7 @@ footer a{color:var(--muted)}
 
     <div class="wk off">
       <div class="wk-date">Sep 7</div>
-      <div><h3>NO CLASS &mdash; Labor Day, BAC closed</h3></div>
+      <div><h3>NO CLASS: Labor Day, BAC closed</h3></div>
     </div>
 
     <div class="wk">
@@ -904,18 +809,18 @@ footer a{color:var(--muted)}
 
     <div class="wk off">
       <div class="wk-date">Oct 12</div>
-      <div><h3>NO CLASS &mdash; Indigenous Peoples' Day, BAC closed</h3></div>
+      <div><h3>NO CLASS: Indigenous Peoples' Day, BAC closed</h3></div>
     </div>
 
     <div class="wk mile">
       <div class="wk-date">Oct 19<span class="n">Midterm</span></div>
       <div>
         <h3>MIDTERM: The 8-Second Story</h3>
-        <p>Present your 8s UE5 loop and the narrative concept behind it, held to your assigned Verb, Part, and Medium. No text, dialogue, or interface.</p>
+        <p>Present your 8s UE5 loop and the narrative concept behind it, held to your assigned Verb, Part, and Medium.</p>
       </div>
     </div>
 
-    <p class="cyc">Narrative Cycle 2 &mdash; The Interactive World</p>
+    <p class="cyc">Narrative Cycle 2: The Interactive World</p>
 
     <div class="wk">
       <div class="wk-date">Oct 26<span class="n">Week 8</span></div>
