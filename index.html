@@ -105,21 +105,36 @@ p{line-height:1.65}
 }
 
 /* ---------- game cards ---------- */
-.games{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(238px,1fr))}
+.games{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(252px,1fr))}
 .game{
-  position:relative; border-radius:13px; overflow:hidden; border:1px solid var(--line2);
-  aspect-ratio:16/10; background-size:cover; background-position:center;
-  display:flex; flex-direction:column; justify-content:flex-end;
+  border-radius:13px; overflow:hidden; border:1px solid var(--line2);
+  background:var(--surface); display:flex; flex-direction:column;
   transition:transform .22s, border-color .22s;
 }
 .game:hover{transform:translateY(-4px); border-color:var(--indigo)}
-.game::after{
+.game-art{
+  position:relative; aspect-ratio:16/10; background-size:cover; background-position:center;
+  display:flex; flex-direction:column; justify-content:flex-end;
+}
+.game-art::after{
   content:''; position:absolute; inset:0;
   background:linear-gradient(to top,rgba(6,6,10,.96) 6%,rgba(6,6,10,.55) 46%,rgba(6,6,10,.14) 100%);
 }
 .game-txt{position:relative; z-index:2; padding:17px}
 .game-grp{font-size:10px; letter-spacing:.15em; text-transform:uppercase; font-weight:700; color:var(--indigo); margin-bottom:5px}
 .game-name{font-size:15.5px; font-weight:700; line-height:1.22; letter-spacing:-.012em}
+.game-buy{
+  display:flex; flex-wrap:wrap; gap:6px; padding:12px 14px 14px;
+  border-top:1px solid var(--line2);
+}
+.buy{
+  font-size:11px; font-weight:600; letter-spacing:.02em; text-decoration:none;
+  color:var(--muted); background:#20202c; border:1px solid var(--line2);
+  padding:4.5px 9px; border-radius:6px; transition:all .14s; white-space:nowrap;
+}
+.buy:hover{color:#fff; background:var(--indigo); border-color:var(--indigo)}
+.buy.free{color:var(--emerald); border-color:#2c5a48}
+.buy.free:hover{background:var(--emerald); color:#08080c; border-color:var(--emerald)}
 
 /* ---------- unreal strip ---------- */
 .shots{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
@@ -200,6 +215,7 @@ footer a{color:var(--muted)}
   <div class="wrap">
     <div class="brand">DME2100 <span>/ Digital Narratives</span></div>
     <a class="nl" href="#games">Games</a>
+    <a class="nl" href="#access">Access</a>
     <a class="nl" href="#assignment">Assignment</a>
     <a class="nl" href="#media">Media</a>
     <a class="nl" href="#analysis">Analysis</a>
@@ -291,31 +307,167 @@ footer a{color:var(--muted)}
       Analyze the assigned games, focusing on narrative, level design, and world-building. Each group takes its games apart
       in four layers and presents the analysis in Week 3.
     </p>
+    <p class="intro" style="margin-top:-18px">
+      <strong>Do not buy anything before Week 1.</strong> Groups and games are assigned in the first session. You only need
+      access to your own group's two games, and several can be played on a laptop through cloud streaming without buying a
+      thing.
+    </p>
     <div class="games">
-      <div class="game" style="background-image:url('images/games/jedi-survivor.jpg'),linear-gradient(150deg,#3a2a1a,#171018)">
-        <div class="game-txt"><div class="game-grp">Group 1 &middot; World Weavers</div><div class="game-name">Star Wars Jedi: Survivor</div></div>
+      <div class="game">
+        <div class="game-art" style="background-image:url('images/games/jedi-survivor.jpg'),linear-gradient(150deg,#3a2a1a,#171018)">
+          <div class="game-txt"><div class="game-grp">Group 1 &middot; World Weavers</div><div class="game-name">Star Wars Jedi: Survivor</div></div>
+        </div>
+        <div class="game-buy">
+          <a class="buy" href="https://store.steampowered.com/search/?term=star+wars+jedi+survivor" target="_blank" rel="noopener">Steam</a>
+          <a class="buy" href="https://www.xbox.com/en-US/Search/Results?q=star+wars+jedi+survivor" target="_blank" rel="noopener">Xbox</a>
+          <a class="buy" href="https://store.playstation.com/en-us/search/star%20wars%20jedi%20survivor" target="_blank" rel="noopener">PS5</a>
+          <a class="buy" href="https://www.cdkeys.com/catalogsearch/result/?q=star+wars+jedi+survivor" target="_blank" rel="noopener">CDKeys</a>
+        </div>
       </div>
-      <div class="game" style="background-image:url('images/games/cyberpunk.jpg'),linear-gradient(150deg,#3d2f10,#14121c)">
-        <div class="game-txt"><div class="game-grp">Group 1 &middot; World Weavers</div><div class="game-name">Cyberpunk 2077</div></div>
+      <div class="game">
+        <div class="game-art" style="background-image:url('images/games/cyberpunk.jpg'),linear-gradient(150deg,#3d2f10,#14121c)">
+          <div class="game-txt"><div class="game-grp">Group 1 &middot; World Weavers</div><div class="game-name">Cyberpunk 2077</div></div>
+        </div>
+        <div class="game-buy">
+          <a class="buy" href="https://store.steampowered.com/search/?term=cyberpunk+2077" target="_blank" rel="noopener">Steam</a>
+          <a class="buy" href="https://www.xbox.com/en-US/Search/Results?q=cyberpunk+2077" target="_blank" rel="noopener">Xbox</a>
+          <a class="buy" href="https://store.playstation.com/en-us/search/cyberpunk%202077" target="_blank" rel="noopener">PS5</a>
+          <a class="buy" href="https://www.cdkeys.com/catalogsearch/result/?q=cyberpunk+2077" target="_blank" rel="noopener">CDKeys</a>
+        </div>
       </div>
-      <div class="game" style="background-image:url('images/games/alan-wake-2.jpg'),linear-gradient(150deg,#1c2b34,#0f1116)">
-        <div class="game-txt"><div class="game-grp">Group 2 &middot; Mind Benders</div><div class="game-name">Alan Wake 2</div></div>
+      <div class="game">
+        <div class="game-art" style="background-image:url('images/games/alan-wake-2.jpg'),linear-gradient(150deg,#1c2b34,#0f1116)">
+          <div class="game-txt"><div class="game-grp">Group 2 &middot; Mind Benders</div><div class="game-name">Alan Wake 2</div></div>
+        </div>
+        <div class="game-buy">
+          <a class="buy" href="https://store.steampowered.com/search/?term=alan+wake+2" target="_blank" rel="noopener">Steam</a>
+          <a class="buy" href="https://store.epicgames.com/en-US/browse?q=alan%20wake%202" target="_blank" rel="noopener">Epic</a>
+          <a class="buy" href="https://www.xbox.com/en-US/Search/Results?q=alan+wake+2" target="_blank" rel="noopener">Xbox</a>
+          <a class="buy" href="https://store.playstation.com/en-us/search/alan%20wake%202" target="_blank" rel="noopener">PS5</a>
+          <a class="buy" href="https://www.cdkeys.com/catalogsearch/result/?q=alan+wake+2" target="_blank" rel="noopener">CDKeys</a>
+        </div>
       </div>
-      <div class="game" style="background-image:url('images/games/control.jpg'),linear-gradient(150deg,#33202c,#121017)">
-        <div class="game-txt"><div class="game-grp">Group 2 &middot; Mind Benders</div><div class="game-name">Control</div></div>
+      <div class="game">
+        <div class="game-art" style="background-image:url('images/games/control.jpg'),linear-gradient(150deg,#33202c,#121017)">
+          <div class="game-txt"><div class="game-grp">Group 2 &middot; Mind Benders</div><div class="game-name">Control</div></div>
+        </div>
+        <div class="game-buy">
+          <a class="buy" href="https://store.steampowered.com/search/?term=control+remedy" target="_blank" rel="noopener">Steam</a>
+          <a class="buy" href="https://www.xbox.com/en-US/Search/Results?q=control+remedy" target="_blank" rel="noopener">Xbox</a>
+          <a class="buy" href="https://store.playstation.com/en-us/search/control%20remedy" target="_blank" rel="noopener">PS5</a>
+          <a class="buy" href="https://www.cdkeys.com/catalogsearch/result/?q=control+remedy" target="_blank" rel="noopener">CDKeys</a>
+        </div>
       </div>
-      <div class="game" style="background-image:url('images/games/edith-finch.jpg'),linear-gradient(150deg,#23331f,#101317)">
-        <div class="game-txt"><div class="game-grp">Group 3 &middot; Intimate Storytellers</div><div class="game-name">What Remains of Edith Finch</div></div>
+      <div class="game">
+        <div class="game-art" style="background-image:url('images/games/edith-finch.jpg'),linear-gradient(150deg,#23331f,#101317)">
+          <div class="game-txt"><div class="game-grp">Group 3 &middot; Intimate Storytellers</div><div class="game-name">What Remains of Edith Finch</div></div>
+        </div>
+        <div class="game-buy">
+          <a class="buy" href="https://store.steampowered.com/search/?term=what+remains+of+edith+finch" target="_blank" rel="noopener">Steam</a>
+          <a class="buy" href="https://www.xbox.com/en-US/Search/Results?q=what+remains+of+edith+finch" target="_blank" rel="noopener">Xbox</a>
+          <a class="buy" href="https://store.playstation.com/en-us/search/what%20remains%20of%20edith%20finch" target="_blank" rel="noopener">PS5</a>
+          <a class="buy" href="https://www.cdkeys.com/catalogsearch/result/?q=what+remains+of+edith+finch" target="_blank" rel="noopener">CDKeys</a>
+        </div>
       </div>
-      <div class="game" style="background-image:url('images/games/stray.jpg'),linear-gradient(150deg,#2c3320,#111318)">
-        <div class="game-txt"><div class="game-grp">Group 3 &middot; Intimate Storytellers</div><div class="game-name">Stray</div></div>
+      <div class="game">
+        <div class="game-art" style="background-image:url('images/games/stray.jpg'),linear-gradient(150deg,#2c3320,#111318)">
+          <div class="game-txt"><div class="game-grp">Group 3 &middot; Intimate Storytellers</div><div class="game-name">Stray</div></div>
+        </div>
+        <div class="game-buy">
+          <a class="buy" href="https://store.steampowered.com/search/?term=stray" target="_blank" rel="noopener">Steam</a>
+          <a class="buy" href="https://www.xbox.com/en-US/Search/Results?q=stray" target="_blank" rel="noopener">Xbox</a>
+          <a class="buy" href="https://store.playstation.com/en-us/search/stray" target="_blank" rel="noopener">PS5</a>
+          <a class="buy" href="https://www.cdkeys.com/catalogsearch/result/?q=stray" target="_blank" rel="noopener">CDKeys</a>
+        </div>
       </div>
-      <div class="game" style="background-image:url('images/games/plague-tale.jpg'),linear-gradient(150deg,#332618,#121016)">
-        <div class="game-txt"><div class="game-grp">Group 4 &middot; Historical Architects</div><div class="game-name">A Plague Tale: Requiem</div></div>
+      <div class="game">
+        <div class="game-art" style="background-image:url('images/games/plague-tale.jpg'),linear-gradient(150deg,#332618,#121016)">
+          <div class="game-txt"><div class="game-grp">Group 4 &middot; Historical Architects</div><div class="game-name">A Plague Tale: Requiem</div></div>
+        </div>
+        <div class="game-buy">
+          <a class="buy" href="https://store.steampowered.com/search/?term=a+plague+tale+requiem" target="_blank" rel="noopener">Steam</a>
+          <a class="buy" href="https://www.xbox.com/en-US/Search/Results?q=a+plague+tale+requiem" target="_blank" rel="noopener">Xbox</a>
+          <a class="buy" href="https://store.playstation.com/en-us/search/a%20plague%20tale%20requiem" target="_blank" rel="noopener">PS5</a>
+          <a class="buy" href="https://www.cdkeys.com/catalogsearch/result/?q=a+plague+tale+requiem" target="_blank" rel="noopener">CDKeys</a>
+        </div>
       </div>
-      <div class="game" style="background-image:url('images/games/ac-mirage.jpg'),linear-gradient(150deg,#38301a,#141218)">
-        <div class="game-txt"><div class="game-grp">Group 4 &middot; Historical Architects</div><div class="game-name">Assassin's Creed Mirage</div></div>
+      <div class="game">
+        <div class="game-art" style="background-image:url('images/games/ac-mirage.jpg'),linear-gradient(150deg,#38301a,#141218)">
+          <div class="game-txt"><div class="game-grp">Group 4 &middot; Historical Architects</div><div class="game-name">Assassin's Creed Mirage</div></div>
+        </div>
+        <div class="game-buy">
+          <a class="buy" href="https://store.steampowered.com/search/?term=assassins+creed+mirage" target="_blank" rel="noopener">Steam</a>
+          <a class="buy" href="https://www.xbox.com/en-US/Search/Results?q=assassins+creed+mirage" target="_blank" rel="noopener">Xbox</a>
+          <a class="buy" href="https://store.playstation.com/en-us/search/assassins%20creed%20mirage" target="_blank" rel="noopener">PS5</a>
+          <a class="buy" href="https://www.cdkeys.com/catalogsearch/result/?q=assassins+creed+mirage" target="_blank" rel="noopener">CDKeys</a>
+        </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACCESS ============ -->
+<section id="access">
+  <div class="wrap">
+    <p class="shead">Getting the Games</p>
+    <h2>Streaming, trials, and cheap keys</h2>
+    <p class="intro">
+      A gaming PC is not required for this course. Every game on the list can be streamed to a laptop or tablet through a
+      cloud service, and most of these services run a free tier or a trial. Start with the free options before you spend
+      anything.
+    </p>
+
+    <div class="grid g2">
+      <div class="card">
+        <span class="tag" style="color:var(--emerald)">Free tier</span>
+        <h3>GeForce NOW</h3>
+        <p>
+          The most useful one for this class. It streams games you <em>already own</em> on Steam, Epic, or Ubisoft, so one
+          purchase works on any laptop. The free tier is permanent, with queue times and one-hour sessions.
+        </p>
+        <p style="margin-top:12px"><a class="buy free" href="https://www.nvidia.com/en-us/geforce-now/" target="_blank" rel="noopener">nvidia.com/geforce-now</a></p>
+      </div>
+      <div class="card">
+        <span class="tag" style="color:var(--emerald)">Trial usually available</span>
+        <h3>Xbox Cloud Gaming</h3>
+        <p>
+          Included with Game Pass Ultimate. Streams to a browser on any machine, no download. The catalog rotates, so check
+          whether your assigned game is on it before subscribing.
+        </p>
+        <p style="margin-top:12px"><a class="buy free" href="https://www.xbox.com/en-US/play" target="_blank" rel="noopener">xbox.com/play</a>
+        <a class="buy" href="https://www.xbox.com/en-US/xbox-game-pass" target="_blank" rel="noopener">Game Pass</a></p>
+      </div>
+      <div class="card">
+        <span class="tag" style="color:var(--emerald)">Trial usually available</span>
+        <h3>Amazon Luna</h3>
+        <p>
+          Browser-based streaming with a Luna+ subscription. Prime members get a rotating set of titles at no extra cost, so
+          check what is included before paying.
+        </p>
+        <p style="margin-top:12px"><a class="buy free" href="https://luna.amazon.com/" target="_blank" rel="noopener">luna.amazon.com</a></p>
+      </div>
+      <div class="card">
+        <span class="tag">Subscription</span>
+        <h3>PS Plus Premium &amp; EA Play</h3>
+        <p>
+          PS Plus Premium includes cloud streaming on PS5 and PC. EA Play covers the EA catalog, which is the relevant one
+          for Star Wars Jedi: Survivor.
+        </p>
+        <p style="margin-top:12px"><a class="buy" href="https://www.playstation.com/en-us/ps-plus/" target="_blank" rel="noopener">PS Plus</a>
+        <a class="buy" href="https://www.ea.com/ea-play" target="_blank" rel="noopener">EA Play</a></p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:18px">
+      <h3>Buying</h3>
+      <p>
+        Each game card above links to Steam, Xbox, PlayStation, and CDKeys. CDKeys resells activation keys well below list
+        price and is worth checking first. Older titles on the list go on deep discount during Steam seasonal sales. Prices,
+        catalogs, and trial offers change constantly, so confirm what is included before you subscribe or buy.
+      </p>
+      <p style="margin-top:12px">
+        If cost is a barrier, contact the instructor on Discord before Week 2. There is usually a way to sort it out.
+      </p>
     </div>
   </div>
 </section>
