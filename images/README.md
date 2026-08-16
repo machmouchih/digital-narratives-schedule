@@ -31,7 +31,7 @@ Landscape, roughly 16:9, 800px wide or more.
 | `images/games/edith-finch.jpg` | What Remains of Edith Finch |
 | `images/games/stray.jpg` | Stray |
 | `images/games/plague-tale.jpg` | A Plague Tale: Requiem |
-| `images/games/ac-mirage.jpg` | Assassin's Creed Mirage |
+| `images/games/ac-shadows.jpg` | Assassin's Creed Shadows |
 
 Cleanest sources are the publishers' own press kits, which state usage terms:
 
