@@ -1,961 +1,1051 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DME2100: Digital Narratives - Fall 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#08080c; --bg2:#0e0e15; --surface:#14141d; --surface2:#1b1b26;
-  --line:#26263340; --line2:#2e2e3d;
-  --text:#e8e8f0; --muted:#9797a8; --dim:#66667a;
-  --indigo:#7c7cf0; --emerald:#3ddc97; --amber:#f0b03c; --rose:#f0607c; --sky:#4cc4f0;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth; scroll-padding-top:70px}
-body{
-  margin:0; font-family:'Inter',sans-serif; background:var(--bg); color:var(--text);
-  -webkit-font-smoothing:antialiased;
-}
-.wrap{max-width:1120px; margin:0 auto; padding:0 40px; width:100%}
-.mono{font-family:'JetBrains Mono',monospace}
-
-/* ---------- nav ---------- */
-nav{
-  position:sticky; top:0; z-index:50; background:rgba(8,8,12,.82);
-  backdrop-filter:blur(14px); border-bottom:1px solid var(--line);
-}
-nav .wrap{display:flex; align-items:center; gap:28px; height:58px; overflow-x:auto}
-nav .brand{font-weight:800; font-size:14px; letter-spacing:-.01em; white-space:nowrap}
-nav .brand span{color:var(--indigo)}
-nav a.nl{
-  color:var(--muted); text-decoration:none; font-size:13px; font-weight:500;
-  white-space:nowrap; transition:color .15s;
-}
-nav a.nl:hover{color:var(--text)}
-
-/* ---------- hero ---------- */
-.hero{position:relative; overflow:hidden; border-bottom:1px solid var(--line)}
-.hero-art{
-  position:absolute; inset:0;
-  background-image:url('images/hero.jpg');
-  background-size:cover; background-position:center;
-  opacity:.34; filter:saturate(.85);
-}
-.hero-fallback{
-  position:absolute; inset:0;
-  background:
-    radial-gradient(900px 500px at 18% 10%, rgba(124,124,240,.30), transparent 65%),
-    radial-gradient(700px 500px at 85% 25%, rgba(240,96,124,.16), transparent 60%),
-    radial-gradient(800px 600px at 55% 100%, rgba(76,196,240,.14), transparent 65%),
-    linear-gradient(175deg,#0d0d16,#08080c);
-}
-.hero-grid{
-  position:absolute; inset:0;
-  background-image:linear-gradient(rgba(124,124,240,.055) 1px,transparent 1px),
-                   linear-gradient(90deg,rgba(124,124,240,.055) 1px,transparent 1px);
-  background-size:58px 58px;
-  mask-image:radial-gradient(ellipse 75% 65% at 50% 40%,#000 35%,transparent 100%);
-}
-.hero-veil{position:absolute; inset:0; background:linear-gradient(to bottom,transparent 45%,var(--bg) 99%)}
-.hero-in{position:relative; padding:112px 0 88px}
-.eyebrow{
-  font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--indigo);
-  font-weight:600; margin:0 0 20px;
-}
-h1.title{
-  font-size:clamp(40px,6.4vw,74px); line-height:.98; font-weight:900;
-  letter-spacing:-.035em; margin:0 0 24px; max-width:12ch;
-}
-h1.title em{font-style:normal; color:var(--indigo)}
-.lede{font-size:clamp(15.5px,1.7vw,18px); color:var(--muted); max-width:52ch; line-height:1.6; margin:0}
-.meta{
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-  gap:0; margin:38px 0 34px; max-width:760px;
-  border-top:1px solid var(--line2); border-bottom:1px solid var(--line2);
-}
-.meta div{padding:14px 20px 14px 0; border-right:1px solid var(--line2)}
-.meta div:last-child{border-right:0}
-.meta .k{font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--dim); font-weight:700; margin-bottom:5px}
-.meta .v{font-size:14px; color:var(--text); font-weight:600; line-height:1.35}
-.meta .v span{color:var(--dim); font-weight:400}
-@media(max-width:560px){.meta div{border-right:0; border-bottom:1px solid var(--line);}.meta div:last-child{border-bottom:0}}
-.btns{display:flex; flex-wrap:wrap; gap:10px}
-.btn{
-  display:inline-flex; align-items:center; gap:7px; padding:10px 19px; border-radius:9px;
-  font-size:13.5px; font-weight:600; text-decoration:none; color:#fff;
-  border:1px solid transparent; transition:transform .14s, filter .14s;
-}
-.btn:hover{transform:translateY(-2px); filter:brightness(1.13)}
-.btn-i{background:var(--indigo)} .btn-g{background:#2b2b3a; border-color:var(--line2)}
-.btn-e{background:#1f8a63} .btn-r{background:#b8455c} .btn-a{background:#a8762a}
-
-/* ---------- structure ---------- */
-section{padding:76px 0; border-bottom:1px solid var(--line)}
-.shead{margin:0 0 12px; font-size:11px; letter-spacing:.26em; text-transform:uppercase; color:var(--indigo); font-weight:600}
-h2{font-size:clamp(27px,3.7vw,40px); font-weight:800; letter-spacing:-.028em; margin:0 0 20px; line-height:1.08}
-.intro{color:var(--muted); font-size:16px; line-height:1.68; max-width:66ch; margin:0 0 34px}
-.intro strong{color:var(--text); font-weight:600}
-p{line-height:1.65}
-.grid{display:grid; gap:18px}
-.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-.g3{grid-template-columns:repeat(auto-fit,minmax(255px,1fr))}
-.g4{grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
-.card{background:var(--surface); border:1px solid var(--line2); border-radius:13px; padding:24px}
-.card h3{margin:0 0 9px; font-size:16.5px; font-weight:700; letter-spacing:-.01em}
-.card p{margin:0; font-size:14px; color:var(--muted); line-height:1.62}
-.card ul{margin:0; padding-left:17px; font-size:14px; color:var(--muted); line-height:1.75}
-.tag{
-  display:inline-block; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
-  font-weight:700; color:var(--indigo); margin-bottom:11px;
-}
-
-/* ---------- game cards ---------- */
-.games{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(252px,1fr))}
-.game{
-  border-radius:13px; overflow:hidden; border:1px solid var(--line2);
-  background:var(--surface); display:flex; flex-direction:column;
-  transition:transform .22s, border-color .22s;
-}
-.game:hover{transform:translateY(-4px); border-color:var(--indigo)}
-.game-art{
-  position:relative; aspect-ratio:16/10; background-size:cover; background-position:center;
-  display:flex; flex-direction:column; justify-content:flex-end;
-}
-.game-art::after{
-  content:''; position:absolute; inset:0;
-  background:linear-gradient(to top,rgba(6,6,10,.96) 6%,rgba(6,6,10,.55) 46%,rgba(6,6,10,.14) 100%);
-}
-.game-txt{position:relative; z-index:2; padding:17px}
-.game-grp{font-size:10px; letter-spacing:.15em; text-transform:uppercase; font-weight:700; color:var(--indigo); margin-bottom:5px}
-.game-name{font-size:15.5px; font-weight:700; line-height:1.22; letter-spacing:-.012em}
-.game-buy{
-  display:flex; flex-wrap:wrap; gap:6px; padding:12px 14px 14px;
-  border-top:1px solid var(--line2);
-}
-.buy{
-  font-size:11px; font-weight:600; letter-spacing:.02em; text-decoration:none;
-  color:var(--muted); background:#20202c; border:1px solid var(--line2);
-  padding:4.5px 9px; border-radius:6px; transition:all .14s; white-space:nowrap;
-}
-.buy:hover{color:#fff; background:var(--indigo); border-color:var(--indigo)}
-.buy.free{color:var(--emerald); border-color:#2c5a48}
-.buy.free:hover{background:var(--emerald); color:#08080c; border-color:var(--emerald)}
-
-/* ---------- unreal strip ---------- */
-.shots{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-.shot{
-  border-radius:13px; overflow:hidden; border:1px solid var(--line2); aspect-ratio:16/9;
-  background-size:cover; background-position:center; position:relative;
-  display:flex; align-items:flex-end;
-}
-.shot-cap{
-  position:relative; z-index:2; width:100%; padding:13px 15px; font-size:12.5px; color:var(--muted);
-  background:linear-gradient(to top,rgba(6,6,10,.94),transparent);
-}
-
-/* ---------- media / diagram glyphs ---------- */
-.glyphs{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-.glyph{background:var(--surface); border:1px solid var(--line2); border-radius:13px; padding:20px}
-.glyph svg{width:100%; height:88px; display:block; margin-bottom:14px}
-.glyph h3{margin:0 0 6px; font-size:15px; font-weight:700}
-.glyph p{margin:0; font-size:13px; color:var(--muted); line-height:1.55}
-.glyph .ref{color:var(--dim); font-size:12px}
-
-/* ---------- lists ---------- */
-.cols{display:grid; gap:26px; grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
-.cols h4{margin:0 0 12px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--indigo); font-weight:700}
-.cols ul{margin:0; padding:0; list-style:none; font-size:14px; color:var(--muted); line-height:2.05}
-.numlist{margin:0; padding-left:20px; color:var(--muted); font-size:14.5px; line-height:1.95}
-.numlist strong{color:var(--text); font-weight:600}
-.deflist{margin:0; padding:0; list-style:none}
-.deflist li{padding:11px 0; border-bottom:1px solid var(--line); font-size:14px; color:var(--muted); line-height:1.55}
-.deflist li:last-child{border-bottom:0}
-.deflist b{color:var(--text); font-weight:650; display:block; margin-bottom:2px; font-size:14.5px}
-.deflist i{color:var(--dim); font-style:normal; font-size:12.5px}
-.speclist{margin:0; padding:0; list-style:none}
-.speclist li{padding:13px 0; border-bottom:1px solid var(--line); font-size:14.5px; color:var(--muted); line-height:1.6}
-.speclist li:last-child{border-bottom:0}
-.speclist strong{color:var(--text); font-weight:600; display:inline-block; min-width:96px}
-
-/* ---------- schedule ---------- */
-.legend{display:flex; flex-wrap:wrap; gap:8px 20px; margin:0 0 30px; font-size:12.5px; color:var(--dim)}
-.legend i{width:9px; height:9px; border-radius:50%; display:inline-block; margin-right:7px; vertical-align:middle}
-.cyc{
-  margin:44px 0 20px; font-size:12px; letter-spacing:.2em; text-transform:uppercase;
-  color:var(--dim); font-weight:700; padding-bottom:11px; border-bottom:1px solid var(--line2);
-}
-.cyc:first-of-type{margin-top:0}
-.wk{
-  display:grid; grid-template-columns:78px 1fr; gap:20px; padding:19px 0;
-  border-bottom:1px solid var(--line);
-}
-.wk:last-child{border-bottom:0}
-.wk-date{font-size:12.5px; font-weight:700; color:var(--dim); padding-top:2px}
-.wk-date .n{display:block; font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--indigo); margin-top:3px}
-.wk h3{margin:0 0 9px; font-size:17px; font-weight:700; letter-spacing:-.014em; line-height:1.28}
-.wk p{margin:0 0 6px; font-size:14px; color:var(--muted); line-height:1.62}
-.wk p:last-child{margin-bottom:0}
-.wk b{color:#c5c5d4; font-weight:600}
-.crit{font-size:12px; color:var(--dim); margin-top:9px !important}
-.note{font-size:13px; color:var(--amber); opacity:.85}
-.off .wk-date, .off h3{color:var(--amber)}
-.off h3{font-weight:600; font-size:15.5px}
-.mile h3{color:var(--emerald)}
-.async .wk-date .n{color:var(--sky)}
-
-/* ---------- evaluation ---------- */
-.evals{display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
-.eval{background:var(--surface); border:1px solid var(--line2); border-radius:12px; padding:20px; text-align:center}
-.eval .pct{font-size:31px; font-weight:800; letter-spacing:-.03em; margin-bottom:5px}
-.eval .lb{font-size:13px; color:var(--indigo); font-weight:600}
-.eval .sb{font-size:11.5px; color:var(--dim); margin-top:4px}
-
-footer{padding:44px 0 58px; color:var(--dim); font-size:13.5px; text-align:center}
-footer a{color:var(--muted)}
-@media(max-width:640px){
-  .wrap{padding:0 22px}
-  .hero-in{padding:72px 0 56px}
-  .wk{grid-template-columns:1fr; gap:7px}
-  section{padding:56px 0}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DME2100 Digital Narratives &middot; Fall 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['"Libre Franklin"', '"Franklin Gothic Medium"', '"Franklin Gothic"', 'Roboto', 'sans-serif'],
+                        body: ['Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+                    },
+                    colors: {
+                        paper: '#f5f3ef',
+                        card: '#ffffff',
+                        ink: '#17171a',
+                        graphite: '#4a4a52',
+                        mist: '#8a8a94',
+                        rule: '#d9d5cd',
+                        accent: '#d24317',
+                        accentdark: '#a83512',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f3ef;
+            color: #4a4a52;
+        }
+        h1, h2, h3, h4, .display {
+            font-family: 'Libre Franklin', 'Franklin Gothic Medium', 'Franklin Gothic', sans-serif;
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .eyebrow {
+            font-family: 'Libre Franklin', 'Franklin Gothic Medium', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            font-weight: 700;
+            font-size: 0.6875rem;
+        }
+        details > summary { list-style: none; cursor: pointer; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] .disclosure-arrow { transform: rotate(180deg); }
+        .disclosure-arrow { transition: transform 0.2s ease; display: inline-block; }
+        .hatch {
+            background-image: repeating-linear-gradient(
+                45deg,
+                transparent, transparent 5px,
+                rgba(23,23,26,0.05) 5px, rgba(23,23,26,0.05) 6px
+            );
+        }
+        .cover { background-size: cover; background-position: center; }
+    </style>
 </head>
-<body>
+<body class="antialiased min-h-screen flex flex-col font-body">
 
-<nav>
-  <div class="wrap">
-    <div class="brand">DME2100 <span>/ Digital Narratives</span></div>
-    <a class="nl" href="#games">Games</a>
-    <a class="nl" href="#access">Access</a>
-    <a class="nl" href="#assignment">Assignment</a>
-    <a class="nl" href="#media">Media</a>
-    <a class="nl" href="#analysis">Analysis</a>
-    <a class="nl" href="#mechanic">Mechanic</a>
-    <a class="nl" href="#ai">A.I.</a>
-    <a class="nl" href="#schedule">Schedule</a>
-    <a class="nl" href="#eval">Evaluation</a>
-  </div>
-</nav>
-
-<!-- ============ HERO ============ -->
-<header class="hero">
-  <div class="hero-fallback"></div>
-  <div class="hero-art"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-veil"></div>
-  <div class="wrap hero-in">
-    <p class="eyebrow">Boston Architectural College &middot; Fall 2026</p>
-    <h1 class="title">Digital <em>Narratives</em></h1>
-    <p class="lede">
-      Spatial narratives in the unbuilt world. Take a game apart with an architect's drawings,
-      then build a world and a mechanic of your own in Unreal Engine 5.
-    </p>
-    <div class="meta">
-      <div><div class="k">Meets</div><div class="v">Mondays, 4:00 PM <span>EST</span></div></div>
-      <div><div class="k">Location</div><div class="v">Online <span>via Zoom</span></div></div>
-      <div><div class="k">Term</div><div class="v">Aug 24 &ndash; Nov 30 <span>2026</span></div></div>
-      <div><div class="k">Instructor</div><div class="v">Hamze Machmouchi <span>&middot; Office hrs 4&ndash;6 PM</span></div></div>
-    </div>
-    <div class="btns">
-      <a class="btn btn-i" href="https://the-bac.zoom.us/j/2720645727?pwd=NlVrZzJmZjFPMmhkNTRPelhsWWlsdz09" target="_blank">Zoom</a>
-      <a class="btn btn-g" href="https://discord.gg/f5bVEe9nxd" target="_blank">Discord</a>
-      <a class="btn btn-e" href="https://barch-my.sharepoint.com/:f:/g/personal/hamze_machmouchi_the-bac_edu/IgCTN-icwzLcRJvzU8GzE_xvATnjYXSde2Pm6uzD78San44?e=72Zj8m" target="_blank">Class Drive</a>
-      <a class="btn btn-r" href="https://barch-my.sharepoint.com/:f:/g/personal/hamze_machmouchi_the-bac_edu/IgCq4JzJZgLcSpUr0hhyV41tAeibszfLcP8sxWYVbYSUwMg?e=Bpga90" target="_blank">Software Tutorials</a>
-      <a class="btn btn-a" href="https://barch-my.sharepoint.com/:f:/g/personal/hamze_machmouchi_the-bac_edu/IgDwiZFYqwH1R69hVXph3d8LATKQL_j7FK2MPUf_pDxe6IY?e=f4hqD2" target="_blank">Readings</a>
-    </div>
-  </div>
-</header>
-
-<!-- ============ ABOUT ============ -->
-<section>
-  <div class="wrap">
-    <p class="shead">Course Description</p>
-    <h2>How does interaction with space shape a narrative?</h2>
-    <p class="intro">
-      This course explores spatial narratives in the unbuilt world. From games, movies, AR/VR, to metaverse, students will
-      explore the idea of space in the digital realm. The discussion will be on: How does one interact with space? And how
-      does that interaction with space shape a spatial narrative?
-    </p>
-    <p class="intro">
-      This workshop encompasses both theoretical readings on spatial narratives as well as learning and working with
-      three-dimensional software in order to compose a holistic perspective of three-dimensional narratives in the virtual
-      realm. Students will be required to play virtual games, study their spaces and narratives, and create digital narratives.
-    </p>
-    <p class="intro">
-      This semester the game analysis is expanded. Students take their assigned game apart in four layers, starting with its
-      design architecture and moving to its mechanics, and document it in six diagrams. Rhino and Unreal begin in Week 1 and
-      run alongside the analysis. Each student is also assigned a <strong>medium</strong>, which governs both the drawings and
-      the camera setup in Unreal for the rest of the semester. The second half of the semester is spent designing and building
-      an original game mechanic.
-    </p>
-
-    <div class="grid g3" style="margin-top:38px">
-      <div class="card">
-        <span class="tag">Expectation 01</span>
-        <h3>Play is research</h3>
-        <p>Students are required to play their assigned games and study their spaces and narratives. Play with a notebook open. What you find in the game is the material for what you build.</p>
-      </div>
-      <div class="card">
-        <span class="tag">Expectation 02</span>
-        <h3>The camera follows the medium</h3>
-        <p>Your assigned medium sets your camera for the semester. Axonometric means orthographic and locked. Section means the model is cut and the camera sits in the cut.</p>
-      </div>
-      <div class="card">
-        <span class="tag">Expectation 03</span>
-        <h3>Weekly progress</h3>
-        <p>Upload progress work to the class drive every week, finished or not. Discord is used for informal communication and technical support between sessions.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ GAMES ============ -->
-<section id="games">
-  <div class="wrap">
-    <p class="shead">Narrative Research Groups</p>
-    <h2>Eight games, four groups</h2>
-    <p class="intro">
-      Analyze the assigned games, focusing on narrative, level design, and world-building. Each group takes its games apart
-      in four layers and presents the analysis in Week 3.
-    </p>
-    <p class="intro" style="margin-top:-18px">
-      <strong>Do not buy anything before Week 1.</strong> Groups and games are assigned in the first session. You only need
-      access to your own group's two games, and several can be played on a laptop through cloud streaming without buying a
-      thing.
-    </p>
-    <div class="games">
-      <div class="game">
-        <div class="game-art" style="background-image:url('images/games/jedi-survivor.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1774580/header.jpg'),linear-gradient(150deg,#3a2a1a,#171018)">
-          <div class="game-txt"><div class="game-grp">Group 1 &middot; World Weavers</div><div class="game-name">Star Wars Jedi: Survivor</div></div>
+    <header class="sticky-nav bg-paper/90 border-b border-rule">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-baseline gap-3">
+                    <span class="font-display font-extrabold text-lg text-ink tracking-tight">DIGITAL NARRATIVES</span>
+                    <span class="eyebrow text-accent hidden sm:inline">Fall 2026</span>
+                </div>
+                <nav class="hidden md:block">
+                    <div class="flex items-baseline space-x-1">
+                        <a href="#overview" class="text-graphite hover:text-accent px-3 py-2 text-sm font-medium">Overview</a>
+                        <a href="#expectations" class="text-graphite hover:text-accent px-3 py-2 text-sm font-medium">Expectations</a>
+                        <a href="#links" class="text-graphite hover:text-accent px-3 py-2 text-sm font-medium">Links</a>
+                        <a href="#games" class="text-graphite hover:text-accent px-3 py-2 text-sm font-medium">Games</a>
+                        <a href="#project" class="text-graphite hover:text-accent px-3 py-2 text-sm font-medium">Project</a>
+                        <a href="#schedule" class="text-graphite hover:text-accent px-3 py-2 text-sm font-medium">Schedule</a>
+                        <a href="#ai" class="text-graphite hover:text-accent px-3 py-2 text-sm font-medium">AI Policy</a>
+                        <a href="#evaluation" class="text-graphite hover:text-accent px-3 py-2 text-sm font-medium">Evaluation</a>
+                    </div>
+                </nav>
+            </div>
         </div>
-        <div class="game-buy">
-          <a class="buy" href="https://store.steampowered.com/search/?term=star+wars+jedi+survivor" target="_blank" rel="noopener">Steam</a>
-          <a class="buy" href="https://www.xbox.com/en-US/Search/Results?q=star+wars+jedi+survivor" target="_blank" rel="noopener">Xbox</a>
-          <a class="buy" href="https://store.playstation.com/en-us/search/star%20wars%20jedi%20survivor" target="_blank" rel="noopener">PS5</a>
-          <a class="buy" href="https://www.cdkeys.com/catalogsearch/result/?q=star+wars+jedi+survivor" target="_blank" rel="noopener">CDKeys</a>
+    </header>
+
+    <main class="flex-grow">
+
+        <!-- HERO -->
+        <section class="border-b border-rule bg-ink text-paper">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-18">
+                <p class="eyebrow text-accent mb-4">DME2100 &middot; Boston Architectural College</p>
+                <h1 class="font-display font-extrabold text-4xl md:text-6xl tracking-tight text-white leading-[1.05] mb-5">
+                    Digital Narratives
+                </h1>
+                <p class="text-base md:text-lg text-paper/70 max-w-3xl leading-relaxed">
+                    A course on spatial narratives in the unbuilt world, in which students take a game apart with an
+                    architect's drawings and then build a world and a game mechanic of their own in Unreal Engine 5.
+                </p>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-5 mt-10 pt-7 border-t border-white/15 text-sm">
+                    <div>
+                        <p class="eyebrow text-accent mb-2">Term</p>
+                        <p class="text-white">Fall 2026</p>
+                        <p class="text-paper/60">August 24 to November 30</p>
+                    </div>
+                    <div>
+                        <p class="eyebrow text-accent mb-2">Meeting Time</p>
+                        <p class="text-white">Monday, 4 PM EST</p>
+                        <p class="text-paper/60">Online via Zoom &middot; 3 credits</p>
+                    </div>
+                    <div>
+                        <p class="eyebrow text-accent mb-2">Instructor</p>
+                        <p class="text-white">Hamze Machmouchi</p>
+                        <a href="mailto:hamze.machmouchi@the-bac.edu" class="text-paper/60 hover:text-accent break-all">hamze.machmouchi@the-bac.edu</a>
+                    </div>
+                    <div>
+                        <p class="eyebrow text-accent mb-2">Office Hours</p>
+                        <p class="text-white">4 PM to 6 PM EST</p>
+                        <p class="text-paper/60">Mondays</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="max-w-5xl mx-auto py-14 px-4 sm:px-6 lg:px-8">
+
+        <!-- 01 OVERVIEW -->
+        <section id="overview" class="mb-20 scroll-mt-20">
+            <p class="eyebrow text-accent mb-2">01</p>
+            <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink mb-6 pb-3 border-b-2 border-ink">Course Information</h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="md:col-span-2 space-y-5">
+                    <div>
+                        <p class="eyebrow text-mist mb-2">Course Description</p>
+                        <p class="text-graphite leading-relaxed">
+                            This course explores spatial narratives in the unbuilt world. From games, movies, AR/VR, to
+                            metaverse, students will explore the idea of space in the digital realm. The discussion will be
+                            on: How does one interact with space? And how does that interaction with space shape a spatial
+                            narrative?
+                        </p>
+                    </div>
+                    <p class="text-graphite leading-relaxed">
+                        This workshop encompasses both theoretical readings on spatial narratives as well as learning and
+                        working with three-dimensional software in order to compose a holistic perspective of
+                        three-dimensional narratives in the virtual realm. Students will be required to play virtual games,
+                        study their spaces and narratives, and create digital narratives.
+                    </p>
+                    <p class="text-graphite leading-relaxed">
+                        This semester the game analysis is expanded. Students take their assigned game apart in four layers,
+                        starting with its design architecture and moving to its mechanics, and document it in six diagrams.
+                        Rhino and Unreal begin in Week 1 and run alongside the analysis. Each student is also assigned a
+                        medium, which governs both the drawings and the camera setup in Unreal for the rest of the semester.
+                        The second half of the semester is spent designing and building an original game mechanic.
+                    </p>
+                    <p class="text-graphite leading-relaxed">
+                        The primary reference is <em>An Architectural Approach to Level Design</em> by Christopher Totten,
+                        supported by readings and tutorials provided throughout the semester.
+                    </p>
+                </div>
+
+                <div class="bg-card border border-rule p-6 self-start">
+                    <p class="eyebrow text-accent mb-4">Learning Goals</p>
+                    <ol class="space-y-3 text-sm text-graphite list-decimal list-outside pl-4 marker:font-display marker:font-bold marker:text-accent">
+                        <li>Cultivating an understanding of the history and theory of virtual design.</li>
+                        <li>Learning mesh-modeling and SubD in Rhino 8, and implementing, animating, and filming in Unreal Engine 5.</li>
+                        <li>Developing spatial narratives and exploring user interfaces through gamification.</li>
+                        <li>Reading a game space as built work through diagrams.</li>
+                        <li>Designing and building an original game mechanic.</li>
+                        <li>Incorporating A.I. tools into the Rhino and Unreal workflow.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02 EXPECTATIONS -->
+        <section id="expectations" class="mb-20 scroll-mt-20">
+            <p class="eyebrow text-accent mb-2">02</p>
+            <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink mb-3 pb-3 border-b-2 border-ink">Course Expectations</h2>
+            <p class="text-graphite mb-8 max-w-3xl leading-relaxed">
+                Students are expected to be actively engaged throughout the course. Because the course meets online and only
+                once per week, the following expectations govern the work carried out between sessions. Each contributes to
+                the participation portion of the final grade.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-px bg-rule border border-rule">
+                <div class="bg-card p-6">
+                    <p class="eyebrow text-accent mb-2">Expectation 01</p>
+                    <h3 class="font-display font-bold text-lg text-ink mb-3">Play is Research</h3>
+                    <p class="text-sm text-graphite leading-relaxed">
+                        Students are required to play their assigned games and study their spaces and narratives. Play with a
+                        notebook open. What you find in the game is the material for what you build.
+                    </p>
+                </div>
+                <div class="bg-card p-6">
+                    <p class="eyebrow text-accent mb-2">Expectation 02</p>
+                    <h3 class="font-display font-bold text-lg text-ink mb-3">The Camera Follows the Medium</h3>
+                    <p class="text-sm text-graphite leading-relaxed">
+                        Your assigned medium sets your camera for the semester. Axonometric means orthographic and locked.
+                        Section means the model is cut and the camera sits in the cut.
+                    </p>
+                </div>
+                <div class="bg-card p-6">
+                    <p class="eyebrow text-accent mb-2">Expectation 03</p>
+                    <h3 class="font-display font-bold text-lg text-ink mb-3">Weekly Progress</h3>
+                    <p class="text-sm text-graphite leading-relaxed">
+                        Upload progress work to the class drive every week, finished or not. Discord is used for informal
+                        communication and technical support between sessions.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 03 QUICK LINKS -->
+        <section id="links" class="mb-20 scroll-mt-20">
+            <p class="eyebrow text-accent mb-2">03</p>
+            <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink mb-6 pb-3 border-b-2 border-ink">Quick Links</h2>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-rule border border-rule">
+                <a href="https://the-bac.zoom.us/j/2720645727?pwd=NlVrZzJmZjFPMmhkNTRPelhsWWlsdz09" target="_blank" class="bg-card p-5 hover:bg-paper group">
+                    <p class="eyebrow text-accent mb-1">Class Meeting</p>
+                    <p class="font-display font-bold text-ink group-hover:text-accent">Zoom Link</p>
+                    <p class="text-sm text-mist mt-1">Mondays at 4 PM EST</p>
+                </a>
+                <a href="https://discord.gg/f5bVEe9nxd" target="_blank" class="bg-card p-5 hover:bg-paper group">
+                    <p class="eyebrow text-accent mb-1">Communication</p>
+                    <p class="font-display font-bold text-ink group-hover:text-accent">Discord Server</p>
+                    <p class="text-sm text-mist mt-1">Questions, support, studio sessions</p>
+                </a>
+                <a href="https://barch-my.sharepoint.com/:f:/g/personal/hamze_machmouchi_the-bac_edu/IgCTN-icwzLcRJvzU8GzE_xvATnjYXSde2Pm6uzD78San44?e=72Zj8m" target="_blank" class="bg-card p-5 hover:bg-paper group">
+                    <p class="eyebrow text-accent mb-1">Submissions</p>
+                    <p class="font-display font-bold text-ink group-hover:text-accent">Class Drive</p>
+                    <p class="text-sm text-mist mt-1">Weekly progress and deliverables</p>
+                </a>
+                <a href="https://barch-my.sharepoint.com/:f:/g/personal/hamze_machmouchi_the-bac_edu/IgCq4JzJZgLcSpUr0hhyV41tAeibszfLcP8sxWYVbYSUwMg?e=Bpga90" target="_blank" class="bg-card p-5 hover:bg-paper group">
+                    <p class="eyebrow text-accent mb-1">Resources</p>
+                    <p class="font-display font-bold text-ink group-hover:text-accent">Software Tutorials</p>
+                    <p class="text-sm text-mist mt-1">Rhino 8 and Unreal Engine 5</p>
+                </a>
+                <a href="https://barch-my.sharepoint.com/:f:/g/personal/hamze_machmouchi_the-bac_edu/IgDwiZFYqwH1R69hVXph3d8LATKQL_j7FK2MPUf_pDxe6IY?e=f4hqD2" target="_blank" class="bg-card p-5 hover:bg-paper group">
+                    <p class="eyebrow text-accent mb-1">Resources</p>
+                    <p class="font-display font-bold text-ink group-hover:text-accent">Readings</p>
+                    <p class="text-sm text-mist mt-1">Totten and supporting texts</p>
+                </a>
+                <div class="bg-card p-5">
+                    <p class="eyebrow text-mist mb-1">Support</p>
+                    <p class="font-display font-bold text-ink">BAC Help Desk</p>
+                    <p class="text-sm text-mist mt-1">help@the-bac.edu &middot; (617) 585-0191</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 GAMES -->
+        <section id="games" class="mb-20 scroll-mt-20">
+            <p class="eyebrow text-accent mb-2">04</p>
+            <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink mb-3 pb-3 border-b-2 border-ink">Assigned Games</h2>
+            <p class="text-graphite mb-3 max-w-3xl leading-relaxed">
+                The class is divided into four research groups. Each group analyzes its assigned games, focusing on
+                narrative, level design, and world-building, and presents the analysis in Week 3.
+            </p>
+            <p class="text-graphite mb-8 max-w-3xl leading-relaxed">
+                <strong class="text-ink">Do not buy anything before Week 1.</strong> Groups and games are assigned in the
+                first session. You only need access to your own group's two games, and several can be played on a laptop
+                through cloud streaming without buying a thing.
+            </p>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-rule border border-rule mb-6">
+
+                <div class="bg-card">
+                    <div class="cover h-32 border-b border-rule" style="background-image:url('images/games/jedi-survivor.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1774580/header.jpg'),linear-gradient(150deg,#3a2a1a,#171018)"></div>
+                    <div class="p-4">
+                        <p class="eyebrow text-accent mb-1">Group 1 &middot; World Weavers</p>
+                        <p class="font-display font-bold text-ink text-sm leading-snug mb-3">Star Wars Jedi: Survivor</p>
+                        <div class="flex flex-wrap gap-1.5 text-xs">
+                            <a href="https://store.steampowered.com/search/?term=star+wars+jedi+survivor" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">Steam</a>
+                            <a href="https://www.xbox.com/en-US/Search/Results?q=star+wars+jedi+survivor" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">Xbox</a>
+                            <a href="https://store.playstation.com/en-us/search/star%20wars%20jedi%20survivor" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">PS5</a>
+                            <a href="https://www.cdkeys.com/catalogsearch/result/?q=star+wars+jedi+survivor" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">CDKeys</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-card">
+                    <div class="cover h-32 border-b border-rule" style="background-image:url('images/games/cyberpunk.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg'),linear-gradient(150deg,#3d2f10,#14121c)"></div>
+                    <div class="p-4">
+                        <p class="eyebrow text-accent mb-1">Group 1 &middot; World Weavers</p>
+                        <p class="font-display font-bold text-ink text-sm leading-snug mb-3">Cyberpunk 2077</p>
+                        <div class="flex flex-wrap gap-1.5 text-xs">
+                            <a href="https://store.steampowered.com/search/?term=cyberpunk+2077" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">Steam</a>
+                            <a href="https://www.xbox.com/en-US/Search/Results?q=cyberpunk+2077" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">Xbox</a>
+                            <a href="https://store.playstation.com/en-us/search/cyberpunk%202077" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">PS5</a>
+                            <a href="https://www.cdkeys.com/catalogsearch/result/?q=cyberpunk+2077" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">CDKeys</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-card">
+                    <div class="cover h-32 border-b border-rule" style="background-image:url('images/games/alan-wake-2.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1903340/header.jpg'),linear-gradient(150deg,#1c2b34,#0f1116)"></div>
+                    <div class="p-4">
+                        <p class="eyebrow text-accent mb-1">Group 2 &middot; Mind Benders</p>
+                        <p class="font-display font-bold text-ink text-sm leading-snug mb-3">Alan Wake 2</p>
+                        <div class="flex flex-wrap gap-1.5 text-xs">
+                            <a href="https://store.steampowered.com/search/?term=alan+wake+2" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">Steam</a>
+                            <a href="https://store.epicgames.com/en-US/browse?q=alan%20wake%202" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">Epic</a>
+                            <a href="https://www.xbox.com/en-US/Search/Results?q=alan+wake+2" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">Xbox</a>
+                            <a href="https://store.playstation.com/en-us/search/alan%20wake%202" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">PS5</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-card">
+                    <div class="cover h-32 border-b border-rule" style="background-image:url('images/games/control.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/870780/header.jpg'),linear-gradient(150deg,#33202c,#121017)"></div>
+                    <div class="p-4">
+                        <p class="eyebrow text-accent mb-1">Group 2 &middot; Mind Benders</p>
+                        <p class="font-display font-bold text-ink text-sm leading-snug mb-3">Control</p>
+                        <div class="flex flex-wrap gap-1.5 text-xs">
+                            <a href="https://store.steampowered.com/search/?term=control+remedy" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">Steam</a>
+                            <a href="https://www.xbox.com/en-US/Search/Results?q=control+remedy" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">Xbox</a>
+                            <a href="https://store.playstation.com/en-us/search/control%20remedy" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">PS5</a>
+                            <a href="https://www.cdkeys.com/catalogsearch/result/?q=control+remedy" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">CDKeys</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-card">
+                    <div class="cover h-32 border-b border-rule" style="background-image:url('images/games/edith-finch.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/501300/header.jpg'),linear-gradient(150deg,#23331f,#101317)"></div>
+                    <div class="p-4">
+                        <p class="eyebrow text-accent mb-1">Group 3 &middot; Intimate Storytellers</p>
+                        <p class="font-display font-bold text-ink text-sm leading-snug mb-3">What Remains of Edith Finch</p>
+                        <div class="flex flex-wrap gap-1.5 text-xs">
+                            <a href="https://store.steampowered.com/search/?term=what+remains+of+edith+finch" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">Steam</a>
+                            <a href="https://www.xbox.com/en-US/Search/Results?q=what+remains+of+edith+finch" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">Xbox</a>
+                            <a href="https://store.playstation.com/en-us/search/what%20remains%20of%20edith%20finch" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">PS5</a>
+                            <a href="https://www.cdkeys.com/catalogsearch/result/?q=what+remains+of+edith+finch" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">CDKeys</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-card">
+                    <div class="cover h-32 border-b border-rule" style="background-image:url('images/games/stray.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1332010/header.jpg'),linear-gradient(150deg,#2c3320,#111318)"></div>
+                    <div class="p-4">
+                        <p class="eyebrow text-accent mb-1">Group 3 &middot; Intimate Storytellers</p>
+                        <p class="font-display font-bold text-ink text-sm leading-snug mb-3">Stray</p>
+                        <div class="flex flex-wrap gap-1.5 text-xs">
+                            <a href="https://store.steampowered.com/search/?term=stray" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">Steam</a>
+                            <a href="https://www.xbox.com/en-US/Search/Results?q=stray" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">Xbox</a>
+                            <a href="https://store.playstation.com/en-us/search/stray" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">PS5</a>
+                            <a href="https://www.cdkeys.com/catalogsearch/result/?q=stray" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">CDKeys</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-card">
+                    <div class="cover h-32 border-b border-rule" style="background-image:url('images/games/plague-tale.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1182900/header.jpg'),linear-gradient(150deg,#332618,#121016)"></div>
+                    <div class="p-4">
+                        <p class="eyebrow text-accent mb-1">Group 4 &middot; Historical Architects</p>
+                        <p class="font-display font-bold text-ink text-sm leading-snug mb-3">A Plague Tale: Requiem</p>
+                        <div class="flex flex-wrap gap-1.5 text-xs">
+                            <a href="https://store.steampowered.com/search/?term=a+plague+tale+requiem" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">Steam</a>
+                            <a href="https://www.xbox.com/en-US/Search/Results?q=a+plague+tale+requiem" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">Xbox</a>
+                            <a href="https://store.playstation.com/en-us/search/a%20plague%20tale%20requiem" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">PS5</a>
+                            <a href="https://www.cdkeys.com/catalogsearch/result/?q=a+plague+tale+requiem" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">CDKeys</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-card">
+                    <div class="cover h-32 border-b border-rule" style="background-image:url('images/games/ac-shadows.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/3159330/header.jpg'),linear-gradient(150deg,#38301a,#141218)"></div>
+                    <div class="p-4">
+                        <p class="eyebrow text-accent mb-1">Group 4 &middot; Historical Architects</p>
+                        <p class="font-display font-bold text-ink text-sm leading-snug mb-3">Assassin's Creed Shadows</p>
+                        <div class="flex flex-wrap gap-1.5 text-xs">
+                            <a href="https://store.steampowered.com/search/?term=assassins+creed+shadows" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">Steam</a>
+                            <a href="https://www.xbox.com/en-US/Search/Results?q=assassins+creed+shadows" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">Xbox</a>
+                            <a href="https://store.playstation.com/en-us/search/assassins%20creed%20shadows" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">PS5</a>
+                            <a href="https://www.cdkeys.com/catalogsearch/result/?q=assassins+creed+shadows" target="_blank" class="text-graphite hover:text-accent border border-rule px-2 py-1">CDKeys</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <details class="bg-card border border-rule p-6">
+                <summary class="font-display font-semibold text-accent hover:text-accentdark">
+                    Playing without a gaming PC, and free tiers <span class="disclosure-arrow">&#9662;</span>
+                </summary>
+                <div class="mt-5 space-y-4 pl-4 border-l-2 border-rule text-sm">
+                    <p class="text-graphite leading-relaxed">
+                        A gaming PC is not required for this course. Every game on the list can be streamed to a laptop or
+                        tablet through a cloud service, and most of these services run a free tier or a trial. Start with the
+                        free options before you spend anything.
+                    </p>
+                    <div>
+                        <p class="font-display font-bold text-ink">GeForce NOW <span class="eyebrow text-accent ml-1">Free tier</span></p>
+                        <p class="text-graphite mt-1">
+                            The most useful one for this class. It streams games you already own on Steam, Epic, or Ubisoft,
+                            so one purchase works on any laptop. The free tier is permanent, with queue times and one-hour
+                            sessions. <a href="https://www.nvidia.com/en-us/geforce-now/" target="_blank" class="text-accent hover:text-accentdark">nvidia.com/geforce-now</a>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="font-display font-bold text-ink">Xbox Cloud Gaming <span class="eyebrow text-accent ml-1">Trial usually available</span></p>
+                        <p class="text-graphite mt-1">
+                            Included with Game Pass Ultimate. Streams to a browser on any machine, no download. The catalog
+                            rotates, so check whether your assigned game is on it before subscribing.
+                            <a href="https://www.xbox.com/en-US/play" target="_blank" class="text-accent hover:text-accentdark">xbox.com/play</a>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="font-display font-bold text-ink">Amazon Luna <span class="eyebrow text-accent ml-1">Trial usually available</span></p>
+                        <p class="text-graphite mt-1">
+                            Browser-based streaming with a Luna+ subscription. Prime members get a rotating set of titles at
+                            no extra cost, so check what is included before paying.
+                            <a href="https://luna.amazon.com/" target="_blank" class="text-accent hover:text-accentdark">luna.amazon.com</a>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="font-display font-bold text-ink">PS Plus Premium and EA Play</p>
+                        <p class="text-graphite mt-1">
+                            PS Plus Premium includes cloud streaming on PS5 and PC. EA Play covers the EA catalog, which is
+                            the relevant one for Star Wars Jedi: Survivor.
+                        </p>
+                    </div>
+                    <div>
+                        <p class="font-display font-bold text-ink">Buying</p>
+                        <p class="text-graphite mt-1">
+                            CDKeys resells activation keys well below list price and is worth checking first. Older titles go
+                            on deep discount during Steam seasonal sales. Prices, catalogs, and trial offers change
+                            constantly, so confirm what is included before you subscribe or buy. If cost is a barrier,
+                            contact the instructor on Discord before Week 2.
+                        </p>
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <!-- 05 FINAL PROJECT -->
+        <section id="project" class="mb-20 scroll-mt-20">
+            <p class="eyebrow text-accent mb-2">05</p>
+            <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink mb-3 pb-3 border-b-2 border-ink">Final Project</h2>
+            <p class="text-graphite mb-8 max-w-3xl leading-relaxed">
+                Each student creates their own digital narrative and three-dimensional game space in Unreal Engine 5,
+                developed across four phases. The first two phases run in the first half of the semester and conclude at the
+                midterm. The last two run in the second half and conclude at the final review.
+            </p>
+
+            <div class="space-y-px bg-rule border border-rule">
+
+                <!-- Phase 1 -->
+                <div class="bg-card p-6 md:p-7">
+                    <div class="flex items-start gap-5">
+                        <span class="font-display font-extrabold text-4xl text-accent leading-none">1</span>
+                        <div class="flex-1">
+                            <h3 class="font-display text-xl font-bold text-ink mb-2">Game Space Analysis</h3>
+                            <p class="text-graphite mb-4 leading-relaxed">
+                                Running alongside the Rhino and Unreal workshops in Weeks 1 to 3. Play your group's game,
+                                take it apart in four layers, and present the analysis in Week 3. The question is not whether
+                                the game is good. The question is how it is built, and whether you can show it in drawings.
+                                This presentation is the Demo portion of your grade.
+                            </p>
+                            <details class="text-sm group mb-4">
+                                <summary class="font-display font-semibold text-accent hover:text-accentdark">
+                                    The four layers <span class="disclosure-arrow">&#9662;</span>
+                                </summary>
+                                <div class="mt-4 space-y-4 pl-4 border-l-2 border-rule">
+                                    <div>
+                                        <p class="font-display font-bold text-ink">Design Architecture: how is the world structured?</p>
+                                        <p class="text-graphite mt-1">Critical path against optional space. Gates and the keys that open them. Hub, open field, or corridor. Where the path forks and where it returns.</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-display font-bold text-ink">Spatial Grammar: how does the space instruct without instructions?</p>
+                                        <p class="text-graphite mt-1">Landmarks, sightlines, thresholds, compression and release. Turn the waypoint marker off and document what still tells you where to go. Every game builds a color and material language for climbable, dangerous, and worth your attention.</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-display font-bold text-ink">Game Mechanics: what can the player do, and what does it mean?</p>
+                                        <p class="text-graphite mt-1">The verbs the player is given and the core loop they sit inside. Then: how does the mechanic carry the theme? In <em>What Remains of Edith Finch</em> the mechanic changes with each story because each is a different mind. In <em>Stray</em> the player is held low to the ground because the world was not built for a cat.</p>
+                                    </div>
+                                    <div>
+                                        <p class="font-display font-bold text-ink">Pacing: how does the experience rise and fall?</p>
+                                        <p class="text-graphite mt-1">Intensity across time: conflict, traversal, quiet, cutscene. Note where the silences are placed and what they do.</p>
+                                    </div>
+                                </div>
+                            </details>
+                            <div class="bg-paper border border-rule p-4 text-sm">
+                                <p class="eyebrow text-accent mb-2">Six Required Diagrams</p>
+                                <ol class="text-graphite space-y-1.5 list-decimal list-outside pl-4">
+                                    <li><strong class="text-ink">Level graph.</strong> Nodes and edges, with gates marked and the critical path distinguished.</li>
+                                    <li><strong class="text-ink">Plan of one level,</strong> redrawn and annotated with landmarks and sightlines.</li>
+                                    <li><strong class="text-ink">Section</strong> through a significant vertical moment, showing what becomes visible and when.</li>
+                                    <li><strong class="text-ink">Sightline diagram</strong> of a single reveal, drawn as cones of vision.</li>
+                                    <li><strong class="text-ink">Core loop diagram.</strong> Action, feedback, reward, and the next action.</li>
+                                    <li><strong class="text-ink">Intensity curve</strong> across thirty minutes of play.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="bg-card p-6 md:p-7">
+                    <div class="flex items-start gap-5">
+                        <span class="font-display font-extrabold text-4xl text-accent leading-none">2</span>
+                        <div class="flex-1">
+                            <h3 class="font-display text-xl font-bold text-ink mb-2">Verb, Part, and Medium</h3>
+                            <p class="text-graphite mb-4 leading-relaxed">
+                                You will be assigned one Architectural Verb and one Medium. Your task is to interpret this
+                                verb by choosing one Building Part as your primary tool for storytelling, and to tell that
+                                story through your assigned medium. The result is presented at the midterm as an eight-second
+                                loop in Unreal Engine.
+                            </p>
+                            <div class="bg-paper border border-rule p-4 text-sm mb-4">
+                                <p class="eyebrow text-accent mb-2">Building Part &middot; Choose One</p>
+                                <p class="text-graphite leading-relaxed mb-3">
+                                    Your primary tool for storytelling. One part, worked hard, for the whole semester.
+                                    Everything else in the scene supports it.
+                                </p>
+                                <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-graphite">
+                                    <li><strong class="text-ink">Wall / Fa&ccedil;ade</strong> &middot; the barrier and the face. What it hides on one side, what it announces on the other.</li>
+                                    <li><strong class="text-ink">Floor / Ground Plane</strong> &middot; what carries the body. Level change, material underfoot, and what lies below.</li>
+                                    <li><strong class="text-ink">Ceiling / Roof</strong> &middot; the overhead condition. Shelter, weight, and access to sky.</li>
+                                    <li><strong class="text-ink">Door / Opening</strong> &middot; the controlled passage. Who may pass, when, and at what cost.</li>
+                                    <li><strong class="text-ink">Window / Aperture</strong> &middot; the framed view. What is shown, what is withheld, and from where.</li>
+                                    <li><strong class="text-ink">Stair / Ramp</strong> &middot; movement through height. Effort, rhythm, and the moment of arrival.</li>
+                                    <li><strong class="text-ink">Column / Structure</strong> &middot; the order of the space. Rhythm, grid, and what the building admits about how it stands.</li>
+                                    <li><strong class="text-ink">Pathway / Corridor</strong> &middot; the enforced route. Duration, compression, and the pace it imposes.</li>
+                                </ul>
+                            </div>
+                            <details class="text-sm group mb-3">
+                                <summary class="font-display font-semibold text-accent hover:text-accentdark">
+                                    Architectural Verbs, assigned <span class="disclosure-arrow">&#9662;</span>
+                                </summary>
+                                <ul class="mt-4 grid sm:grid-cols-2 gap-x-6 gap-y-2 pl-4 border-l-2 border-rule text-graphite">
+                                    <li>Framing a View</li>
+                                    <li>Guiding Movement</li>
+                                    <li>Creating Thresholds</li>
+                                    <li>Compressing and Releasing</li>
+                                    <li>Ascending and Descending</li>
+                                    <li>Sheltering and Exposing</li>
+                                    <li>Revealing and Concealing</li>
+                                    <li>Scaling and Dominating</li>
+                                    <li>Grounding and Floating</li>
+                                    <li>Reflecting and Distorting</li>
+                                </ul>
+                            </details>
+                            <details class="text-sm group">
+                                <summary class="font-display font-semibold text-accent hover:text-accentdark">
+                                    Media, assigned <span class="disclosure-arrow">&#9662;</span>
+                                </summary>
+                                <div class="mt-4 pl-4 border-l-2 border-rule">
+                                    <p class="text-graphite mb-3 leading-relaxed">
+                                        Architecture tells stories through drawing conventions, and games use the same ones.
+                                        <em>Monument Valley</em> is an axonometric. <em>Inside</em> is a section.
+                                        <em>Gorogoa</em> is a panel grid. Your assigned convention sets the drawings you
+                                        produce and the camera you build in Unreal Engine. A locked view cannot be fixed with
+                                        camera movement, so the space has to carry the narrative.
+                                    </p>
+                                    <ul class="space-y-2 text-graphite">
+                                        <li><strong class="text-ink">Section</strong> &middot; the model is cut and the camera sits in the cut plane. <span class="text-mist">Inside, Limbo</span></li>
+                                        <li><strong class="text-ink">Plan</strong> &middot; top down, narrative carried by choreography of movement. <span class="text-mist">Death's Door</span></li>
+                                        <li><strong class="text-ink">Axonometric</strong> &middot; orthographic and locked, with no vanishing point. <span class="text-mist">Monument Valley, Hades</span></li>
+                                        <li><strong class="text-ink">Elevation</strong> &middot; a flat, fixed camera with narrative built in parallax layers. <span class="text-mist">GRIS</span></li>
+                                        <li><strong class="text-ink">Worm's-Eye or Reflected Ceiling Plan</strong> &middot; the camera only looks up.</li>
+                                        <li><strong class="text-ink">Exploded Assembly</strong> &middot; the building comes apart as the narrative advances.</li>
+                                        <li><strong class="text-ink">Cutaway Diorama</strong> &middot; walls removed, the interior seen whole.</li>
+                                        <li><strong class="text-ink">One-Point Perspective</strong> &middot; a fixed vanishing point and a symmetrical frame.</li>
+                                        <li><strong class="text-ink">Collage or Photomontage</strong> &middot; narrative assembled in layered plates. <span class="text-mist">Kentucky Route Zero</span></li>
+                                        <li><strong class="text-ink">Panel Grid</strong> &middot; several simultaneous cameras read together. <span class="text-mist">Gorogoa</span></li>
+                                        <li><strong class="text-ink">Text and Typography</strong> &middot; language placed in space as inscription, signage, or projection. Letterforms are built, sited, and lit like any other element. <span class="text-mist">The Stanley Parable, NaissanceE</span></li>
+                                    </ul>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="bg-card p-6 md:p-7 border-l-4 border-accent">
+                    <div class="flex items-start gap-5">
+                        <span class="font-display font-extrabold text-4xl text-accent leading-none">3</span>
+                        <div class="flex-1">
+                            <div class="flex flex-wrap items-center gap-3 mb-2">
+                                <h3 class="font-display text-xl font-bold text-ink">Your Game Mechanic</h3>
+                                <span class="eyebrow bg-accent text-white px-2 py-1">New this semester</span>
+                            </div>
+                            <p class="text-graphite mb-4 leading-relaxed">
+                                In the first half of the semester you documented how other people's mechanics work. In the
+                                second half you build one. Every student designs a single core mechanic, specifies it,
+                                implements it in Blueprints, and tests it on a classmate.
+                            </p>
+                            <p class="text-graphite mb-4 leading-relaxed">
+                                The specification is written in Week 8, before any Blueprint work begins. Work takes place in
+                                Blueprints inside Unreal Engine 5, which requires no additional software and operates
+                                directly on the scene students are already developing. Prior programming experience is not
+                                required.
+                            </p>
+                            <div class="bg-paper border border-rule p-4 text-sm mb-4">
+                                <p class="eyebrow text-accent mb-2">Mechanic Specification &middot; One Page</p>
+                                <ul class="text-graphite space-y-2">
+                                    <li><strong class="text-ink">The verb.</strong> What can the player do that they could not do before?</li>
+                                    <li><strong class="text-ink">Input.</strong> How is it triggered, and how does the player learn that without being told?</li>
+                                    <li><strong class="text-ink">Feedback.</strong> What changes in the world so the player knows it worked?</li>
+                                    <li><strong class="text-ink">Limits.</strong> What stops it, and what does the limit mean?</li>
+                                    <li><strong class="text-ink">Meaning.</strong> What does this mechanic say that a cutscene could not?</li>
+                                </ul>
+                            </div>
+                            <div class="bg-paper border border-rule p-4 text-sm">
+                                <p class="eyebrow text-accent mb-2">Requirement</p>
+                                <p class="text-graphite leading-relaxed">
+                                    One mechanic, built properly, beats three that half work. The mechanic is tested in Week
+                                    11 by a classmate with no instructions. If they never find it, it does not work yet.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 4 -->
+                <div class="bg-card p-6 md:p-7">
+                    <div class="flex items-start gap-5">
+                        <span class="font-display font-extrabold text-4xl text-accent leading-none">4</span>
+                        <div class="flex-1">
+                            <h3 class="font-display text-xl font-bold text-ink mb-2">The Interactive World</h3>
+                            <p class="text-graphite mb-4 leading-relaxed">
+                                The mechanic is placed in a world built out in Unreal Engine 5, using dynamic materials,
+                                advanced lighting, atmosphere, and sound. Students document their process and present the
+                                final project in a clear and compelling way, filmed through their assigned medium's camera
+                                and packaged for the final review.
+                            </p>
+                            <div class="bg-paper border border-rule p-4 text-sm">
+                                <p class="eyebrow text-accent mb-2">Project Criteria</p>
+                                <ul class="text-graphite space-y-2">
+                                    <li><strong class="text-ink">Lighting:</strong> how does the quality of light shape the spatial experience?</li>
+                                    <li><strong class="text-ink">Materiality:</strong> how do different materials shape the digital narrative?</li>
+                                    <li><strong class="text-ink">Interaction with space and movement:</strong> how does one interact with the space?</li>
+                                    <li><strong class="text-ink">Narrative:</strong> what is the essential narrative that this experience delivers?</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 06 COURSE STRUCTURE -->
+        <section id="schedule" class="mb-20 scroll-mt-20">
+            <p class="eyebrow text-accent mb-2">06</p>
+            <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink mb-3 pb-3 border-b-2 border-ink">Course Structure</h2>
+            <p class="text-graphite mb-8 max-w-3xl leading-relaxed">
+                This course meets every Monday at 4 PM EST via Zoom, for thirteen sessions between August 24 and November 30.
+                One is a studio session held on Discord, where the instructor is available throughout the scheduled class
+                time. Two further class dates fall on BAC closures and are noted below.
+            </p>
+
+            <!-- CYCLE 1 -->
+            <div class="mb-10">
+                <div class="flex items-center gap-4 mb-4">
+                    <h3 class="font-display font-extrabold text-sm uppercase tracking-widest text-ink">Narrative Cycle 1 &middot; The 8-Second Loop</h3>
+                    <div class="flex-1 h-px bg-rule"></div>
+                    <span class="text-xs text-mist font-medium">August 24 to October 5</span>
+                </div>
+                <div class="space-y-px bg-rule border border-rule">
+
+                    <div class="bg-card p-5 flex flex-col sm:flex-row gap-4">
+                        <div class="sm:w-32 shrink-0">
+                            <p class="font-display font-extrabold text-ink">August 24</p>
+                            <p class="eyebrow text-mist">Week 1</p>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-display font-bold text-ink mb-1">Research and Setup &middot; Intro to Rhino 8</h4>
+                            <p class="text-sm text-graphite leading-relaxed">
+                                Intro, group assignments, Verb and Medium assigned. Discussing level design as narrative.
+                                Workshop on diagramming a game space. First Rhino 8 workshop on mesh-modeling and SubD.
+                                Assignment: play your assigned game, four hours minimum, and capture footage. Begin the six
+                                diagrams. Start modeling in Rhino. Read Totten (Pg 37-73). Install Rhino 8 and Unreal Engine
+                                5 and report any issues.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-card hatch p-5 flex flex-col sm:flex-row gap-4">
+                        <div class="sm:w-32 shrink-0">
+                            <p class="font-display font-extrabold text-ink">August 31</p>
+                            <p class="eyebrow text-accent">Studio</p>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-display font-bold text-ink mb-1">Rhino Studio <span class="text-mist font-normal text-sm">(on Discord)</span></h4>
+                            <p class="text-sm text-graphite leading-relaxed">
+                                There is no Zoom meeting for this session. The instructor is away August 31 to September 6
+                                and is available on Discord throughout the week for questions, guidance, and review of work
+                                as it develops. A recorded lecture on level graphs and pacing is posted Monday, alongside the
+                                Rhino tutorials in the Software Tutorials drive and a walkthrough of A.I. previsualization
+                                tools. Three of the six diagrams, your first Rhino studies, and a moodboard for your Verb and
+                                Medium are due Friday September 4.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-paper border-2 border-dashed border-rule p-4 text-center">
+                        <p class="eyebrow text-mist mb-1">Monday September 7 &middot; BAC Closed</p>
+                        <p class="text-sm text-graphite">Labor Day. No class and no submissions due.</p>
+                    </div>
+
+                    <div class="bg-card p-5 flex flex-col sm:flex-row gap-4">
+                        <div class="sm:w-32 shrink-0">
+                            <p class="font-display font-extrabold text-ink">September 14</p>
+                            <p class="eyebrow text-mist">Week 3</p>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-display font-bold text-ink mb-1">Analysis Presentations and Intro to Unreal Engine 5</h4>
+                            <p class="text-sm text-graphite leading-relaxed">
+                                Group presentations, eight minutes each, walking through all six diagrams. Graded as the
+                                Demo. The second half is a workshop on UE5 basics, importing assets from Rhino, and basic
+                                lighting and materials. Assignment: redraw one diagram from your analysis in your assigned
+                                medium, three quick studies, and import your model into a UE5 scene.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-card p-5 flex flex-col sm:flex-row gap-4">
+                        <div class="sm:w-32 shrink-0">
+                            <p class="font-display font-extrabold text-ink">September 21</p>
+                            <p class="eyebrow text-mist">Week 4</p>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-display font-bold text-ink mb-1">Your Building Part and the Medium Camera</h4>
+                            <p class="text-sm text-graphite leading-relaxed">
+                                Choosing and modeling your Building Part. Rhino to Unreal pipeline: scale, pivots, export. A
+                                workshop on A.I. asset generation, covering text and image to 3D, cleaning generated meshes
+                                in Rhino, and what these tools get wrong. Setting up your medium's camera: orthographic
+                                locks, cut planes, parallax layers.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-card p-5 flex flex-col sm:flex-row gap-4">
+                        <div class="sm:w-32 shrink-0">
+                            <p class="font-display font-extrabold text-ink">September 28</p>
+                            <p class="eyebrow text-mist">Week 5</p>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-display font-bold text-ink mb-1">Lighting, Sound, and Level Sequencer</h4>
+                            <p class="text-sm text-graphite leading-relaxed">
+                                Lighting as narrative: what is revealed, what is withheld, and when. Sound against the
+                                intensity curve from your analysis. A workshop on animating cameras and objects with Level
+                                Sequencer. Assignment: begin blocking out your 8-second loop in UE5 and develop a clear
+                                anchor idea and storyboard.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-card p-5 flex flex-col sm:flex-row gap-4">
+                        <div class="sm:w-32 shrink-0">
+                            <p class="font-display font-extrabold text-ink">October 5</p>
+                            <p class="eyebrow text-mist">Week 6</p>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-display font-bold text-ink mb-1">Narrative Design and Crits &middot; Midterm Prep</h4>
+                            <p class="text-sm text-graphite leading-relaxed">
+                                Desk crits on UE5 loops. Each loop is watched without explanation from its author, who then
+                                hears what was read from it. Open studio time after. This is the final working session before
+                                the midterm review.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-paper border-2 border-dashed border-rule p-4 text-center">
+                        <p class="eyebrow text-mist mb-1">Monday October 12 &middot; BAC Closed</p>
+                        <p class="text-sm text-graphite">Indigenous Peoples' Day. No class and no submissions due.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- MIDTERM -->
+            <div class="mb-10">
+                <div class="bg-accent text-white p-6 md:p-7 border border-accent">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="sm:w-32 shrink-0">
+                            <p class="font-display font-extrabold text-white text-lg">October 19</p>
+                            <p class="eyebrow text-white/70">Week 7</p>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-display font-extrabold text-xl text-white mb-2">Midterm: The 8-Second Story</h4>
+                            <p class="text-sm text-white/90 leading-relaxed mb-3">
+                                Present your 8s UE5 loop and the narrative concept behind it, held to your assigned Verb,
+                                Part, and Medium.
+                            </p>
+                            <p class="text-sm text-white/75 leading-relaxed">
+                                Submitted: six analysis diagrams, medium studies, modeled Building Part, rendered 8-second
+                                loop, storyboard.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CYCLE 2 -->
+            <div class="mb-10">
+                <div class="flex items-center gap-4 mb-4">
+                    <h3 class="font-display font-extrabold text-sm uppercase tracking-widest text-ink">Narrative Cycle 2 &middot; The Interactive World</h3>
+                    <div class="flex-1 h-px bg-rule"></div>
+                    <span class="text-xs text-mist font-medium">October 26 to November 23</span>
+                </div>
+                <div class="space-y-px bg-rule border border-rule">
+
+                    <div class="bg-card p-5 flex flex-col sm:flex-row gap-4">
+                        <div class="sm:w-32 shrink-0">
+                            <p class="font-display font-extrabold text-ink">October 26</p>
+                            <p class="eyebrow text-mist">Week 8</p>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-display font-bold text-ink mb-1">Interactive Narratives and Designing a Mechanic</h4>
+                            <p class="text-sm text-graphite leading-relaxed">
+                                Midterm debrief. Discussing player agency and interactive storytelling. Turning the six
+                                diagrams onto your own project. Writing a mechanic as a specification: the verb, its inputs,
+                                its feedback, its limits. Assignment: draw the six diagrams for your own world and write a
+                                one-page spec for your core mechanic.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-card p-5 flex flex-col sm:flex-row gap-4">
+                        <div class="sm:w-32 shrink-0">
+                            <p class="font-display font-extrabold text-ink">November 2</p>
+                            <p class="eyebrow text-mist">Week 9</p>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-display font-bold text-ink mb-1">Blueprints and Building Your Mechanic</h4>
+                            <p class="text-sm text-graphite leading-relaxed">
+                                Intro to Blueprints for simple interactivity such as triggers and doors. Setting up a player
+                                pawn and holding your medium's camera steady while the player moves. Building the mechanic
+                                you specified in Week 8. Using A.I. to draft, read, and debug Blueprint logic, and where it
+                                misleads you. The second half is an open debugging clinic.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-card p-5 flex flex-col sm:flex-row gap-4">
+                        <div class="sm:w-32 shrink-0">
+                            <p class="font-display font-extrabold text-ink">November 9</p>
+                            <p class="eyebrow text-mist">Week 10</p>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-display font-bold text-ink mb-1">A.I. in the Unreal Workflow</h4>
+                            <p class="text-sm text-graphite leading-relaxed">
+                                A workshop on dynamic materials and advanced lighting in UE5, covering atmosphere, fog, and
+                                volumetrics. A.I. texture and material generation, video-based motion capture into UE5, and
+                                generated ambience and sound. Discussing where these tools belong in the workflow and where
+                                they replace the thinking.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-card p-5 flex flex-col sm:flex-row gap-4">
+                        <div class="sm:w-32 shrink-0">
+                            <p class="font-display font-extrabold text-ink">November 16</p>
+                            <p class="eyebrow text-mist">Week 11</p>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-display font-bold text-ink mb-1">Peer Playtesting</h4>
+                            <p class="text-sm text-graphite leading-relaxed">
+                                Students exchange projects. Each student walks a classmate's world with no instruction while
+                                its author watches in silence and records where they go, what they touch, and what they miss.
+                                The test is whether the mechanic is discovered without being explained. Desk crits after,
+                                focusing on narrative, space, and interactivity.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-card p-5 flex flex-col sm:flex-row gap-4">
+                        <div class="sm:w-32 shrink-0">
+                            <p class="font-display font-extrabold text-ink">November 23</p>
+                            <p class="eyebrow text-mist">Week 12</p>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-display font-bold text-ink mb-1">Studio and Final Prep</h4>
+                            <p class="text-sm text-graphite leading-relaxed">
+                                Open studio time for final touches, and a technical rehearsal in which each student tests
+                                their build on the presentation setup. The BAC is closed Wednesday November 25 through Friday
+                                November 27, but Monday remains in session. If you are travelling, check in on Discord.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- FINAL -->
+            <div class="bg-accent text-white p-6 md:p-7 border border-accent">
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="sm:w-32 shrink-0">
+                        <p class="font-display font-extrabold text-white text-lg">November 30</p>
+                        <p class="eyebrow text-white/70">Week 13</p>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-display font-extrabold text-xl text-white mb-2">Final Presentations</h4>
+                        <p class="text-sm text-white/90 leading-relaxed mb-3">
+                            Present your final interactive digital narrative projects, including your core mechanic and what
+                            it means. Course reflections and industry outlook follow the reviews.
+                        </p>
+                        <p class="text-sm text-white/75 leading-relaxed">
+                            Submitted: complete portfolio, project diagrams, mechanic specification, playable build, final
+                            visualizations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-sm text-mist mt-6">
+                Fall 2026 main session courses end Saturday December 5. The withdrawal deadline is Friday November 6.
+            </p>
+        </section>
+
+        <!-- 07 AI POLICY -->
+        <section id="ai" class="mb-20 scroll-mt-20">
+            <p class="eyebrow text-accent mb-2">07</p>
+            <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink mb-6 pb-3 border-b-2 border-ink">Use of Artificial Intelligence</h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="md:col-span-2 space-y-5">
+                    <p class="text-graphite leading-relaxed">
+                        Artificial intelligence tools are part of the pipeline in this course, taught in Weeks 2, 4, 9, and
+                        10. Their use is treated as a normal part of the working method rather than as an exception to it,
+                        and students are not required to avoid them.
+                    </p>
+                    <p class="text-graphite leading-relaxed">
+                        They are used for production, not for the thinking. The diagrams, the mechanic specification, and the
+                        narrative are yours. A scene assembled from generated assets that its author cannot account for does
+                        not meet the requirements of the assignment.
+                    </p>
+                    <p class="text-graphite leading-relaxed">
+                        Week 2 covers previsualization, using image and video generation for moodboards, concept frames, and
+                        testing an idea before it is modeled. Week 4 covers asset generation, including text and image to 3D
+                        for props and secondary geometry; generated meshes come in dirty and are cleaned in Rhino, and your
+                        Building Part is modeled by you. Week 9 covers drafting, reading, and debugging Blueprint logic with
+                        an assistant, which is useful for structure but unreliable on node-level specifics. Week 10 covers
+                        texture and material generation, video-based motion capture, and generated ambience.
+                    </p>
+                    <p class="text-graphite leading-relaxed">
+                        Work submitted in this course shall be the original creation of its author, and is allowed to contain
+                        the work of others so long as there is appropriate attribution. Document your use of A.I. tools: what
+                        you generated, what you kept, and what you had to fix.
+                    </p>
+                </div>
+
+                <div class="bg-ink text-paper p-6 self-start">
+                    <p class="eyebrow text-accent mb-4">The Requirement</p>
+                    <p class="text-white font-display font-bold text-lg leading-snug mb-4">
+                        Students must be able to explain what they generated, what they kept, and what they had to fix.
+                    </p>
+                    <div class="border-t border-white/15 pt-4">
+                        <p class="eyebrow text-accent mb-2">Evidence</p>
+                        <ul class="text-sm text-paper/75 space-y-2 list-disc list-outside pl-4">
+                            <li>Documentation of A.I. use, at both reviews</li>
+                            <li>Attribution for generated assets</li>
+                            <li>Verbal explanation on request during a review</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 08 EVALUATION AND POLICIES -->
+        <section id="evaluation" class="mb-12 scroll-mt-20">
+            <p class="eyebrow text-accent mb-2">08</p>
+            <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink mb-6 pb-3 border-b-2 border-ink">Evaluation and Policies</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <p class="eyebrow text-mist mb-3">Evaluation Criteria</p>
+                    <table class="w-full text-sm border border-rule bg-card">
+                        <tbody>
+                            <tr class="border-b border-rule">
+                                <td class="p-3 text-graphite">Demo &middot; analysis presentation</td>
+                                <td class="p-3 text-right font-display font-bold text-ink">10%</td>
+                            </tr>
+                            <tr class="border-b border-rule">
+                                <td class="p-3 text-graphite">Assignments</td>
+                                <td class="p-3 text-right font-display font-bold text-ink">15%</td>
+                            </tr>
+                            <tr class="border-b border-rule">
+                                <td class="p-3 text-graphite">Attendance and Participation</td>
+                                <td class="p-3 text-right font-display font-bold text-ink">25%</td>
+                            </tr>
+                            <tr class="border-b border-rule">
+                                <td class="p-3 text-graphite">Mid Review</td>
+                                <td class="p-3 text-right font-display font-bold text-ink">25%</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 text-graphite">Final Review</td>
+                                <td class="p-3 text-right font-display font-bold text-ink">25%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="space-y-5">
+                    <div>
+                        <p class="eyebrow text-mist mb-2">Attendance</p>
+                        <p class="text-sm text-graphite leading-relaxed">
+                            Students are expected to be present during class. Absences accruing more than three times during
+                            the semester will result in a reduction of grades at the discretion of the instructor. Lateness
+                            of more than 15 minutes will be counted as an absence unless communicated in advance. If there
+                            are any extenuating circumstances, please reach out to the instructor.
+                        </p>
+                    </div>
+                    <div>
+                        <p class="eyebrow text-mist mb-2">Deadlines</p>
+                        <p class="text-sm text-graphite leading-relaxed">
+                            Students should complete assignments to the best of their ability and submit them on time. If
+                            circumstances require a late submission, contact the instructor before the assignment is due. In
+                            the event of an emergency, contact both the instructor and your student advisor as soon as
+                            possible.
+                        </p>
+                    </div>
+                    <div>
+                        <p class="eyebrow text-mist mb-2">Software and Assistance</p>
+                        <p class="text-sm text-graphite leading-relaxed">
+                            Rhino 8 and Unreal Engine 5. Install both during Week 1 and report any problems on Discord early
+                            rather than the night before a review. Tutorials will be provided throughout the course in
+                            addition to technical support on Discord. For all hardware assistance, please contact the Help
+                            Desk at help@the-bac.edu or (617) 585-0191.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         </div>
-      </div>
-      <div class="game">
-        <div class="game-art" style="background-image:url('images/games/cyberpunk.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg'),linear-gradient(150deg,#3d2f10,#14121c)">
-          <div class="game-txt"><div class="game-grp">Group 1 &middot; World Weavers</div><div class="game-name">Cyberpunk 2077</div></div>
+    </main>
+
+    <footer class="border-t border-rule bg-card">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-sm text-mist">
+            <p class="font-display font-bold text-ink">DME2100 Digital Narratives &middot; Fall 2026</p>
+            <p class="mt-1">Boston Architectural College &middot; <a href="mailto:hamze.machmouchi@the-bac.edu" class="hover:text-accent">hamze.machmouchi@the-bac.edu</a></p>
         </div>
-        <div class="game-buy">
-          <a class="buy" href="https://store.steampowered.com/search/?term=cyberpunk+2077" target="_blank" rel="noopener">Steam</a>
-          <a class="buy" href="https://www.xbox.com/en-US/Search/Results?q=cyberpunk+2077" target="_blank" rel="noopener">Xbox</a>
-          <a class="buy" href="https://store.playstation.com/en-us/search/cyberpunk%202077" target="_blank" rel="noopener">PS5</a>
-          <a class="buy" href="https://www.cdkeys.com/catalogsearch/result/?q=cyberpunk+2077" target="_blank" rel="noopener">CDKeys</a>
-        </div>
-      </div>
-      <div class="game">
-        <div class="game-art" style="background-image:url('images/games/alan-wake-2.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1903340/header.jpg'),linear-gradient(150deg,#1c2b34,#0f1116)">
-          <div class="game-txt"><div class="game-grp">Group 2 &middot; Mind Benders</div><div class="game-name">Alan Wake 2</div></div>
-        </div>
-        <div class="game-buy">
-          <a class="buy" href="https://store.steampowered.com/search/?term=alan+wake+2" target="_blank" rel="noopener">Steam</a>
-          <a class="buy" href="https://store.epicgames.com/en-US/browse?q=alan%20wake%202" target="_blank" rel="noopener">Epic</a>
-          <a class="buy" href="https://www.xbox.com/en-US/Search/Results?q=alan+wake+2" target="_blank" rel="noopener">Xbox</a>
-          <a class="buy" href="https://store.playstation.com/en-us/search/alan%20wake%202" target="_blank" rel="noopener">PS5</a>
-          <a class="buy" href="https://www.cdkeys.com/catalogsearch/result/?q=alan+wake+2" target="_blank" rel="noopener">CDKeys</a>
-        </div>
-      </div>
-      <div class="game">
-        <div class="game-art" style="background-image:url('images/games/control.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/870780/header.jpg'),linear-gradient(150deg,#33202c,#121017)">
-          <div class="game-txt"><div class="game-grp">Group 2 &middot; Mind Benders</div><div class="game-name">Control</div></div>
-        </div>
-        <div class="game-buy">
-          <a class="buy" href="https://store.steampowered.com/search/?term=control+remedy" target="_blank" rel="noopener">Steam</a>
-          <a class="buy" href="https://www.xbox.com/en-US/Search/Results?q=control+remedy" target="_blank" rel="noopener">Xbox</a>
-          <a class="buy" href="https://store.playstation.com/en-us/search/control%20remedy" target="_blank" rel="noopener">PS5</a>
-          <a class="buy" href="https://www.cdkeys.com/catalogsearch/result/?q=control+remedy" target="_blank" rel="noopener">CDKeys</a>
-        </div>
-      </div>
-      <div class="game">
-        <div class="game-art" style="background-image:url('images/games/edith-finch.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/501300/header.jpg'),linear-gradient(150deg,#23331f,#101317)">
-          <div class="game-txt"><div class="game-grp">Group 3 &middot; Intimate Storytellers</div><div class="game-name">What Remains of Edith Finch</div></div>
-        </div>
-        <div class="game-buy">
-          <a class="buy" href="https://store.steampowered.com/search/?term=what+remains+of+edith+finch" target="_blank" rel="noopener">Steam</a>
-          <a class="buy" href="https://www.xbox.com/en-US/Search/Results?q=what+remains+of+edith+finch" target="_blank" rel="noopener">Xbox</a>
-          <a class="buy" href="https://store.playstation.com/en-us/search/what%20remains%20of%20edith%20finch" target="_blank" rel="noopener">PS5</a>
-          <a class="buy" href="https://www.cdkeys.com/catalogsearch/result/?q=what+remains+of+edith+finch" target="_blank" rel="noopener">CDKeys</a>
-        </div>
-      </div>
-      <div class="game">
-        <div class="game-art" style="background-image:url('images/games/stray.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1332010/header.jpg'),linear-gradient(150deg,#2c3320,#111318)">
-          <div class="game-txt"><div class="game-grp">Group 3 &middot; Intimate Storytellers</div><div class="game-name">Stray</div></div>
-        </div>
-        <div class="game-buy">
-          <a class="buy" href="https://store.steampowered.com/search/?term=stray" target="_blank" rel="noopener">Steam</a>
-          <a class="buy" href="https://www.xbox.com/en-US/Search/Results?q=stray" target="_blank" rel="noopener">Xbox</a>
-          <a class="buy" href="https://store.playstation.com/en-us/search/stray" target="_blank" rel="noopener">PS5</a>
-          <a class="buy" href="https://www.cdkeys.com/catalogsearch/result/?q=stray" target="_blank" rel="noopener">CDKeys</a>
-        </div>
-      </div>
-      <div class="game">
-        <div class="game-art" style="background-image:url('images/games/plague-tale.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1182900/header.jpg'),linear-gradient(150deg,#332618,#121016)">
-          <div class="game-txt"><div class="game-grp">Group 4 &middot; Historical Architects</div><div class="game-name">A Plague Tale: Requiem</div></div>
-        </div>
-        <div class="game-buy">
-          <a class="buy" href="https://store.steampowered.com/search/?term=a+plague+tale+requiem" target="_blank" rel="noopener">Steam</a>
-          <a class="buy" href="https://www.xbox.com/en-US/Search/Results?q=a+plague+tale+requiem" target="_blank" rel="noopener">Xbox</a>
-          <a class="buy" href="https://store.playstation.com/en-us/search/a%20plague%20tale%20requiem" target="_blank" rel="noopener">PS5</a>
-          <a class="buy" href="https://www.cdkeys.com/catalogsearch/result/?q=a+plague+tale+requiem" target="_blank" rel="noopener">CDKeys</a>
-        </div>
-      </div>
-      <div class="game">
-        <div class="game-art" style="background-image:url('images/games/ac-shadows.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/3159330/header.jpg'),linear-gradient(150deg,#38301a,#141218)">
-          <div class="game-txt"><div class="game-grp">Group 4 &middot; Historical Architects</div><div class="game-name">Assassin's Creed Shadows</div></div>
-        </div>
-        <div class="game-buy">
-          <a class="buy" href="https://store.steampowered.com/search/?term=assassins+creed+shadows" target="_blank" rel="noopener">Steam</a>
-          <a class="buy" href="https://www.xbox.com/en-US/Search/Results?q=assassins+creed+shadows" target="_blank" rel="noopener">Xbox</a>
-          <a class="buy" href="https://store.playstation.com/en-us/search/assassins%20creed%20shadows" target="_blank" rel="noopener">PS5</a>
-          <a class="buy" href="https://www.cdkeys.com/catalogsearch/result/?q=assassins+creed+shadows" target="_blank" rel="noopener">CDKeys</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ACCESS ============ -->
-<section id="access">
-  <div class="wrap">
-    <p class="shead">Getting the Games</p>
-    <h2>Streaming, trials, and cheap keys</h2>
-    <p class="intro">
-      A gaming PC is not required for this course. Every game on the list can be streamed to a laptop or tablet through a
-      cloud service, and most of these services run a free tier or a trial. Start with the free options before you spend
-      anything.
-    </p>
-
-    <div class="grid g2">
-      <div class="card">
-        <span class="tag" style="color:var(--emerald)">Free tier</span>
-        <h3>GeForce NOW</h3>
-        <p>
-          The most useful one for this class. It streams games you <em>already own</em> on Steam, Epic, or Ubisoft, so one
-          purchase works on any laptop. The free tier is permanent, with queue times and one-hour sessions.
-        </p>
-        <p style="margin-top:12px"><a class="buy free" href="https://www.nvidia.com/en-us/geforce-now/" target="_blank" rel="noopener">nvidia.com/geforce-now</a></p>
-      </div>
-      <div class="card">
-        <span class="tag" style="color:var(--emerald)">Trial usually available</span>
-        <h3>Xbox Cloud Gaming</h3>
-        <p>
-          Included with Game Pass Ultimate. Streams to a browser on any machine, no download. The catalog rotates, so check
-          whether your assigned game is on it before subscribing.
-        </p>
-        <p style="margin-top:12px"><a class="buy free" href="https://www.xbox.com/en-US/play" target="_blank" rel="noopener">xbox.com/play</a>
-        <a class="buy" href="https://www.xbox.com/en-US/xbox-game-pass" target="_blank" rel="noopener">Game Pass</a></p>
-      </div>
-      <div class="card">
-        <span class="tag" style="color:var(--emerald)">Trial usually available</span>
-        <h3>Amazon Luna</h3>
-        <p>
-          Browser-based streaming with a Luna+ subscription. Prime members get a rotating set of titles at no extra cost, so
-          check what is included before paying.
-        </p>
-        <p style="margin-top:12px"><a class="buy free" href="https://luna.amazon.com/" target="_blank" rel="noopener">luna.amazon.com</a></p>
-      </div>
-      <div class="card">
-        <span class="tag">Subscription</span>
-        <h3>PS Plus Premium &amp; EA Play</h3>
-        <p>
-          PS Plus Premium includes cloud streaming on PS5 and PC. EA Play covers the EA catalog, which is the relevant one
-          for Star Wars Jedi: Survivor.
-        </p>
-        <p style="margin-top:12px"><a class="buy" href="https://www.playstation.com/en-us/ps-plus/" target="_blank" rel="noopener">PS Plus</a>
-        <a class="buy" href="https://www.ea.com/ea-play" target="_blank" rel="noopener">EA Play</a></p>
-      </div>
-    </div>
-
-    <div class="card" style="margin-top:18px">
-      <h3>Buying</h3>
-      <p>
-        Each game card above links to Steam, Xbox, PlayStation, and CDKeys. CDKeys resells activation keys well below list
-        price and is worth checking first. Older titles on the list go on deep discount during Steam seasonal sales. Prices,
-        catalogs, and trial offers change constantly, so confirm what is included before you subscribe or buy.
-      </p>
-      <p style="margin-top:12px">
-        If cost is a barrier, contact the instructor on Discord before Week 2. There is usually a way to sort it out.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ASSIGNMENT ============ -->
-<section id="assignment">
-  <div class="wrap">
-    <p class="shead">Assignment</p>
-    <h2>Verb + Part + Medium</h2>
-    <p class="intro">
-      You will be assigned one <strong>Architectural Verb</strong> and one <strong>Medium</strong>. Your task is to interpret
-      this verb by choosing one <strong>Building Part</strong> as your primary tool for storytelling, and to tell that story
-      through your assigned medium.
-    </p>
-    <div class="grid g2" style="margin-bottom:30px">
-      <div class="card">
-        <span class="tag">Assigned</span>
-        <h3>Architectural Verb</h3>
-        <p style="margin-bottom:14px">What the space does to a body. You do not choose this one.</p>
-        <ul class="cols" style="display:grid; grid-template-columns:1fr 1fr; gap:0 20px; padding:0; list-style:none; font-size:14px; color:var(--muted); line-height:2">
-          <li>Framing a View</li><li>Guiding Movement</li>
-          <li>Creating Thresholds</li><li>Compressing &amp; Releasing</li>
-          <li>Ascending &amp; Descending</li><li>Sheltering &amp; Exposing</li>
-          <li>Revealing &amp; Concealing</li><li>Scaling &amp; Dominating</li>
-          <li>Grounding &amp; Floating</li><li>Reflecting &amp; Distorting</li>
-        </ul>
-      </div>
-      <div class="card">
-        <span class="tag">Assigned</span>
-        <h3>Medium</h3>
-        <p style="margin-bottom:14px">The drawing convention you work in, which also sets your camera in Unreal. Listed in full below.</p>
-        <ul class="cols" style="display:grid; grid-template-columns:1fr 1fr; gap:0 20px; padding:0; list-style:none; font-size:14px; color:var(--muted); line-height:2">
-          <li>Section</li><li>Plan</li><li>Axonometric</li><li>Elevation</li>
-          <li>Worm's-Eye / RCP</li><li>Exploded Assembly</li>
-          <li>Cutaway Diorama</li><li>One-Point Perspective</li>
-          <li>Collage / Montage</li><li>Panel Grid</li>
-          <li>Text / Typography</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card">
-      <span class="tag" style="color:var(--emerald)">Choose One</span>
-      <h3 style="font-size:21px; margin-bottom:6px">Building Part</h3>
-      <p style="margin-bottom:6px; font-size:15px">
-        Your primary tool for storytelling. One part, worked hard, for the whole semester. Everything else in the scene
-        supports it.
-      </p>
-      <div class="cols" style="margin-top:20px; gap:0 34px">
-        <ul class="deflist">
-          <li><b>Wall / Fa&ccedil;ade</b> The barrier and the face. What it hides on one side, what it announces on the other.</li>
-          <li><b>Floor / Ground Plane</b> What carries the body. Level change, material underfoot, and what lies below.</li>
-          <li><b>Ceiling / Roof</b> The overhead condition. Shelter, weight, and access to sky.</li>
-        </ul>
-        <ul class="deflist">
-          <li><b>Door / Opening</b> The controlled passage. Who may pass, when, and at what cost.</li>
-          <li><b>Window / Aperture</b> The framed view. What is shown, what is withheld, and from where.</li>
-          <li><b>Stair / Ramp</b> Movement through height. Effort, rhythm, and the moment of arrival.</li>
-        </ul>
-        <ul class="deflist">
-          <li><b>Column / Structure</b> The order of the space. Rhythm, grid, and what the building admits about how it stands.</li>
-          <li><b>Pathway / Corridor</b> The enforced route. Duration, compression, and the pace it imposes.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ MEDIA ============ -->
-<section id="media">
-  <div class="wrap">
-    <p class="shead">The Medium</p>
-    <h2>Your drawing convention is your camera</h2>
-    <p class="intro">
-      Architecture tells stories through drawing conventions, and games use the same ones. <strong>Monument Valley</strong> is
-      an axonometric. <strong>Inside</strong> is a section. <strong>Gorogoa</strong> is a panel grid. Each student is assigned
-      one convention. It sets the drawings you produce and the camera you build in Unreal Engine. A locked view cannot be fixed
-      with camera movement, so the space has to carry the narrative.
-    </p>
-    <div class="cols" style="gap:26px 34px">
-      <div>
-        <h4>Orthographic</h4>
-        <ul class="deflist">
-          <li><b>Section</b> The model is cut and the camera sits in the cut plane. <i>Inside, Limbo</i></li>
-          <li><b>Plan</b> Top down, narrative carried by choreography of movement. <i>Death's Door</i></li>
-          <li><b>Axonometric</b> Orthographic and locked, with no vanishing point. <i>Monument Valley, Hades</i></li>
-          <li><b>Elevation</b> A flat, fixed camera with narrative built in parallax layers. <i>GRIS</i></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Constructed</h4>
-        <ul class="deflist">
-          <li><b>Worm's-Eye / RCP</b> The camera only looks up.</li>
-          <li><b>Exploded Assembly</b> The building comes apart as the narrative advances.</li>
-          <li><b>Cutaway Diorama</b> Walls removed, the interior seen whole.</li>
-          <li><b>One-Point Perspective</b> A fixed vanishing point and a symmetrical frame.</li>
-        </ul>
-      </div>
-      <div>
-        <h4>Composite</h4>
-        <ul class="deflist">
-          <li><b>Collage / Photomontage</b> Narrative assembled in layered plates. <i>Kentucky Route Zero</i></li>
-          <li><b>Panel Grid</b> Several simultaneous cameras read together. <i>Gorogoa</i></li>
-          <li><b>Text / Typography</b> Language placed in space as inscription, signage, or projection. Letterforms are built, sited, and lit like any other element. <i>The Stanley Parable, NaissanceE</i></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ANALYSIS ============ -->
-<section id="analysis">
-  <div class="wrap">
-    <p class="shead">Assignment &middot; Weeks 1&ndash;3</p>
-    <h2>Game Space Analysis</h2>
-    <p class="intro">
-      Running alongside the Rhino and Unreal workshops. Play your group's game, take it apart in four layers, and present the
-      analysis in Week 3. The question is not whether the game is good. The question is how it is built, and whether you can
-      show it in drawings. This presentation is the <strong>Demo</strong> portion of your grade.
-    </p>
-
-    <div class="grid g2" style="margin-bottom:34px">
-      <div class="card">
-        <span class="tag">Layer 01</span>
-        <h3>Design Architecture: how is the world structured?</h3>
-        <p>Critical path against optional space. Gates and the keys that open them. Hub, open field, or corridor. Where the path forks and where it returns.</p>
-      </div>
-      <div class="card">
-        <span class="tag">Layer 02</span>
-        <h3>Spatial Grammar: how does the space instruct without instructions?</h3>
-        <p>Landmarks, sightlines, thresholds, compression and release. Turn the waypoint marker off and document what still tells you where to go. Every game builds a color and material language for climbable, dangerous, and worth your attention.</p>
-      </div>
-      <div class="card">
-        <span class="tag">Layer 03</span>
-        <h3>Game Mechanics: what can the player do, and what does it mean?</h3>
-        <p>The verbs the player is given and the core loop they sit inside. Then: how does the mechanic carry the theme? In <em>What Remains of Edith Finch</em> the mechanic changes with each story because each is a different mind. In <em>Stray</em> the player is held low to the ground because the world was not built for a cat.</p>
-      </div>
-      <div class="card">
-        <span class="tag">Layer 04</span>
-        <h3>Pacing: how does the experience rise and fall?</h3>
-        <p>Intensity across time: conflict, traversal, quiet, cutscene. Note where the silences are placed and what they do.</p>
-      </div>
-    </div>
-
-    <p class="shead" style="margin-bottom:14px">Six Required Diagrams</p>
-    <ol class="numlist" style="max-width:74ch">
-      <li><strong>Level graph.</strong> Nodes and edges, with gates marked and the critical path distinguished.</li>
-      <li><strong>Plan of one level,</strong> redrawn and annotated with landmarks and sightlines.</li>
-      <li><strong>Section</strong> through a significant vertical moment, showing what becomes visible and when.</li>
-      <li><strong>Sightline diagram</strong> of a single reveal, drawn as cones of vision.</li>
-      <li><strong>Core loop diagram.</strong> Action, feedback, reward, and the next action.</li>
-      <li><strong>Intensity curve</strong> across thirty minutes of play.</li>
-    </ol>
-    <p class="intro" style="margin-top:26px; margin-bottom:0">
-      In Week 8 you will draw these same six diagrams for your own project.
-    </p>
-  </div>
-</section>
-
-<!-- ============ UNREAL ============ -->
-<section>
-  <div class="wrap">
-    <p class="shead">Unreal Engine 5</p>
-    <h2>Built, lit, and filmed in engine</h2>
-    <p class="intro">
-      Rhino and Unreal begin in Week 1. Everything you model, light, and animate is assembled in engine, filmed through your
-      assigned medium's camera, and packaged for the final review.
-    </p>
-    <div class="shots">
-      <div class="shot" style="background-image:url('images/unreal/01.jpg'),linear-gradient(140deg,#1d2438,#0d0d14)">
-        <div class="shot-cap">Blockout and massing</div>
-      </div>
-      <div class="shot" style="background-image:url('images/unreal/02.jpg'),linear-gradient(140deg,#2f2233,#0d0d14)">
-        <div class="shot-cap">Lighting study</div>
-      </div>
-      <div class="shot" style="background-image:url('images/unreal/03.jpg'),linear-gradient(140deg,#1e3330,#0d0d14)">
-        <div class="shot-cap">Final render</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ MECHANIC ============ -->
-<section id="mechanic">
-  <div class="wrap">
-    <p class="shead">Assignment &middot; Weeks 8&ndash;11</p>
-    <h2>Your Game Mechanic</h2>
-    <p class="intro">
-      In the first half of the semester you documented how other people's mechanics work. In the second half you build one.
-      Every student designs a single core mechanic, specifies it, implements it in Blueprints, and tests it on a classmate.
-    </p>
-    <div class="card">
-      <h3 style="font-size:19px; margin-bottom:6px">Mechanic Specification</h3>
-      <p style="margin-bottom:16px">One page, written in Week 8, before any Blueprint work begins.</p>
-      <ul class="speclist">
-        <li><strong>The verb</strong> What can the player do that they could not do before?</li>
-        <li><strong>Input</strong> How is it triggered, and how does the player learn that without being told?</li>
-        <li><strong>Feedback</strong> What changes in the world so the player knows it worked?</li>
-        <li><strong>Limits</strong> What stops it, and what does the limit mean?</li>
-        <li><strong>Meaning</strong> What does this mechanic say that a cutscene could not?</li>
-      </ul>
-      <p style="margin-top:18px; padding-top:16px; border-top:1px solid var(--line)">
-        One mechanic, built properly, beats three that half work. The mechanic is tested in Week 11 by a classmate with no
-        instructions. If they never find it, it does not work yet.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ A.I. ============ -->
-<section id="ai">
-  <div class="wrap">
-    <p class="shead">Workflow</p>
-    <h2>A.I. in the Unreal pipeline</h2>
-    <p class="intro">
-      A.I. tools are part of the pipeline this semester, taught in Weeks 2, 4, 9, and 10. They are used for production, not
-      for the thinking. The diagrams, the mechanic specification, and the narrative are yours.
-    </p>
-    <div class="grid g2">
-      <div class="card">
-        <span class="tag">Week 02</span>
-        <h3>Previsualization</h3>
-        <p>Image and video generation for moodboards, concept frames, and testing an idea before it is modeled.</p>
-      </div>
-      <div class="card">
-        <span class="tag">Week 04</span>
-        <h3>Asset Generation</h3>
-        <p>Text and image to 3D for props and secondary geometry. Generated meshes come in dirty and are cleaned in Rhino. Your Building Part is modeled by you.</p>
-      </div>
-      <div class="card">
-        <span class="tag">Week 09</span>
-        <h3>Blueprint Scripting</h3>
-        <p>Drafting, reading, and debugging Blueprint logic with an assistant. Useful for syntax and structure, unreliable on node-level specifics. You still have to understand the graph.</p>
-      </div>
-      <div class="card">
-        <span class="tag">Week 10</span>
-        <h3>Texture, Motion &amp; Sound</h3>
-        <p>Material and texture generation, video-based motion capture into UE5, and generated ambience.</p>
-      </div>
-    </div>
-    <p class="intro" style="margin-top:24px; margin-bottom:0; font-size:14px">
-      Document your use of A.I. tools: what you generated, what you kept, and what you had to fix. Follow the BAC academic
-      integrity policy on attribution.
-    </p>
-  </div>
-</section>
-
-<!-- ============ SCHEDULE ============ -->
-<section id="schedule">
-  <div class="wrap">
-    <p class="shead">13 Sessions &middot; Aug 24 &ndash; Nov 30</p>
-    <h2>Schedule</h2>
-    <div class="legend">
-      <span><i style="background:var(--indigo)"></i>Live on Zoom</span>
-      <span><i style="background:var(--sky)"></i>Async on Discord</span>
-      <span><i style="background:var(--emerald)"></i>Review</span>
-      <span><i style="background:var(--amber)"></i>BAC closed</span>
-    </div>
-
-    <p class="cyc">Narrative Cycle 1: The 8-Second Loop</p>
-
-    <div class="wk">
-      <div class="wk-date">Aug 24<span class="n">Week 1</span></div>
-      <div>
-        <h3>Research &amp; Setup - Intro to Rhino 8</h3>
-        <p><b>In-Class:</b> Intro, group assignments, Verb and Medium assigned. Discussing level design as narrative. Workshop on diagramming a game space. First Rhino 8 workshop: mesh-modeling and SubD.</p>
-        <p><b>Assignment:</b> Play your assigned game, four hours minimum, and capture footage. Begin the six diagrams. Start modeling in Rhino. Read Totten (Pg 37-73). Install Rhino 8 and Unreal Engine 5 and report any issues.</p>
-      </div>
-    </div>
-
-    <div class="wk async">
-      <div class="wk-date">Aug 31<span class="n">Week 2 &middot; Async</span></div>
-      <div>
-        <h3>Experimentation - Rhino Studio (on Discord)</h3>
-        <p class="note">No live session. Instructor away August 31 &ndash; September 6, responsive on Discord throughout the week.</p>
-        <p><b>In-Class:</b> Recorded lecture on level graphs and pacing posted Monday. Rhino tutorials in the Software Tutorials drive. Recorded walkthrough of A.I. previsualization tools for moodboards and concept frames. Post work in progress to your thread and get feedback there.</p>
-        <p><b>Assignment:</b> Three of six diagrams and your first Rhino studies posted by Friday, September 4. Produce a moodboard for your Verb and Medium using A.I. image or video generation. Keep playing and capturing.</p>
-      </div>
-    </div>
-
-    <div class="wk off">
-      <div class="wk-date">Sep 7</div>
-      <div><h3>NO CLASS: Labor Day, BAC closed</h3></div>
-    </div>
-
-    <div class="wk">
-      <div class="wk-date">Sep 14<span class="n">Week 3</span></div>
-      <div>
-        <h3>Research - Analysis Presentations &amp; Intro to Unreal Engine 5</h3>
-        <p><b>In-Class:</b> Group presentations, eight minutes each, walking through all six diagrams. Graded as the Demo. Second half: workshop on UE5 basics, importing assets from Rhino, basic lighting and materials.</p>
-        <p><b>Assignment:</b> Redraw one diagram from your analysis in your assigned medium. Three quick studies. Import your model into a UE5 scene.</p>
-      </div>
-    </div>
-
-    <div class="wk">
-      <div class="wk-date">Sep 21<span class="n">Week 4</span></div>
-      <div>
-        <h3>Creation - Your Building Part &amp; the Medium Camera</h3>
-        <p><b>In-Class:</b> Choosing and modeling your Building Part. Rhino to Unreal pipeline: scale, pivots, export. Workshop on A.I. asset generation: text and image to 3D, cleaning generated meshes in Rhino, and what these tools get wrong. Setting up your medium's camera: orthographic locks, cut planes, parallax layers.</p>
-        <p><b>Assignment:</b> Model your Building Part and set it up in a UE5 environment, viewed only through your medium's camera.</p>
-        <p class="crit">Criteria: Materiality &middot; Interaction with space / movement</p>
-      </div>
-    </div>
-
-    <div class="wk">
-      <div class="wk-date">Sep 28<span class="n">Week 5</span></div>
-      <div>
-        <h3>Creation - Lighting, Sound &amp; Level Sequencer</h3>
-        <p><b>In-Class:</b> Lighting as narrative: what is revealed, what is withheld, and when. Sound against the intensity curve from your analysis. Workshop on animating cameras and objects with Level Sequencer.</p>
-        <p><b>Assignment:</b> Begin blocking out your 8-second loop in UE5. Develop a clear anchor idea and storyboard.</p>
-        <p class="crit">Criteria: Lighting &middot; Narrative</p>
-      </div>
-    </div>
-
-    <div class="wk">
-      <div class="wk-date">Oct 5<span class="n">Week 6</span></div>
-      <div>
-        <h3>Narrative Design &amp; Crits - Midterm Prep</h3>
-        <p><b>In-Class:</b> Desk crits on UE5 loops. Each loop is watched without explanation from its author, who then hears what was read from it. Open studio time after.</p>
-        <p><b>Assignment:</b> Finalize and render your 8s loop. Prepare your presentation.</p>
-        <p class="crit">Criteria: Narrative &middot; Lighting</p>
-      </div>
-    </div>
-
-    <div class="wk off">
-      <div class="wk-date">Oct 12</div>
-      <div><h3>NO CLASS: Indigenous Peoples' Day, BAC closed</h3></div>
-    </div>
-
-    <div class="wk mile">
-      <div class="wk-date">Oct 19<span class="n">Midterm</span></div>
-      <div>
-        <h3>MIDTERM: The 8-Second Story</h3>
-        <p>Present your 8s UE5 loop and the narrative concept behind it, held to your assigned Verb, Part, and Medium.</p>
-      </div>
-    </div>
-
-    <p class="cyc">Narrative Cycle 2: The Interactive World</p>
-
-    <div class="wk">
-      <div class="wk-date">Oct 26<span class="n">Week 8</span></div>
-      <div>
-        <h3>Research - Interactive Narratives &amp; Designing a Mechanic</h3>
-        <p><b>In-Class:</b> Midterm debrief. Discussing player agency and interactive storytelling. Turning the six diagrams onto your own project. Writing a mechanic as a specification: the verb, its inputs, its feedback, its limits.</p>
-        <p><b>Assignment:</b> Draw the six diagrams for your own world. Write a one-page spec for your core mechanic. Define the one verb you are giving the player and what it means.</p>
-        <p class="crit">Criteria: Interaction with space / movement &middot; Narrative</p>
-      </div>
-    </div>
-
-    <div class="wk">
-      <div class="wk-date">Nov 2<span class="n">Week 9</span></div>
-      <div>
-        <h3>Creation - Blueprints &amp; Building Your Mechanic</h3>
-        <p><b>In-Class:</b> Intro to Blueprints for simple interactivity (triggers, doors, etc.). Setting up a player pawn and holding your medium's camera steady while the player moves. Building the mechanic you specified in Week 8. Using A.I. to draft, read, and debug Blueprint logic, and where it misleads you.</p>
-        <p><b>Assignment:</b> Implement your core mechanic in the scene. It should work, not just exist.</p>
-        <p class="crit">Criteria: Interaction with space / movement</p>
-      </div>
-    </div>
-
-    <div class="wk">
-      <div class="wk-date">Nov 9<span class="n">Week 10</span></div>
-      <div>
-        <h3>Experimentation - A.I. in the Unreal Workflow</h3>
-        <p><b>In-Class:</b> Workshop on dynamic materials and advanced lighting in UE5. Atmosphere, fog, and volumetrics. A.I. texture and material generation, video-based motion capture into UE5, and generated ambience and sound. Discussing where these tools belong in the workflow and where they replace the thinking.</p>
-        <p><b>Assignment:</b> Build out your world in UE5. Test materiality and lighting against your narrative. Use at least one A.I. tool in your pipeline and document what it did and what you had to fix.</p>
-        <p class="crit">Criteria: Materiality &middot; Lighting</p>
-      </div>
-    </div>
-
-    <div class="wk">
-      <div class="wk-date">Nov 16<span class="n">Week 11</span></div>
-      <div>
-        <h3>Narrative Design &amp; Crits - Peer Playtesting</h3>
-        <p><b>In-Class:</b> Students exchange projects. Each student walks a classmate's world with no instruction while its author watches in silence and records where they go, what they touch, and what they miss. The test is whether the mechanic is discovered without being explained. Desk crits after, focusing on narrative, space, and interactivity.</p>
-        <p><b>Assignment:</b> Refine your final project based on the playtest and on feedback.</p>
-        <p class="crit">Criteria: Interaction with space / movement &middot; Narrative</p>
-      </div>
-    </div>
-
-    <div class="wk">
-      <div class="wk-date">Nov 23<span class="n">Week 12</span></div>
-      <div>
-        <h3>Studio &amp; Final Prep</h3>
-        <p><b>In-Class:</b> Open studio time for final touches. Test your build on the presentation setup so nothing breaks on the day.</p>
-        <p><b>Assignment:</b> Finalize and render your project. Prepare your presentation.</p>
-        <p class="note">The BAC is closed Wednesday, November 25 through Friday, November 27. Monday remains in session; if you are travelling, check in on Discord.</p>
-      </div>
-    </div>
-
-    <div class="wk mile">
-      <div class="wk-date">Nov 30<span class="n">Final</span></div>
-      <div>
-        <h3>FINAL PRESENTATIONS</h3>
-        <p>Present your final interactive digital narrative projects, including your core mechanic and what it means. Course reflections and industry outlook follow the reviews.</p>
-      </div>
-    </div>
-
-    <p class="intro" style="margin-top:26px; margin-bottom:0; font-size:14px">
-      Fall 2026 main session courses end Saturday, December 5. Withdrawal deadline is Friday, November 6.
-    </p>
-  </div>
-</section>
-
-<!-- ============ EVALUATION ============ -->
-<section id="eval">
-  <div class="wrap">
-    <p class="shead">Grading</p>
-    <h2>Evaluation</h2>
-    <div class="evals" style="margin-bottom:34px">
-      <div class="eval"><div class="pct">10%</div><div class="lb">Demo</div><div class="sb">Analysis presentation</div></div>
-      <div class="eval"><div class="pct">15%</div><div class="lb">Assignments</div><div class="sb">Weekly work</div></div>
-      <div class="eval"><div class="pct">25%</div><div class="lb">Participation</div><div class="sb">Attendance</div></div>
-      <div class="eval"><div class="pct">25%</div><div class="lb">Mid Review</div><div class="sb">Oct 19</div></div>
-      <div class="eval"><div class="pct">25%</div><div class="lb">Final Review</div><div class="sb">Nov 30</div></div>
-    </div>
-
-    <div class="grid g2">
-      <div class="card">
-        <h3>Project Criteria</h3>
-        <ul class="speclist" style="margin-top:8px">
-          <li><strong style="min-width:auto">Lighting:</strong> how does the quality of light shape the spatial experience?</li>
-          <li><strong style="min-width:auto">Materiality:</strong> how do different materials shape the digital narrative?</li>
-          <li><strong style="min-width:auto">Interaction:</strong> how does one interact with the space?</li>
-          <li><strong style="min-width:auto">Narrative:</strong> what is the essential narrative that this experience delivers?</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Learning Goals</h3>
-        <ol class="numlist" style="margin-top:8px">
-          <li>Cultivating an understanding of the history and theory of virtual design</li>
-          <li>Learning mesh-modeling and SubD in Rhino 8, and implementing, animating, and filming in Unreal Engine 5</li>
-          <li>Developing spatial narratives and exploring user interfaces through gamification</li>
-          <li>Reading a game space as built work through diagrams</li>
-          <li>Designing and building an original game mechanic</li>
-          <li>Incorporating A.I. tools into the Rhino and Unreal workflow</li>
-        </ol>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ LOGISTICS ============ -->
-<section>
-  <div class="wrap">
-    <p class="shead">Policies</p>
-    <h2>Attendance &amp; Assistance</h2>
-    <div class="grid g2">
-      <div class="card">
-        <h3>Attendance</h3>
-        <p>Students are expected to be present during class. Absences accruing more than three times during the semester will result in a reduction of grades at the discretion of the instructor. Lateness of more than 15 minutes will be counted as an absence unless communicated in advance. If there are any extenuating circumstances, please reach out to the instructor.</p>
-      </div>
-      <div class="card">
-        <h3>Deadlines</h3>
-        <p>Students should complete assignments to the best of their ability and submit them on time. If circumstances require a late submission, contact the instructor before the assignment is due. In the event of an emergency, contact both the instructor and your student advisor as soon as possible.</p>
-      </div>
-      <div class="card">
-        <h3>Software</h3>
-        <p>Rhino 8 and Unreal Engine 5. Install both during Week 1 and report any problems on Discord early rather than the night before a review. Tutorials are linked at the top of this page.</p>
-      </div>
-      <div class="card">
-        <h3>Assistance</h3>
-        <p>Tutorials will be provided throughout the course in addition to technical support on Discord. For all hardware assistance, please contact the Help Desk at help@the-bac.edu or (617) 585-0191.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <p>Boston Architectural College &middot; DME2100 Digital Narratives &middot; Fall 2026</p>
-    <p><a href="mailto:hamze.machmouchi@the-bac.edu">hamze.machmouchi@the-bac.edu</a></p>
-  </div>
-</footer>
+    </footer>
 
 </body>
 </html>
