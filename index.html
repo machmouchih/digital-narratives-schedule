@@ -80,11 +80,10 @@
                 <nav class="hidden md:block">
                     <div class="flex items-baseline space-x-1">
                         <a href="#overview" class="text-graphite hover:text-accent px-3 py-2 text-sm font-medium">Overview</a>
-                        <a href="#expectations" class="text-graphite hover:text-accent px-3 py-2 text-sm font-medium">Expectations</a>
-                        <a href="#links" class="text-graphite hover:text-accent px-3 py-2 text-sm font-medium">Links</a>
                         <a href="#games" class="text-graphite hover:text-accent px-3 py-2 text-sm font-medium">Games</a>
                         <a href="#project" class="text-graphite hover:text-accent px-3 py-2 text-sm font-medium">Project</a>
                         <a href="#schedule" class="text-graphite hover:text-accent px-3 py-2 text-sm font-medium">Schedule</a>
+                        <a href="#expectations" class="text-graphite hover:text-accent px-3 py-2 text-sm font-medium">Expectations</a>
                         <a href="#ai" class="text-graphite hover:text-accent px-3 py-2 text-sm font-medium">AI Policy</a>
                         <a href="#evaluation" class="text-graphite hover:text-accent px-3 py-2 text-sm font-medium">Evaluation</a>
                     </div>
@@ -96,48 +95,57 @@
     <main class="flex-grow">
 
         <!-- HERO -->
-        <section class="border-b border-rule bg-ink text-paper">
+        <section class="border-b border-rule bg-paper">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-18">
                 <p class="eyebrow text-accent mb-4">DME2100 &middot; Boston Architectural College</p>
-                <h1 class="font-display font-extrabold text-4xl md:text-6xl tracking-tight text-white leading-[1.05] mb-5">
+                <h1 class="font-display font-extrabold text-5xl md:text-7xl tracking-tight text-ink leading-[0.98] mb-6">
                     Digital Narratives
                 </h1>
-                <p class="text-base md:text-lg text-paper/70 max-w-3xl leading-relaxed">
-                    A course on spatial narratives in the unbuilt world, in which students take a game apart with an
+                <p class="text-base md:text-lg text-graphite max-w-2xl leading-relaxed">
+                    A course on spatial narratives in the unbuilt world, in which students analyse a game with an
                     architect's drawings and then build a world and a game mechanic of their own in Unreal Engine 5.
                 </p>
 
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-5 mt-10 pt-7 border-t border-white/15 text-sm">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-5 mt-10 pt-7 border-t-2 border-ink text-sm">
                     <div>
                         <p class="eyebrow text-accent mb-2">Term</p>
-                        <p class="text-white">Fall 2026</p>
-                        <p class="text-paper/60">August 24 to November 30</p>
+                        <p class="text-ink font-medium">Fall 2026</p>
+                        <p class="text-mist">August 24 to November 30</p>
                     </div>
                     <div>
                         <p class="eyebrow text-accent mb-2">Meeting Time</p>
-                        <p class="text-white">Monday, 4 PM EST</p>
-                        <p class="text-paper/60">Online via Zoom &middot; 3 credits</p>
+                        <p class="text-ink font-medium">Monday, 4 PM EST</p>
+                        <p class="text-mist">Online via Zoom &middot; 3 credits</p>
                     </div>
                     <div>
                         <p class="eyebrow text-accent mb-2">Instructor</p>
-                        <p class="text-white">Hamze Machmouchi</p>
-                        <a href="mailto:hamze.machmouchi@the-bac.edu" class="text-paper/60 hover:text-accent break-all">hamze.machmouchi@the-bac.edu</a>
+                        <p class="text-ink font-medium">Hamze Machmouchi</p>
+                        <a href="mailto:hamze.machmouchi@the-bac.edu" class="text-mist hover:text-accent break-all">hamze.machmouchi@the-bac.edu</a>
                     </div>
                     <div>
                         <p class="eyebrow text-accent mb-2">Office Hours</p>
-                        <p class="text-white">4 PM to 6 PM EST</p>
-                        <p class="text-paper/60">Mondays</p>
+                        <p class="text-ink font-medium">4 PM to 6 PM EST</p>
+                        <p class="text-mist">Mondays</p>
                     </div>
                 </div>
             </div>
+        </section>
+
+<!-- 03 QUICK LINKS -->
+        <section id="links" class="border-b border-rule bg-ink">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <p class="eyebrow text-accent mb-5">Quick Links</p>
+        </div>
         </section>
 
         <div class="max-w-5xl mx-auto py-14 px-4 sm:px-6 lg:px-8">
 
         <!-- 01 OVERVIEW -->
         <section id="overview" class="mb-20 scroll-mt-20">
-            <p class="eyebrow text-accent mb-2">01</p>
-            <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink mb-6 pb-3 border-b-2 border-ink">Course Information</h2>
+            <div class="flex items-baseline gap-4 mb-6 pb-3 border-b-2 border-ink">
+                <span class="font-display font-extrabold text-2xl text-accent leading-none">01</span>
+                <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink">Course Information</h2>
+            </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="md:col-span-2 space-y-5">
@@ -183,101 +191,26 @@
             </div>
         </section>
 
-        <!-- 02 EXPECTATIONS -->
-        <section id="expectations" class="mb-20 scroll-mt-20">
-            <p class="eyebrow text-accent mb-2">02</p>
-            <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink mb-3 pb-3 border-b-2 border-ink">Course Expectations</h2>
-            <p class="text-graphite mb-8 max-w-3xl leading-relaxed">
-                Students are expected to be actively engaged throughout the course. Because the course meets online and only
-                once per week, the following expectations govern the work carried out between sessions. Each contributes to
-                the participation portion of the final grade.
-            </p>
-
-            <div class="grid md:grid-cols-3 gap-px bg-rule border border-rule">
-                <div class="bg-card p-6">
-                    <p class="eyebrow text-accent mb-2">Expectation 01</p>
-                    <h3 class="font-display font-bold text-lg text-ink mb-3">Play is Research</h3>
-                    <p class="text-sm text-graphite leading-relaxed">
-                        Students are required to play their assigned games and study their spaces and narratives. Play with a
-                        notebook open. What you find in the game is the material for what you build.
-                    </p>
-                </div>
-                <div class="bg-card p-6">
-                    <p class="eyebrow text-accent mb-2">Expectation 02</p>
-                    <h3 class="font-display font-bold text-lg text-ink mb-3">The Camera Follows the Medium</h3>
-                    <p class="text-sm text-graphite leading-relaxed">
-                        Your assigned medium sets your camera for the semester. Axonometric means orthographic and locked.
-                        Section means the model is cut and the camera sits in the cut.
-                    </p>
-                </div>
-                <div class="bg-card p-6">
-                    <p class="eyebrow text-accent mb-2">Expectation 03</p>
-                    <h3 class="font-display font-bold text-lg text-ink mb-3">Weekly Progress</h3>
-                    <p class="text-sm text-graphite leading-relaxed">
-                        Upload progress work to the class drive every week, finished or not. Discord is used for informal
-                        communication and technical support between sessions.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 03 QUICK LINKS -->
-        <section id="links" class="mb-20 scroll-mt-20">
-            <p class="eyebrow text-accent mb-2">03</p>
-            <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink mb-6 pb-3 border-b-2 border-ink">Quick Links</h2>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-rule border border-rule">
-                <a href="https://the-bac.zoom.us/j/2720645727?pwd=NlVrZzJmZjFPMmhkNTRPelhsWWlsdz09" target="_blank" class="bg-card p-5 hover:bg-paper group">
-                    <p class="eyebrow text-accent mb-1">Class Meeting</p>
-                    <p class="font-display font-bold text-ink group-hover:text-accent">Zoom Link</p>
-                    <p class="text-sm text-mist mt-1">Mondays at 4 PM EST</p>
-                </a>
-                <a href="https://discord.gg/f5bVEe9nxd" target="_blank" class="bg-card p-5 hover:bg-paper group">
-                    <p class="eyebrow text-accent mb-1">Communication</p>
-                    <p class="font-display font-bold text-ink group-hover:text-accent">Discord Server</p>
-                    <p class="text-sm text-mist mt-1">Questions, support, studio sessions</p>
-                </a>
-                <a href="https://barch-my.sharepoint.com/:f:/g/personal/hamze_machmouchi_the-bac_edu/IgCTN-icwzLcRJvzU8GzE_xvATnjYXSde2Pm6uzD78San44?e=72Zj8m" target="_blank" class="bg-card p-5 hover:bg-paper group">
-                    <p class="eyebrow text-accent mb-1">Submissions</p>
-                    <p class="font-display font-bold text-ink group-hover:text-accent">Class Drive</p>
-                    <p class="text-sm text-mist mt-1">Weekly progress and deliverables</p>
-                </a>
-                <a href="https://barch-my.sharepoint.com/:f:/g/personal/hamze_machmouchi_the-bac_edu/IgCq4JzJZgLcSpUr0hhyV41tAeibszfLcP8sxWYVbYSUwMg?e=Bpga90" target="_blank" class="bg-card p-5 hover:bg-paper group">
-                    <p class="eyebrow text-accent mb-1">Resources</p>
-                    <p class="font-display font-bold text-ink group-hover:text-accent">Software Tutorials</p>
-                    <p class="text-sm text-mist mt-1">Rhino 8 and Unreal Engine 5</p>
-                </a>
-                <a href="https://barch-my.sharepoint.com/:f:/g/personal/hamze_machmouchi_the-bac_edu/IgDwiZFYqwH1R69hVXph3d8LATKQL_j7FK2MPUf_pDxe6IY?e=f4hqD2" target="_blank" class="bg-card p-5 hover:bg-paper group">
-                    <p class="eyebrow text-accent mb-1">Resources</p>
-                    <p class="font-display font-bold text-ink group-hover:text-accent">Readings</p>
-                    <p class="text-sm text-mist mt-1">Totten and supporting texts</p>
-                </a>
-                <div class="bg-card p-5">
-                    <p class="eyebrow text-mist mb-1">Support</p>
-                    <p class="font-display font-bold text-ink">BAC Help Desk</p>
-                    <p class="text-sm text-mist mt-1">help@the-bac.edu &middot; (617) 585-0191</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 04 GAMES -->
+<!-- 04 GAMES -->
         <section id="games" class="mb-20 scroll-mt-20">
-            <p class="eyebrow text-accent mb-2">04</p>
-            <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink mb-3 pb-3 border-b-2 border-ink">Assigned Games</h2>
+            <div class="flex items-baseline gap-4 mb-6 pb-3 border-b-2 border-ink">
+                <span class="font-display font-extrabold text-2xl text-accent leading-none">02</span>
+                <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink">Assigned Games</h2>
+            </div>
             <p class="text-graphite mb-3 max-w-3xl leading-relaxed">
                 The class is divided into four research groups. Each group analyzes its assigned games, focusing on
                 narrative, level design, and world-building, and presents the analysis in Week 3.
             </p>
             <p class="text-graphite mb-8 max-w-3xl leading-relaxed">
-                <strong class="text-ink">Do not buy anything before Week 1.</strong> Groups and games are assigned in the
-                first session. You only need access to your own group's two games, and several can be played on a laptop
-                through cloud streaming without buying a thing.
+                <strong class="text-ink">Wait until after the first session to buy anything.</strong> Groups and games are
+                assigned in Week 1, and you only need your own group's two games. Several can be streamed to a laptop
+                instead of bought.
             </p>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-rule border border-rule mb-6">
 
                 <div class="bg-card">
-                    <div class="cover h-32 border-b border-rule" style="background-image:url('images/games/jedi-survivor.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1774580/header.jpg'),linear-gradient(150deg,#3a2a1a,#171018)"></div>
+                    <div class="cover h-40 border-b border-rule" style="background-image:url('images/games/jedi-survivor.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1774580/header.jpg'),linear-gradient(150deg,#3a2a1a,#171018)"></div>
                     <div class="p-4">
                         <p class="eyebrow text-accent mb-1">Group 1 &middot; World Weavers</p>
                         <p class="font-display font-bold text-ink text-sm leading-snug mb-3">Star Wars Jedi: Survivor</p>
@@ -291,7 +224,7 @@
                 </div>
 
                 <div class="bg-card">
-                    <div class="cover h-32 border-b border-rule" style="background-image:url('images/games/cyberpunk.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg'),linear-gradient(150deg,#3d2f10,#14121c)"></div>
+                    <div class="cover h-40 border-b border-rule" style="background-image:url('images/games/cyberpunk.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg'),linear-gradient(150deg,#3d2f10,#14121c)"></div>
                     <div class="p-4">
                         <p class="eyebrow text-accent mb-1">Group 1 &middot; World Weavers</p>
                         <p class="font-display font-bold text-ink text-sm leading-snug mb-3">Cyberpunk 2077</p>
@@ -305,7 +238,7 @@
                 </div>
 
                 <div class="bg-card">
-                    <div class="cover h-32 border-b border-rule" style="background-image:url('images/games/alan-wake-2.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1903340/header.jpg'),linear-gradient(150deg,#1c2b34,#0f1116)"></div>
+                    <div class="cover h-40 border-b border-rule" style="background-image:url('images/games/alan-wake-2.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1903340/header.jpg'),linear-gradient(150deg,#1c2b34,#0f1116)"></div>
                     <div class="p-4">
                         <p class="eyebrow text-accent mb-1">Group 2 &middot; Mind Benders</p>
                         <p class="font-display font-bold text-ink text-sm leading-snug mb-3">Alan Wake 2</p>
@@ -319,7 +252,7 @@
                 </div>
 
                 <div class="bg-card">
-                    <div class="cover h-32 border-b border-rule" style="background-image:url('images/games/control.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/870780/header.jpg'),linear-gradient(150deg,#33202c,#121017)"></div>
+                    <div class="cover h-40 border-b border-rule" style="background-image:url('images/games/control.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/870780/header.jpg'),linear-gradient(150deg,#33202c,#121017)"></div>
                     <div class="p-4">
                         <p class="eyebrow text-accent mb-1">Group 2 &middot; Mind Benders</p>
                         <p class="font-display font-bold text-ink text-sm leading-snug mb-3">Control</p>
@@ -333,7 +266,7 @@
                 </div>
 
                 <div class="bg-card">
-                    <div class="cover h-32 border-b border-rule" style="background-image:url('images/games/edith-finch.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/501300/header.jpg'),linear-gradient(150deg,#23331f,#101317)"></div>
+                    <div class="cover h-40 border-b border-rule" style="background-image:url('images/games/edith-finch.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/501300/header.jpg'),linear-gradient(150deg,#23331f,#101317)"></div>
                     <div class="p-4">
                         <p class="eyebrow text-accent mb-1">Group 3 &middot; Intimate Storytellers</p>
                         <p class="font-display font-bold text-ink text-sm leading-snug mb-3">What Remains of Edith Finch</p>
@@ -347,7 +280,7 @@
                 </div>
 
                 <div class="bg-card">
-                    <div class="cover h-32 border-b border-rule" style="background-image:url('images/games/stray.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1332010/header.jpg'),linear-gradient(150deg,#2c3320,#111318)"></div>
+                    <div class="cover h-40 border-b border-rule" style="background-image:url('images/games/stray.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1332010/header.jpg'),linear-gradient(150deg,#2c3320,#111318)"></div>
                     <div class="p-4">
                         <p class="eyebrow text-accent mb-1">Group 3 &middot; Intimate Storytellers</p>
                         <p class="font-display font-bold text-ink text-sm leading-snug mb-3">Stray</p>
@@ -361,7 +294,7 @@
                 </div>
 
                 <div class="bg-card">
-                    <div class="cover h-32 border-b border-rule" style="background-image:url('images/games/plague-tale.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1182900/header.jpg'),linear-gradient(150deg,#332618,#121016)"></div>
+                    <div class="cover h-40 border-b border-rule" style="background-image:url('images/games/plague-tale.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/1182900/header.jpg'),linear-gradient(150deg,#332618,#121016)"></div>
                     <div class="p-4">
                         <p class="eyebrow text-accent mb-1">Group 4 &middot; Historical Architects</p>
                         <p class="font-display font-bold text-ink text-sm leading-snug mb-3">A Plague Tale: Requiem</p>
@@ -375,7 +308,7 @@
                 </div>
 
                 <div class="bg-card">
-                    <div class="cover h-32 border-b border-rule" style="background-image:url('images/games/ac-shadows.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/3159330/header.jpg'),linear-gradient(150deg,#38301a,#141218)"></div>
+                    <div class="cover h-40 border-b border-rule" style="background-image:url('images/games/ac-shadows.jpg'),url('https://cdn.cloudflare.steamstatic.com/steam/apps/3159330/header.jpg'),linear-gradient(150deg,#38301a,#141218)"></div>
                     <div class="p-4">
                         <p class="eyebrow text-accent mb-1">Group 4 &middot; Historical Architects</p>
                         <p class="font-display font-bold text-ink text-sm leading-snug mb-3">Assassin's Creed Shadows</p>
@@ -397,8 +330,8 @@
                 <div class="mt-5 space-y-4 pl-4 border-l-2 border-rule text-sm">
                     <p class="text-graphite leading-relaxed">
                         A gaming PC is not required for this course. Every game on the list can be streamed to a laptop or
-                        tablet through a cloud service, and most of these services run a free tier or a trial. Start with the
-                        free options before you spend anything.
+                        tablet through a cloud service, and most of these services run a free tier or a trial. Check the
+                        free options first.
                     </p>
                     <div>
                         <p class="font-display font-bold text-ink">GeForce NOW <span class="eyebrow text-accent ml-1">Free tier</span></p>
@@ -444,10 +377,12 @@
             </details>
         </section>
 
-        <!-- 05 FINAL PROJECT -->
+<!-- 05 FINAL PROJECT -->
         <section id="project" class="mb-20 scroll-mt-20">
-            <p class="eyebrow text-accent mb-2">05</p>
-            <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink mb-3 pb-3 border-b-2 border-ink">Final Project</h2>
+            <div class="flex items-baseline gap-4 mb-6 pb-3 border-b-2 border-ink">
+                <span class="font-display font-extrabold text-2xl text-accent leading-none">03</span>
+                <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink">Final Project</h2>
+            </div>
             <p class="text-graphite mb-8 max-w-3xl leading-relaxed">
                 Each student creates their own digital narrative and three-dimensional game space in Unreal Engine 5,
                 developed across four phases. The first two phases run in the first half of the semester and conclude at the
@@ -464,9 +399,9 @@
                             <h3 class="font-display text-xl font-bold text-ink mb-2">Game Space Analysis</h3>
                             <p class="text-graphite mb-4 leading-relaxed">
                                 Running alongside the Rhino and Unreal workshops in Weeks 1 to 3. Play your group's game,
-                                take it apart in four layers, and present the analysis in Week 3. The question is not whether
-                                the game is good. The question is how it is built, and whether you can show it in drawings.
-                                This presentation is the Demo portion of your grade.
+                                take it apart in four layers, and present the analysis in Week 3. You are documenting how
+                                the game is built rather than reviewing it, and the analysis is presented in drawings. This
+                                presentation is the Demo portion of your grade.
                             </p>
                             <details class="text-sm group mb-4">
                                 <summary class="font-display font-semibold text-accent hover:text-accentdark">
@@ -479,11 +414,11 @@
                                     </div>
                                     <div>
                                         <p class="font-display font-bold text-ink">Spatial Grammar: how does the space instruct without instructions?</p>
-                                        <p class="text-graphite mt-1">Landmarks, sightlines, thresholds, compression and release. Turn the waypoint marker off and document what still tells you where to go. Every game builds a color and material language for climbable, dangerous, and worth your attention.</p>
+                                        <p class="text-graphite mt-1">Landmarks, sightlines, thresholds, compression and release. Turn the waypoint marker off and note what still guides you through the space. Every game builds a color and material language for climbable, dangerous, and worth your attention.</p>
                                     </div>
                                     <div>
                                         <p class="font-display font-bold text-ink">Game Mechanics: what can the player do, and what does it mean?</p>
-                                        <p class="text-graphite mt-1">The verbs the player is given and the core loop they sit inside. Then: how does the mechanic carry the theme? In <em>What Remains of Edith Finch</em> the mechanic changes with each story because each is a different mind. In <em>Stray</em> the player is held low to the ground because the world was not built for a cat.</p>
+                                        <p class="text-graphite mt-1">The verbs the player is given and the core loop they sit inside, and how the mechanic carries the theme. In <em>What Remains of Edith Finch</em> the mechanic changes with each story, because each story belongs to a different character. In <em>Stray</em> the player moves at cat height, which changes how the city reads.</p>
                                     </div>
                                     <div>
                                         <p class="font-display font-bold text-ink">Pacing: how does the experience rise and fall?</p>
@@ -521,18 +456,18 @@
                             <div class="bg-paper border border-rule p-4 text-sm mb-4">
                                 <p class="eyebrow text-accent mb-2">Building Part &middot; Choose One</p>
                                 <p class="text-graphite leading-relaxed mb-3">
-                                    Your primary tool for storytelling. One part, worked hard, for the whole semester.
-                                    Everything else in the scene supports it.
+                                    Your primary tool for storytelling. You work with this one part for the whole
+                                    semester, and the rest of the scene supports it.
                                 </p>
                                 <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-graphite">
-                                    <li><strong class="text-ink">Wall / Fa&ccedil;ade</strong> &middot; the barrier and the face. What it hides on one side, what it announces on the other.</li>
-                                    <li><strong class="text-ink">Floor / Ground Plane</strong> &middot; what carries the body. Level change, material underfoot, and what lies below.</li>
-                                    <li><strong class="text-ink">Ceiling / Roof</strong> &middot; the overhead condition. Shelter, weight, and access to sky.</li>
-                                    <li><strong class="text-ink">Door / Opening</strong> &middot; the controlled passage. Who may pass, when, and at what cost.</li>
-                                    <li><strong class="text-ink">Window / Aperture</strong> &middot; the framed view. What is shown, what is withheld, and from where.</li>
-                                    <li><strong class="text-ink">Stair / Ramp</strong> &middot; movement through height. Effort, rhythm, and the moment of arrival.</li>
-                                    <li><strong class="text-ink">Column / Structure</strong> &middot; the order of the space. Rhythm, grid, and what the building admits about how it stands.</li>
-                                    <li><strong class="text-ink">Pathway / Corridor</strong> &middot; the enforced route. Duration, compression, and the pace it imposes.</li>
+                                    <li><strong class="text-ink">Wall / Fa&ccedil;ade</strong> &middot; separation and enclosure, and the public face of a building.</li>
+                                    <li><strong class="text-ink">Floor / Ground Plane</strong> &middot; what the body moves across. Level change and material underfoot.</li>
+                                    <li><strong class="text-ink">Ceiling / Roof</strong> &middot; the overhead condition. Shelter, weight, and openings to the sky.</li>
+                                    <li><strong class="text-ink">Door / Opening</strong> &middot; controlled passage between one space and another.</li>
+                                    <li><strong class="text-ink">Window / Aperture</strong> &middot; the framed view, and what it shows or withholds.</li>
+                                    <li><strong class="text-ink">Stair / Ramp</strong> &middot; movement through height, and the rhythm of that movement.</li>
+                                    <li><strong class="text-ink">Column / Structure</strong> &middot; the order and rhythm of the space, and how the building stands.</li>
+                                    <li><strong class="text-ink">Pathway / Corridor</strong> &middot; the route, its length, and the pace it sets.</li>
                                 </ul>
                             </div>
                             <details class="text-sm group mb-3">
@@ -562,7 +497,7 @@
                                         <em>Monument Valley</em> is an axonometric. <em>Inside</em> is a section.
                                         <em>Gorogoa</em> is a panel grid. Your assigned convention sets the drawings you
                                         produce and the camera you build in Unreal Engine. A locked view cannot be fixed with
-                                        camera movement, so the space has to carry the narrative.
+                                        camera movement, so the narrative has to be carried by the space itself.
                                     </p>
                                     <ul class="space-y-2 text-graphite">
                                         <li><strong class="text-ink">Section</strong> &middot; the model is cut and the camera sits in the cut plane. <span class="text-mist">Inside, Limbo</span></li>
@@ -616,8 +551,9 @@
                             <div class="bg-paper border border-rule p-4 text-sm">
                                 <p class="eyebrow text-accent mb-2">Requirement</p>
                                 <p class="text-graphite leading-relaxed">
-                                    One mechanic, built properly, beats three that half work. The mechanic is tested in Week
-                                    11 by a classmate with no instructions. If they never find it, it does not work yet.
+                                    Build one mechanic and get it working rather than several that are incomplete. In Week
+                                    11 a classmate will play your scene without instructions. If they do not find the
+                                    mechanic, it needs more work.
                                 </p>
                             </div>
                         </div>
@@ -652,10 +588,12 @@
             </div>
         </section>
 
-        <!-- 06 COURSE STRUCTURE -->
+<!-- 06 COURSE STRUCTURE -->
         <section id="schedule" class="mb-20 scroll-mt-20">
-            <p class="eyebrow text-accent mb-2">06</p>
-            <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink mb-3 pb-3 border-b-2 border-ink">Course Structure</h2>
+            <div class="flex items-baseline gap-4 mb-6 pb-3 border-b-2 border-ink">
+                <span class="font-display font-extrabold text-2xl text-accent leading-none">04</span>
+                <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink">Course Structure</h2>
+            </div>
             <p class="text-graphite mb-8 max-w-3xl leading-relaxed">
                 This course meets every Monday at 4 PM EST via Zoom, for thirteen sessions between August 24 and November 30.
                 One is a studio session held on Discord, where the instructor is available throughout the scheduled class
@@ -671,13 +609,17 @@
                 </div>
                 <div class="space-y-px bg-rule border border-rule">
 
-                    <div class="bg-card p-5 flex flex-col sm:flex-row gap-4">
-                        <div class="sm:w-32 shrink-0">
-                            <p class="font-display font-extrabold text-ink">August 24</p>
-                            <p class="eyebrow text-mist">Week 1</p>
-                        </div>
-                        <div class="flex-1">
-                            <h4 class="font-display font-bold text-ink mb-1">Research and Setup &middot; Intro to Rhino 8</h4>
+                    <details class="bg-card group">
+                        <summary class="p-5 flex flex-col sm:flex-row gap-4 hover:bg-paper">
+                            <div class="sm:w-32 shrink-0">
+                                <p class="font-display font-extrabold text-ink">August 24</p>
+                                <p class="eyebrow text-mist">Week 1</p>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-display font-bold text-ink">Research and Setup &middot; Intro to Rhino 8 <span class="disclosure-arrow text-accent">&#9662;</span></h4>
+                            </div>
+                        </summary>
+                        <div class="px-5 pb-5 sm:pl-40">
                             <p class="text-sm text-graphite leading-relaxed">
                                 Intro, group assignments, Verb and Medium assigned. Discussing level design as narrative.
                                 Workshop on diagramming a game space. First Rhino 8 workshop on mesh-modeling and SubD.
@@ -686,38 +628,45 @@
                                 5 and report any issues.
                             </p>
                         </div>
-                    </div>
+                    </details>
 
-                    <div class="bg-card hatch p-5 flex flex-col sm:flex-row gap-4">
-                        <div class="sm:w-32 shrink-0">
-                            <p class="font-display font-extrabold text-ink">August 31</p>
-                            <p class="eyebrow text-accent">Studio</p>
-                        </div>
-                        <div class="flex-1">
-                            <h4 class="font-display font-bold text-ink mb-1">Rhino Studio <span class="text-mist font-normal text-sm">(on Discord)</span></h4>
+                    <details class="bg-card hatch group">
+                        <summary class="p-5 flex flex-col sm:flex-row gap-4 hover:bg-paper">
+                            <div class="sm:w-32 shrink-0">
+                                <p class="font-display font-extrabold text-ink">August 31</p>
+                                <p class="eyebrow text-accent">Studio</p>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-display font-bold text-ink">Rhino Studio <span class="text-mist font-normal text-sm">(on Discord)</span> <span class="disclosure-arrow text-accent">&#9662;</span></h4>
+                            </div>
+                        </summary>
+                        <div class="px-5 pb-5 sm:pl-40">
                             <p class="text-sm text-graphite leading-relaxed">
-                                There is no Zoom meeting for this session. The instructor is away August 31 to September 6
-                                and is available on Discord throughout the week for questions, guidance, and review of work
-                                as it develops. A recorded lecture on level graphs and pacing is posted Monday, alongside the
-                                Rhino tutorials in the Software Tutorials drive and a walkthrough of A.I. previsualization
-                                tools. Three of the six diagrams, your first Rhino studies, and a moodboard for your Verb and
-                                Medium are due Friday September 4.
+                                No class on August 31. Work continues on Discord, where the instructor is available for
+                                questions and for review of work in progress. A recorded lecture on level graphs and pacing
+                                is posted Monday, alongside the Rhino tutorials in the Software Tutorials drive and a
+                                walkthrough of A.I. previsualization tools. Three of the six diagrams, your first Rhino
+                                studies, and a moodboard for your Verb and Medium are due Friday September 4.
                             </p>
                         </div>
-                    </div>
+                    </details>
 
                     <div class="bg-paper border-2 border-dashed border-rule p-4 text-center">
                         <p class="eyebrow text-mist mb-1">Monday September 7 &middot; BAC Closed</p>
                         <p class="text-sm text-graphite">Labor Day. No class and no submissions due.</p>
                     </div>
 
-                    <div class="bg-card p-5 flex flex-col sm:flex-row gap-4">
-                        <div class="sm:w-32 shrink-0">
-                            <p class="font-display font-extrabold text-ink">September 14</p>
-                            <p class="eyebrow text-mist">Week 3</p>
-                        </div>
-                        <div class="flex-1">
-                            <h4 class="font-display font-bold text-ink mb-1">Analysis Presentations and Intro to Unreal Engine 5</h4>
+                    <details class="bg-card group">
+                        <summary class="p-5 flex flex-col sm:flex-row gap-4 hover:bg-paper">
+                            <div class="sm:w-32 shrink-0">
+                                <p class="font-display font-extrabold text-ink">September 14</p>
+                                <p class="eyebrow text-mist">Week 3</p>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-display font-bold text-ink">Analysis Presentations and Intro to Unreal Engine 5 <span class="disclosure-arrow text-accent">&#9662;</span></h4>
+                            </div>
+                        </summary>
+                        <div class="px-5 pb-5 sm:pl-40">
                             <p class="text-sm text-graphite leading-relaxed">
                                 Group presentations, eight minutes each, walking through all six diagrams. Graded as the
                                 Demo. The second half is a workshop on UE5 basics, importing assets from Rhino, and basic
@@ -725,31 +674,39 @@
                                 medium, three quick studies, and import your model into a UE5 scene.
                             </p>
                         </div>
-                    </div>
+                    </details>
 
-                    <div class="bg-card p-5 flex flex-col sm:flex-row gap-4">
-                        <div class="sm:w-32 shrink-0">
-                            <p class="font-display font-extrabold text-ink">September 21</p>
-                            <p class="eyebrow text-mist">Week 4</p>
-                        </div>
-                        <div class="flex-1">
-                            <h4 class="font-display font-bold text-ink mb-1">Your Building Part and the Medium Camera</h4>
+                    <details class="bg-card group">
+                        <summary class="p-5 flex flex-col sm:flex-row gap-4 hover:bg-paper">
+                            <div class="sm:w-32 shrink-0">
+                                <p class="font-display font-extrabold text-ink">September 21</p>
+                                <p class="eyebrow text-mist">Week 4</p>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-display font-bold text-ink">Your Building Part and the Medium Camera <span class="disclosure-arrow text-accent">&#9662;</span></h4>
+                            </div>
+                        </summary>
+                        <div class="px-5 pb-5 sm:pl-40">
                             <p class="text-sm text-graphite leading-relaxed">
                                 Choosing and modeling your Building Part. Rhino to Unreal pipeline: scale, pivots, export. A
                                 workshop on A.I. asset generation, covering text and image to 3D, cleaning generated meshes
-                                in Rhino, and what these tools get wrong. Setting up your medium's camera: orthographic
+                                in Rhino, and the limits of these tools. Setting up your medium's camera: orthographic
                                 locks, cut planes, parallax layers.
                             </p>
                         </div>
-                    </div>
+                    </details>
 
-                    <div class="bg-card p-5 flex flex-col sm:flex-row gap-4">
-                        <div class="sm:w-32 shrink-0">
-                            <p class="font-display font-extrabold text-ink">September 28</p>
-                            <p class="eyebrow text-mist">Week 5</p>
-                        </div>
-                        <div class="flex-1">
-                            <h4 class="font-display font-bold text-ink mb-1">Lighting, Sound, and Level Sequencer</h4>
+                    <details class="bg-card group">
+                        <summary class="p-5 flex flex-col sm:flex-row gap-4 hover:bg-paper">
+                            <div class="sm:w-32 shrink-0">
+                                <p class="font-display font-extrabold text-ink">September 28</p>
+                                <p class="eyebrow text-mist">Week 5</p>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-display font-bold text-ink">Lighting, Sound, and Level Sequencer <span class="disclosure-arrow text-accent">&#9662;</span></h4>
+                            </div>
+                        </summary>
+                        <div class="px-5 pb-5 sm:pl-40">
                             <p class="text-sm text-graphite leading-relaxed">
                                 Lighting as narrative: what is revealed, what is withheld, and when. Sound against the
                                 intensity curve from your analysis. A workshop on animating cameras and objects with Level
@@ -757,22 +714,26 @@
                                 anchor idea and storyboard.
                             </p>
                         </div>
-                    </div>
+                    </details>
 
-                    <div class="bg-card p-5 flex flex-col sm:flex-row gap-4">
-                        <div class="sm:w-32 shrink-0">
-                            <p class="font-display font-extrabold text-ink">October 5</p>
-                            <p class="eyebrow text-mist">Week 6</p>
-                        </div>
-                        <div class="flex-1">
-                            <h4 class="font-display font-bold text-ink mb-1">Narrative Design and Crits &middot; Midterm Prep</h4>
+                    <details class="bg-card group">
+                        <summary class="p-5 flex flex-col sm:flex-row gap-4 hover:bg-paper">
+                            <div class="sm:w-32 shrink-0">
+                                <p class="font-display font-extrabold text-ink">October 5</p>
+                                <p class="eyebrow text-mist">Week 6</p>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-display font-bold text-ink">Narrative Design and Crits &middot; Midterm Prep <span class="disclosure-arrow text-accent">&#9662;</span></h4>
+                            </div>
+                        </summary>
+                        <div class="px-5 pb-5 sm:pl-40">
                             <p class="text-sm text-graphite leading-relaxed">
-                                Desk crits on UE5 loops. Each loop is watched without explanation from its author, who then
-                                hears what was read from it. Open studio time after. This is the final working session before
-                                the midterm review.
+                                Desk crits on UE5 loops. Each loop is watched before its author explains it, followed by
+                                feedback on what was understood from it. Open studio time after. This is the final working
+                                session before the midterm review.
                             </p>
                         </div>
-                    </div>
+                    </details>
 
                     <div class="bg-paper border-2 border-dashed border-rule p-4 text-center">
                         <p class="eyebrow text-mist mb-1">Monday October 12 &middot; BAC Closed</p>
@@ -814,13 +775,17 @@
                 </div>
                 <div class="space-y-px bg-rule border border-rule">
 
-                    <div class="bg-card p-5 flex flex-col sm:flex-row gap-4">
-                        <div class="sm:w-32 shrink-0">
-                            <p class="font-display font-extrabold text-ink">October 26</p>
-                            <p class="eyebrow text-mist">Week 8</p>
-                        </div>
-                        <div class="flex-1">
-                            <h4 class="font-display font-bold text-ink mb-1">Interactive Narratives and Designing a Mechanic</h4>
+                    <details class="bg-card group">
+                        <summary class="p-5 flex flex-col sm:flex-row gap-4 hover:bg-paper">
+                            <div class="sm:w-32 shrink-0">
+                                <p class="font-display font-extrabold text-ink">October 26</p>
+                                <p class="eyebrow text-mist">Week 8</p>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-display font-bold text-ink">Interactive Narratives and Designing a Mechanic <span class="disclosure-arrow text-accent">&#9662;</span></h4>
+                            </div>
+                        </summary>
+                        <div class="px-5 pb-5 sm:pl-40">
                             <p class="text-sm text-graphite leading-relaxed">
                                 Midterm debrief. Discussing player agency and interactive storytelling. Turning the six
                                 diagrams onto your own project. Writing a mechanic as a specification: the verb, its inputs,
@@ -828,15 +793,19 @@
                                 one-page spec for your core mechanic.
                             </p>
                         </div>
-                    </div>
+                    </details>
 
-                    <div class="bg-card p-5 flex flex-col sm:flex-row gap-4">
-                        <div class="sm:w-32 shrink-0">
-                            <p class="font-display font-extrabold text-ink">November 2</p>
-                            <p class="eyebrow text-mist">Week 9</p>
-                        </div>
-                        <div class="flex-1">
-                            <h4 class="font-display font-bold text-ink mb-1">Blueprints and Building Your Mechanic</h4>
+                    <details class="bg-card group">
+                        <summary class="p-5 flex flex-col sm:flex-row gap-4 hover:bg-paper">
+                            <div class="sm:w-32 shrink-0">
+                                <p class="font-display font-extrabold text-ink">November 2</p>
+                                <p class="eyebrow text-mist">Week 9</p>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-display font-bold text-ink">Blueprints and Building Your Mechanic <span class="disclosure-arrow text-accent">&#9662;</span></h4>
+                            </div>
+                        </summary>
+                        <div class="px-5 pb-5 sm:pl-40">
                             <p class="text-sm text-graphite leading-relaxed">
                                 Intro to Blueprints for simple interactivity such as triggers and doors. Setting up a player
                                 pawn and holding your medium's camera steady while the player moves. Building the mechanic
@@ -844,31 +813,39 @@
                                 misleads you. The second half is an open debugging clinic.
                             </p>
                         </div>
-                    </div>
+                    </details>
 
-                    <div class="bg-card p-5 flex flex-col sm:flex-row gap-4">
-                        <div class="sm:w-32 shrink-0">
-                            <p class="font-display font-extrabold text-ink">November 9</p>
-                            <p class="eyebrow text-mist">Week 10</p>
-                        </div>
-                        <div class="flex-1">
-                            <h4 class="font-display font-bold text-ink mb-1">A.I. in the Unreal Workflow</h4>
+                    <details class="bg-card group">
+                        <summary class="p-5 flex flex-col sm:flex-row gap-4 hover:bg-paper">
+                            <div class="sm:w-32 shrink-0">
+                                <p class="font-display font-extrabold text-ink">November 9</p>
+                                <p class="eyebrow text-mist">Week 10</p>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-display font-bold text-ink">A.I. in the Unreal Workflow <span class="disclosure-arrow text-accent">&#9662;</span></h4>
+                            </div>
+                        </summary>
+                        <div class="px-5 pb-5 sm:pl-40">
                             <p class="text-sm text-graphite leading-relaxed">
                                 A workshop on dynamic materials and advanced lighting in UE5, covering atmosphere, fog, and
                                 volumetrics. A.I. texture and material generation, video-based motion capture into UE5, and
-                                generated ambience and sound. Discussing where these tools belong in the workflow and where
-                                they replace the thinking.
+                                generated ambience and sound. A discussion of where these tools fit in the workflow and
+                                where they fall short.
                             </p>
                         </div>
-                    </div>
+                    </details>
 
-                    <div class="bg-card p-5 flex flex-col sm:flex-row gap-4">
-                        <div class="sm:w-32 shrink-0">
-                            <p class="font-display font-extrabold text-ink">November 16</p>
-                            <p class="eyebrow text-mist">Week 11</p>
-                        </div>
-                        <div class="flex-1">
-                            <h4 class="font-display font-bold text-ink mb-1">Peer Playtesting</h4>
+                    <details class="bg-card group">
+                        <summary class="p-5 flex flex-col sm:flex-row gap-4 hover:bg-paper">
+                            <div class="sm:w-32 shrink-0">
+                                <p class="font-display font-extrabold text-ink">November 16</p>
+                                <p class="eyebrow text-mist">Week 11</p>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-display font-bold text-ink">Peer Playtesting <span class="disclosure-arrow text-accent">&#9662;</span></h4>
+                            </div>
+                        </summary>
+                        <div class="px-5 pb-5 sm:pl-40">
                             <p class="text-sm text-graphite leading-relaxed">
                                 Students exchange projects. Each student walks a classmate's world with no instruction while
                                 its author watches in silence and records where they go, what they touch, and what they miss.
@@ -876,22 +853,26 @@
                                 focusing on narrative, space, and interactivity.
                             </p>
                         </div>
-                    </div>
+                    </details>
 
-                    <div class="bg-card p-5 flex flex-col sm:flex-row gap-4">
-                        <div class="sm:w-32 shrink-0">
-                            <p class="font-display font-extrabold text-ink">November 23</p>
-                            <p class="eyebrow text-mist">Week 12</p>
-                        </div>
-                        <div class="flex-1">
-                            <h4 class="font-display font-bold text-ink mb-1">Studio and Final Prep</h4>
+                    <details class="bg-card group">
+                        <summary class="p-5 flex flex-col sm:flex-row gap-4 hover:bg-paper">
+                            <div class="sm:w-32 shrink-0">
+                                <p class="font-display font-extrabold text-ink">November 23</p>
+                                <p class="eyebrow text-mist">Week 12</p>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-display font-bold text-ink">Studio and Final Prep <span class="disclosure-arrow text-accent">&#9662;</span></h4>
+                            </div>
+                        </summary>
+                        <div class="px-5 pb-5 sm:pl-40">
                             <p class="text-sm text-graphite leading-relaxed">
                                 Open studio time for final touches, and a technical rehearsal in which each student tests
                                 their build on the presentation setup. The BAC is closed Wednesday November 25 through Friday
                                 November 27, but Monday remains in session. If you are travelling, check in on Discord.
                             </p>
                         </div>
-                    </div>
+                    </details>
 
                 </div>
             </div>
@@ -922,10 +903,52 @@
             </p>
         </section>
 
-        <!-- 07 AI POLICY -->
+<!-- 02 EXPECTATIONS -->
+        <section id="expectations" class="mb-20 scroll-mt-20">
+            <div class="flex items-baseline gap-4 mb-6 pb-3 border-b-2 border-ink">
+                <span class="font-display font-extrabold text-2xl text-accent leading-none">05</span>
+                <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink">Course Expectations</h2>
+            </div>
+            <p class="text-graphite mb-8 max-w-3xl leading-relaxed">
+                Students are expected to be actively engaged throughout the course. Because the course meets online and only
+                once per week, the following expectations govern the work carried out between sessions. Each contributes to
+                the participation portion of the final grade.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-px bg-rule border border-rule">
+                <div class="bg-card p-6">
+                    <p class="eyebrow text-accent mb-2">Expectation 01</p>
+                    <h3 class="font-display font-bold text-lg text-ink mb-3">Play is Research</h3>
+                    <p class="text-sm text-graphite leading-relaxed">
+                        Students are required to play their assigned games and study their spaces and narratives. Take
+                        notes and capture screenshots while you play. This material feeds directly into your own project.
+                    </p>
+                </div>
+                <div class="bg-card p-6">
+                    <p class="eyebrow text-accent mb-2">Expectation 02</p>
+                    <h3 class="font-display font-bold text-lg text-ink mb-3">The Camera Follows the Medium</h3>
+                    <p class="text-sm text-graphite leading-relaxed">
+                        Your assigned medium sets your camera for the semester. Axonometric means orthographic and locked.
+                        Section means the model is cut and the camera sits in the cut.
+                    </p>
+                </div>
+                <div class="bg-card p-6">
+                    <p class="eyebrow text-accent mb-2">Expectation 03</p>
+                    <h3 class="font-display font-bold text-lg text-ink mb-3">Weekly Progress</h3>
+                    <p class="text-sm text-graphite leading-relaxed">
+                        Upload progress work to the class drive every week, finished or not. Discord is used for informal
+                        communication and technical support between sessions.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+<!-- 07 AI POLICY -->
         <section id="ai" class="mb-20 scroll-mt-20">
-            <p class="eyebrow text-accent mb-2">07</p>
-            <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink mb-6 pb-3 border-b-2 border-ink">Use of Artificial Intelligence</h2>
+            <div class="flex items-baseline gap-4 mb-6 pb-3 border-b-2 border-ink">
+                <span class="font-display font-extrabold text-2xl text-accent leading-none">06</span>
+                <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink">Use of Artificial Intelligence</h2>
+            </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="md:col-span-2 space-y-5">
@@ -935,9 +958,9 @@
                         and students are not required to avoid them.
                     </p>
                     <p class="text-graphite leading-relaxed">
-                        They are used for production, not for the thinking. The diagrams, the mechanic specification, and the
-                        narrative are yours. A scene assembled from generated assets that its author cannot account for does
-                        not meet the requirements of the assignment.
+                        They are used to produce assets and to assist with scripting. The diagrams, the mechanic
+                        specification, and the narrative are the student's own work, and students should be able to account
+                        for every generated asset in their scene.
                     </p>
                     <p class="text-graphite leading-relaxed">
                         Week 2 covers previsualization, using image and video generation for moodboards, concept frames, and
@@ -957,12 +980,12 @@
                 <div class="bg-ink text-paper p-6 self-start">
                     <p class="eyebrow text-accent mb-4">The Requirement</p>
                     <p class="text-white font-display font-bold text-lg leading-snug mb-4">
-                        Students must be able to explain what they generated, what they kept, and what they had to fix.
+                        Students should be able to explain what they generated, what they kept, and what they changed.
                     </p>
                     <div class="border-t border-white/15 pt-4">
                         <p class="eyebrow text-accent mb-2">Evidence</p>
                         <ul class="text-sm text-paper/75 space-y-2 list-disc list-outside pl-4">
-                            <li>Documentation of A.I. use, at both reviews</li>
+                            <li>Documentation of A.I. use at both reviews</li>
                             <li>Attribution for generated assets</li>
                             <li>Verbal explanation on request during a review</li>
                         </ul>
@@ -971,10 +994,12 @@
             </div>
         </section>
 
-        <!-- 08 EVALUATION AND POLICIES -->
+<!-- 08 EVALUATION AND POLICIES -->
         <section id="evaluation" class="mb-12 scroll-mt-20">
-            <p class="eyebrow text-accent mb-2">08</p>
-            <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink mb-6 pb-3 border-b-2 border-ink">Evaluation and Policies</h2>
+            <div class="flex items-baseline gap-4 mb-6 pb-3 border-b-2 border-ink">
+                <span class="font-display font-extrabold text-2xl text-accent leading-none">07</span>
+                <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink">Evaluation and Policies</h2>
+            </div>
 
             <div class="grid md:grid-cols-2 gap-8">
                 <div>
