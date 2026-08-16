@@ -3,97 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DME2100: Digital Narratives — Fall 2026</title>
+    <title>DME2100: Digital Narratives - Fall 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
-        .card { background-color: #1f2937; }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
 
-    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+    <!-- Main Container -->
+    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
 
-        <!-- ============ HEADER ============ -->
-        <header class="text-center mb-12">
-            <p class="text-sm tracking-[0.2em] text-gray-500 uppercase mb-2">Boston Architectural College</p>
-            <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight">DME2100: Digital Narratives</h1>
-            <p class="text-lg text-indigo-400 mt-3 font-semibold">Fall 2026 &middot; Mondays 4:00 PM EST &middot; Online via Zoom</p>
-            <p class="text-gray-400 mt-1">Instructor: Hamze Machmouchi &middot; Office Hours: 4&ndash;6 PM EST</p>
+        <!-- Header Section -->
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight">DME2100: Digital Narratives</h1>
+            <p class="text-lg text-indigo-400 mt-2">Fall 2026 Schedule</p>
+            <p class="text-gray-400 mt-1">Instructor: Hamze Machmouchi</p>
+            <p class="text-gray-500 text-sm mt-1">Mondays, 4 PM EST &middot; Online via Zoom &middot; Office Hours 4&ndash;6 PM EST</p>
 
-            <div class="mt-8 flex flex-wrap justify-center gap-3">
-                <a href="https://the-bac.zoom.us/j/2720645727?pwd=NlVrZzJmZjFPMmhkNTRPelhsWWlsdz09" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2.5 px-6 rounded-lg transition-transform transform hover:scale-105 shadow-lg">
+            <div class="mt-6 flex flex-wrap justify-center gap-4">
+                <a href="https://the-bac.zoom.us/j/2720645727?pwd=NlVrZzJmZjFPMmhkNTRPelhsWWlsdz09" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-lg transition-transform transform hover:scale-105 shadow-lg">
                     Zoom Link
                 </a>
-                <a href="https://discord.gg/f5bVEe9nxd" target="_blank" class="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2.5 px-6 rounded-lg transition-transform transform hover:scale-105 shadow-lg">
+                <a href="https://discord.gg/f5bVEe9nxd" target="_blank" class="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-6 rounded-lg transition-transform transform hover:scale-105 shadow-lg">
                     Discord Server
                 </a>
-                <a href="https://barch-my.sharepoint.com/:f:/g/personal/hamze_machmouchi_the-bac_edu/Ev_mmBtz0oNBnhiWBuhYr0UB5zLjSb8KRfBgzGQhEEUJFg?e=wuAL6Y" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2.5 px-6 rounded-lg transition-transform transform hover:scale-105 shadow-lg">
+                <a href="https://barch-my.sharepoint.com/:f:/g/personal/hamze_machmouchi_the-bac_edu/Ev_mmBtz0oNBnhiWBuhYr0UB5zLjSb8KRfBgzGQhEEUJFg?e=wuAL6Y" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2 px-6 rounded-lg transition-transform transform hover:scale-105 shadow-lg">
                     Class Drive
                 </a>
-                <a href="https://barch-my.sharepoint.com/:f:/g/personal/hamze_machmouchi_the-bac_edu/IgCq4JzJZgLcSpUr0hhyV41tAeibszfLcP8sxWYVbYSUwMg?e=Bpga90" target="_blank" class="bg-rose-600 hover:bg-rose-700 text-white font-semibold py-2.5 px-6 rounded-lg transition-transform transform hover:scale-105 shadow-lg">
+                <a href="https://barch-my.sharepoint.com/:f:/g/personal/hamze_machmouchi_the-bac_edu/IgCq4JzJZgLcSpUr0hhyV41tAeibszfLcP8sxWYVbYSUwMg?e=Bpga90" target="_blank" class="bg-rose-600 hover:bg-rose-700 text-white font-semibold py-2 px-6 rounded-lg transition-transform transform hover:scale-105 shadow-lg">
                     Software Tutorials
                 </a>
-                <a href="https://barch-my.sharepoint.com/:f:/g/personal/hamze_machmouchi_the-bac_edu/IgDwiZFYqwH1R69hVXph3d8LATKQL_j7FK2MPUf_pDxe6IY?e=f4hqD2" target="_blank" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2.5 px-6 rounded-lg transition-transform transform hover:scale-105 shadow-lg">
+                <a href="https://barch-my.sharepoint.com/:f:/g/personal/hamze_machmouchi_the-bac_edu/IgDwiZFYqwH1R69hVXph3d8LATKQL_j7FK2MPUf_pDxe6IY?e=f4hqD2" target="_blank" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2 px-6 rounded-lg transition-transform transform hover:scale-105 shadow-lg">
                     Readings
                 </a>
             </div>
         </header>
 
-        <!-- ============ THE PREMISE ============ -->
+        <!-- Course Description -->
         <section class="mb-12">
-            <div class="bg-gradient-to-br from-indigo-900/40 to-gray-800 border border-indigo-700/50 p-6 md:p-8 rounded-xl">
-                <h2 class="text-2xl font-bold text-white mb-3">The Premise</h2>
-                <p class="text-gray-300 leading-relaxed">
-                    Games are the most sophisticated spatial storytelling we have. A level designer moves you through a building
-                    without a single word of instruction &mdash; using light, threshold, compression, sightline, and scale. That is
-                    architecture doing narrative work.
-                </p>
-                <p class="text-gray-300 leading-relaxed mt-3">
-                    This semester you will take a shipped game apart with an architect's drawings, then build a world of your own
-                    using the same tools. Your story will be told through <strong class="text-indigo-300">one architectural verb</strong>,
-                    <strong class="text-indigo-300">one building part</strong>, and <strong class="text-indigo-300">one drawing medium</strong>
-                    &mdash; drawn at random, non-negotiable, on the first day.
-                </p>
+            <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-indigo-500 pb-2">Course Description</h2>
+            <p class="text-gray-400 leading-relaxed">
+                This course explores spatial narratives in the unbuilt world. From games, movies, AR/VR, to metaverse, students
+                will explore the idea of space in the digital realm. The discussion will be on: How does one interact with space?
+                And how does that interaction with space shape a spatial narrative?
+            </p>
+            <p class="text-gray-400 leading-relaxed mt-4">
+                This workshop encompasses both theoretical readings on spatial narratives as well as learning and working with
+                three-dimensional software in order to compose a holistic perspective of three-dimensional narratives in the
+                virtual realm. Students will be required to play virtual games, study their spaces and narratives, and create
+                digital narratives.
+            </p>
+            <p class="text-gray-400 leading-relaxed mt-4">
+                This semester the analysis of games is expanded. Before any modeling begins, students will take their assigned
+                game apart and document how it is built &mdash; its design architecture first, then its mechanics &mdash; using
+                the drawings architects already know how to make. Each student is then assigned a
+                <strong class="text-indigo-300">medium</strong> through which their own narrative must be told.
+            </p>
+        </section>
+
+        <!-- Key Dates Section -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-indigo-500 pb-2">Key Dates</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <p class="text-sm text-indigo-400">Start of Class</p>
+                    <p class="font-bold text-lg text-white">Aug 24</p>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <p class="text-sm text-indigo-400">Midterm Review</p>
+                    <p class="font-bold text-lg text-white">Oct 19</p>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <p class="text-sm text-indigo-400">Final Review</p>
+                    <p class="font-bold text-lg text-white">Nov 30</p>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <p class="text-sm text-indigo-400">End of Class</p>
+                    <p class="font-bold text-lg text-white">Nov 30</p>
+                </div>
+            </div>
+            <p class="text-sm text-gray-500 mt-4">
+                Fall 2026 main session courses end Saturday, December 5. Withdrawal deadline is Friday, November 6.
+            </p>
+        </section>
+
+        <!-- Learning Goals -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-indigo-500 pb-2">Learning Goals</h2>
+            <ol class="list-decimal list-inside text-gray-400 space-y-2">
+                <li>Cultivating an understanding of the history and theory of virtual design</li>
+                <li>Learning software skills in mesh-modeling and SubD in Rhino 8. Students will also learn to implement, animate, and film in Unreal Engine 5</li>
+                <li>Developing spatial narratives and experimenting with novel ways to explore user interfaces through gamification</li>
+                <li>Reading a game space as built work: documenting its design architecture, mechanics, and pacing through diagrams</li>
+            </ol>
+        </section>
+
+        <!-- Course Expectations -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-indigo-500 pb-2">Course Expectations</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-gray-800 p-5 rounded-lg">
+                    <h3 class="font-bold text-white mb-2">Environmental Storytelling</h3>
+                    <p class="text-sm text-gray-400">The narrative should be delivered without text, dialogue, or interface. If the story does not survive their removal, the architecture is not yet doing the work.</p>
+                </div>
+                <div class="bg-gray-800 p-5 rounded-lg">
+                    <h3 class="font-bold text-white mb-2">The Camera Follows the Medium</h3>
+                    <p class="text-sm text-gray-400">Your assigned medium governs your camera in Unreal Engine for the full semester. An assigned axonometric is an orthographic, locked camera; an assigned section is a cut through the model.</p>
+                </div>
+                <div class="bg-gray-800 p-5 rounded-lg">
+                    <h3 class="font-bold text-white mb-2">Weekly Progress</h3>
+                    <p class="text-sm text-gray-400">Students are expected to upload progress work to the class drive every week, however incomplete. Discord is used for informal communication and technical support beyond class sessions.</p>
+                </div>
             </div>
         </section>
 
-        <!-- ============ SEMESTER RULES ============ -->
+        <!-- Core Concepts Section -->
         <section class="mb-12">
-            <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-indigo-500 pb-2">Three Rules, All Semester</h2>
-            <div class="grid md:grid-cols-3 gap-5">
-                <div class="card p-5 rounded-lg border-l-4 border-rose-500">
-                    <p class="text-xs font-bold text-rose-400 uppercase tracking-wider mb-2">Rule 01</p>
-                    <h3 class="text-lg font-bold text-white mb-2">No text. No dialogue. No UI.</h3>
-                    <p class="text-sm text-gray-400">If the story doesn't survive the removal of every word, the architecture isn't doing the work. Environmental storytelling only.</p>
+            <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-indigo-500 pb-2">Core Concepts &amp; Assignments</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Narrative Research Groups -->
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-white mb-3">Narrative Research Groups</h3>
+                    <p class="text-gray-400 mb-4">Analyze the assigned games, focusing on narrative, level design, and world-building.</p>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-bold text-indigo-300">Group 1: The World Weavers</h4>
+                            <p class="text-sm text-gray-400">Games: Star Wars Jedi: Survivor, Cyberpunk 2077</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-indigo-300">Group 2: The Mind Benders</h4>
+                            <p class="text-sm text-gray-400">Games: Alan Wake 2, Control</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-indigo-300">Group 3: The Intimate Storytellers</h4>
+                            <p class="text-sm text-gray-400">Games: What Remains of Edith Finch, Stray</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-indigo-300">Group 4: The Historical Architects</h4>
+                            <p class="text-sm text-gray-400">Games: A Plague Tale: Requiem, Assassin's Creed Mirage</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card p-5 rounded-lg border-l-4 border-indigo-500">
-                    <p class="text-xs font-bold text-indigo-400 uppercase tracking-wider mb-2">Rule 02</p>
-                    <h3 class="text-lg font-bold text-white mb-2">The camera obeys your medium.</h3>
-                    <p class="text-sm text-gray-400">Drawn axonometric? Your UE5 camera is orthographic and locked. Drawn section? You cut the model and sit in the cut plane. No swooping hero shots to rescue a weak idea.</p>
-                </div>
-                <div class="card p-5 rounded-lg border-l-4 border-emerald-500">
-                    <p class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">Rule 03</p>
-                    <h3 class="text-lg font-bold text-white mb-2">One screenshot a week.</h3>
-                    <p class="text-sm text-gray-400">Post to <code class="text-emerald-300">#devlog</code> on Discord every week, no exceptions, however ugly. This is how real studios work, and it counts toward participation.</p>
-                </div>
-            </div>
-        </section>
+                <!-- Assignment: Verb + Part + Medium -->
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-white mb-3">Assignment: Verb + Part + Medium</h3>
+                    <p class="text-gray-400 mb-4">You will be assigned one <strong class="text-indigo-300">Architectural Verb</strong> and one <strong class="text-indigo-300">Medium</strong>. Your task is to interpret this verb by choosing one <strong class="text-indigo-300">Building Part</strong> as your primary tool for storytelling, and to tell that story through your assigned medium.</p>
 
-        <!-- ============ THE GENERATOR ============ -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold text-white mb-2 border-b-2 border-indigo-500 pb-2">The Draw: Verb &times; Part &times; Medium</h2>
-            <p class="text-gray-400 mb-6 mt-4">On Day 1 you draw three cards. They are yours for the semester &mdash; no trades. Example: <em class="text-indigo-300">Compressing &amp; Releasing &times; Stair &times; Section.</em></p>
-
-            <div class="grid md:grid-cols-3 gap-5">
-                <!-- VERBS -->
-                <div class="card p-6 rounded-lg">
-                    <h3 class="text-lg font-bold text-white mb-1">1. Architectural Verb</h3>
-                    <p class="text-xs text-gray-500 mb-4">What the space <em>does</em> to a body.</p>
-                    <ul class="text-sm text-gray-300 space-y-1.5">
+                    <h4 class="font-semibold text-white mt-4 mb-2">Architectural Verbs (Assigned):</h4>
+                    <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
                         <li>Framing a View</li>
                         <li>Guiding Movement</li>
                         <li>Creating Thresholds</li>
@@ -105,13 +166,9 @@
                         <li>Grounding &amp; Floating</li>
                         <li>Reflecting &amp; Distorting</li>
                     </ul>
-                </div>
 
-                <!-- PARTS -->
-                <div class="card p-6 rounded-lg">
-                    <h3 class="text-lg font-bold text-white mb-1">2. Building Part</h3>
-                    <p class="text-xs text-gray-500 mb-4">Your only instrument. Model it, twist it, tell with it.</p>
-                    <ul class="text-sm text-gray-300 space-y-1.5">
+                    <h4 class="font-semibold text-white mt-6 mb-2">Building Parts (Choose One):</h4>
+                    <ul class="list-disc list-inside text-gray-400 space-y-1 text-sm">
                         <li>Wall / Fa&ccedil;ade</li>
                         <li>Floor / Ground Plane</li>
                         <li>Ceiling / Roof</li>
@@ -122,356 +179,309 @@
                         <li>Pathway / Corridor</li>
                     </ul>
                 </div>
+            </div>
+        </section>
 
-                <!-- MEDIA -->
-                <div class="card p-6 rounded-lg border border-indigo-700/60">
-                    <h3 class="text-lg font-bold text-white mb-1">3. Medium <span class="text-xs font-normal text-indigo-400">(NEW)</span></h3>
-                    <p class="text-xs text-gray-500 mb-4">Governs your UE5 camera for the whole semester.</p>
-                    <ul class="text-sm text-gray-300 space-y-2">
-                        <li><strong class="text-indigo-300">Section</strong> &mdash; cut the model, sit in the cut plane <span class="text-gray-500 text-xs">(Inside, Limbo)</span></li>
-                        <li><strong class="text-indigo-300">Plan</strong> &mdash; top-down; story via choreography <span class="text-gray-500 text-xs">(Death's Door)</span></li>
-                        <li><strong class="text-indigo-300">Axonometric</strong> &mdash; orthographic, locked <span class="text-gray-500 text-xs">(Monument Valley, Hades)</span></li>
-                        <li><strong class="text-indigo-300">Elevation</strong> &mdash; flat locked camera, parallax layers <span class="text-gray-500 text-xs">(GRIS)</span></li>
-                        <li><strong class="text-indigo-300">Worm's-Eye / RCP</strong> &mdash; the camera only looks up</li>
-                        <li><strong class="text-indigo-300">Exploded Assembly</strong> &mdash; the building comes apart as the story advances</li>
-                        <li><strong class="text-indigo-300">Collage / Montage</strong> &mdash; layered plates <span class="text-gray-500 text-xs">(Kentucky Route Zero)</span></li>
-                        <li><strong class="text-indigo-300">Panel Grid</strong> &mdash; simultaneous cameras <span class="text-gray-500 text-xs">(Gorogoa)</span></li>
-                        <li><strong class="text-indigo-300">One-Point Perspective</strong> &mdash; locked vanishing point</li>
-                        <li><strong class="text-indigo-300">Cutaway Diorama</strong> &mdash; dollhouse; walls removed</li>
-                    </ul>
+        <!-- Assignment: Medium -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-indigo-500 pb-2">Media (Assigned)</h2>
+            <p class="text-gray-400 mb-6">
+                Architecture has always told stories through drawing conventions. Each student is assigned one, and it governs
+                both the drawings you produce and the camera you set up in Unreal Engine. The constraint is the point: a locked
+                orthographic view cannot be rescued by a moving camera, so the space itself has to carry the narrative.
+            </p>
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <div class="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-sm">
+                    <p class="text-gray-400"><strong class="text-indigo-300">Section:</strong> the model is cut and the camera sits in the cut plane. <span class="text-gray-500">Inside, Limbo</span></p>
+                    <p class="text-gray-400"><strong class="text-indigo-300">Plan:</strong> top-down, where narrative is carried by choreography of movement. <span class="text-gray-500">Death's Door</span></p>
+                    <p class="text-gray-400"><strong class="text-indigo-300">Axonometric:</strong> orthographic and locked, with no vanishing point. <span class="text-gray-500">Monument Valley, Hades</span></p>
+                    <p class="text-gray-400"><strong class="text-indigo-300">Elevation:</strong> a flat, fixed camera with narrative built in parallax layers. <span class="text-gray-500">GRIS</span></p>
+                    <p class="text-gray-400"><strong class="text-indigo-300">Worm's-Eye / Reflected Ceiling Plan:</strong> the camera only looks up.</p>
+                    <p class="text-gray-400"><strong class="text-indigo-300">Exploded Assembly:</strong> the building comes apart as the narrative advances.</p>
+                    <p class="text-gray-400"><strong class="text-indigo-300">Collage / Photomontage:</strong> narrative assembled in layered plates. <span class="text-gray-500">Kentucky Route Zero</span></p>
+                    <p class="text-gray-400"><strong class="text-indigo-300">Panel Grid:</strong> several simultaneous cameras read together. <span class="text-gray-500">Gorogoa</span></p>
+                    <p class="text-gray-400"><strong class="text-indigo-300">One-Point Perspective:</strong> a fixed vanishing point and a symmetrical frame.</p>
+                    <p class="text-gray-400"><strong class="text-indigo-300">Cutaway Diorama:</strong> walls removed, the interior seen whole.</p>
                 </div>
             </div>
         </section>
 
-        <!-- ============ THE TEARDOWN ============ -->
+        <!-- Assignment: Game Space Analysis -->
         <section class="mb-12">
-            <h2 class="text-3xl font-bold text-white mb-2 border-b-2 border-indigo-500 pb-2">Assignment 01: The Teardown</h2>
-            <p class="text-gray-400 mb-6 mt-4">Weeks 1&ndash;3. You will take your group's game apart in four layers &mdash; <strong class="text-gray-200">design architecture first, mechanics second</strong> &mdash; and present it as a GDC-style postmortem. This is your <strong class="text-white">Demo grade (10%)</strong>.</p>
+            <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-indigo-500 pb-2">Assignment: Game Space Analysis</h2>
+            <p class="text-gray-400 mb-6">
+                Weeks 1 through 3. Each group takes its assigned game apart in four layers, beginning with the design
+                architecture and moving to the mechanics, and presents the analysis in Week 3. This presentation is the
+                <strong class="text-white">Demo</strong> portion of your grade.
+            </p>
 
-            <div class="grid md:grid-cols-2 gap-5 mb-6">
-                <div class="card p-5 rounded-lg">
-                    <p class="text-xs font-bold text-indigo-400 uppercase tracking-wider mb-2">Layer 1</p>
-                    <h3 class="font-bold text-white mb-2">Design Architecture &mdash; the macro</h3>
-                    <p class="text-sm text-gray-400">How is the world <em>shaped</em>? Critical path vs. optional space. Gates and keys. Hub-and-spoke, open field, or corridor. Where does it fork and re-converge?</p>
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-gray-800 p-5 rounded-lg">
+                    <h3 class="font-bold text-white mb-2">1. Design Architecture: how is the world structured?</h3>
+                    <p class="text-sm text-gray-400">The critical path against the optional space. Gates and the keys that open them. Whether the world is a hub, an open field, or a corridor. Where the path forks and where it returns.</p>
                 </div>
-                <div class="card p-5 rounded-lg">
-                    <p class="text-xs font-bold text-indigo-400 uppercase tracking-wider mb-2">Layer 2</p>
-                    <h3 class="font-bold text-white mb-2">Spatial Grammar &mdash; the micro</h3>
-                    <p class="text-sm text-gray-400">Landmarks and lures. Sightlines. Thresholds. Compression and release. How does the game teach you where to go without a marker? What is the material and colour language for &ldquo;climbable,&rdquo; &ldquo;danger,&rdquo; &ldquo;story here&rdquo;?</p>
+                <div class="bg-gray-800 p-5 rounded-lg">
+                    <h3 class="font-bold text-white mb-2">2. Spatial Grammar: how does the space instruct without instructions?</h3>
+                    <p class="text-sm text-gray-400">Landmarks, sightlines, thresholds, compression and release. The material and color language the game uses to mean climbable, dangerous, or worth your attention.</p>
                 </div>
-                <div class="card p-5 rounded-lg">
-                    <p class="text-xs font-bold text-indigo-400 uppercase tracking-wider mb-2">Layer 3</p>
-                    <h3 class="font-bold text-white mb-2">Mechanics &mdash; and what they <em>mean</em></h3>
-                    <p class="text-sm text-gray-400">What verbs does the player own? What is the core loop? Then the real question: <strong class="text-gray-200">how does the mechanic carry the theme?</strong> In <em>Edith Finch</em> the mechanic changes with every story because each is a different mind. In <em>Stray</em> you are low to the ground because the world was not built for you.</p>
+                <div class="bg-gray-800 p-5 rounded-lg">
+                    <h3 class="font-bold text-white mb-2">3. Game Mechanics: what can the player do, and what does it mean?</h3>
+                    <p class="text-sm text-gray-400">The verbs the player is given, and the core loop they sit inside. Then the question that matters: how does the mechanic carry the theme? In <em>What Remains of Edith Finch</em> the mechanic changes with each story because each is a different mind. In <em>Stray</em> you are held low to the ground because the world was not built for you.</p>
                 </div>
-                <div class="card p-5 rounded-lg">
-                    <p class="text-xs font-bold text-indigo-400 uppercase tracking-wider mb-2">Layer 4</p>
-                    <h3 class="font-bold text-white mb-2">Pacing &mdash; the rhythm</h3>
-                    <p class="text-sm text-gray-400">Intensity over time. Combat, quiet, cutscene, traversal. Where are the silences, and what do they do?</p>
+                <div class="bg-gray-800 p-5 rounded-lg">
+                    <h3 class="font-bold text-white mb-2">4. Pacing: how does the experience rise and fall?</h3>
+                    <p class="text-sm text-gray-400">Intensity across time &mdash; conflict, traversal, quiet, cutscene. Where the silences are placed and what they are doing.</p>
                 </div>
             </div>
 
-            <div class="bg-gray-800 border border-gray-700 p-6 rounded-lg">
-                <h3 class="text-xl font-bold text-white mb-1">Six Required Diagrams</h3>
-                <p class="text-sm text-gray-500 mb-4">Architect's drawings, applied to a game. Hand or digital &mdash; but they must be drawn, not screenshotted.</p>
-                <div class="grid sm:grid-cols-2 gap-x-8 gap-y-3">
-                    <div class="flex gap-3"><span class="text-indigo-500 font-bold">01</span><p class="text-sm text-gray-300"><strong class="text-white">Level graph</strong> &mdash; nodes and edges, gates marked, critical path in red</p></div>
-                    <div class="flex gap-3"><span class="text-indigo-500 font-bold">02</span><p class="text-sm text-gray-300"><strong class="text-white">Redrawn plan</strong> of one level, annotated with landmarks and sightlines</p></div>
-                    <div class="flex gap-3"><span class="text-indigo-500 font-bold">03</span><p class="text-sm text-gray-300"><strong class="text-white">Section</strong> through a key vertical moment &mdash; what you see, and when</p></div>
-                    <div class="flex gap-3"><span class="text-indigo-500 font-bold">04</span><p class="text-sm text-gray-300"><strong class="text-white">Sightline / reveal cone</strong> &mdash; the choreography of a single reveal</p></div>
-                    <div class="flex gap-3"><span class="text-indigo-500 font-bold">05</span><p class="text-sm text-gray-300"><strong class="text-white">Core loop diagram</strong> &mdash; verb &rarr; feedback &rarr; reward &rarr; new verb</p></div>
-                    <div class="flex gap-3"><span class="text-indigo-500 font-bold">06</span><p class="text-sm text-gray-300"><strong class="text-white">Intensity curve</strong> &mdash; pacing across 30 minutes of play</p></div>
-                    <div class="flex gap-3 sm:col-span-2 pt-2 border-t border-gray-700 mt-1"><span class="text-emerald-500 font-bold">+</span><p class="text-sm text-gray-300"><strong class="text-white">Moment map (bonus)</strong> &mdash; one 30-second sequence, broken down frame by frame</p></div>
-                </div>
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <h3 class="text-xl font-bold text-white mb-2">Required Diagrams</h3>
+                <p class="text-sm text-gray-400 mb-4">Six drawings, produced by hand or digitally. Screenshots may support them but do not replace them.</p>
+                <ol class="list-decimal list-inside text-gray-400 space-y-2 text-sm">
+                    <li><strong class="text-white">Level graph.</strong> Nodes and edges, with gates marked and the critical path distinguished.</li>
+                    <li><strong class="text-white">Plan of one level,</strong> redrawn and annotated with landmarks and sightlines.</li>
+                    <li><strong class="text-white">Section</strong> through a significant vertical moment, showing what becomes visible and when.</li>
+                    <li><strong class="text-white">Sightline diagram</strong> of a single reveal, drawn as cones of vision.</li>
+                    <li><strong class="text-white">Core loop diagram.</strong> Action, feedback, reward, and the next action.</li>
+                    <li><strong class="text-white">Intensity curve</strong> across thirty minutes of play.</li>
+                </ol>
                 <p class="text-sm text-indigo-300 mt-5 pt-4 border-t border-gray-700">
-                    <strong>The payoff:</strong> in Week 8 you will draw these same six diagrams for <em>your own</em> project. You dissect a shipped game, then design with the same instrument.
+                    In Week 8 you will draw these same six diagrams for your own project. The analysis is not a separate exercise;
+                    it is the method you will design with.
                 </p>
             </div>
         </section>
 
-        <!-- ============ RESEARCH GROUPS ============ -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-indigo-500 pb-2">Narrative Research Groups</h2>
-            <div class="grid sm:grid-cols-2 gap-5">
-                <div class="card p-5 rounded-lg">
-                    <h3 class="font-bold text-indigo-300 mb-1">Group 1 &middot; The World Weavers</h3>
-                    <p class="text-sm text-gray-400">Star Wars Jedi: Survivor &middot; Cyberpunk 2077</p>
-                    <p class="text-xs text-gray-500 mt-2">Density, verticality, and the open world as a legible city.</p>
-                </div>
-                <div class="card p-5 rounded-lg">
-                    <h3 class="font-bold text-indigo-300 mb-1">Group 2 &middot; The Mind Benders</h3>
-                    <p class="text-sm text-gray-400">Alan Wake 2 &middot; Control</p>
-                    <p class="text-xs text-gray-500 mt-2">Architecture that refuses to stay still. Brutalism as dread.</p>
-                </div>
-                <div class="card p-5 rounded-lg">
-                    <h3 class="font-bold text-indigo-300 mb-1">Group 3 &middot; The Intimate Storytellers</h3>
-                    <p class="text-sm text-gray-400">What Remains of Edith Finch &middot; Stray</p>
-                    <p class="text-xs text-gray-500 mt-2">The house as a body. Scale, and the world not built for you.</p>
-                </div>
-                <div class="card p-5 rounded-lg">
-                    <h3 class="font-bold text-indigo-300 mb-1">Group 4 &middot; The Historical Architects</h3>
-                    <p class="text-sm text-gray-400">A Plague Tale: Requiem &middot; Assassin's Creed Mirage</p>
-                    <p class="text-xs text-gray-500 mt-2">Reconstructed history, and movement as a reading of the fabric.</p>
-                </div>
-            </div>
-        </section>
+        <!-- Schedule Timeline -->
+        <div class="space-y-12">
+            <!-- Narrative Cycle 1 -->
+            <div>
+                <h2 class="text-3xl font-bold text-white mb-8 border-b-2 border-indigo-500 pb-2">Narrative Cycle 1: The 8-Second Loop</h2>
+                <div class="space-y-12">
 
-        <!-- ============ KEY DATES ============ -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-indigo-500 pb-2">Key Dates</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                <div class="card p-4 rounded-lg">
-                    <p class="text-sm text-indigo-400">First Class</p>
-                    <p class="font-bold text-lg text-white">Mon, Aug 24</p>
-                </div>
-                <div class="card p-4 rounded-lg">
-                    <p class="text-sm text-emerald-400">Midterm Review</p>
-                    <p class="font-bold text-lg text-white">Mon, Oct 19</p>
-                </div>
-                <div class="card p-4 rounded-lg">
-                    <p class="text-sm text-emerald-400">Final Review</p>
-                    <p class="font-bold text-lg text-white">Mon, Nov 30</p>
-                </div>
-                <div class="card p-4 rounded-lg">
-                    <p class="text-sm text-amber-400">Withdrawal Deadline</p>
-                    <p class="font-bold text-lg text-white">Fri, Nov 6</p>
-                </div>
-            </div>
-            <p class="text-sm text-gray-500 mt-4 text-center">Main session courses end Saturday, December 5, 2026. Nov 30 is the last class meeting.</p>
-        </section>
-
-        <!-- ============ SCHEDULE ============ -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold text-white mb-2 border-b-2 border-indigo-500 pb-2">Schedule &mdash; 13 Sessions</h2>
-            <div class="flex flex-wrap gap-4 my-5 text-xs">
-                <span class="flex items-center gap-2"><span class="h-3 w-3 rounded-full bg-indigo-500"></span> Live on Zoom</span>
-                <span class="flex items-center gap-2"><span class="h-3 w-3 rounded-full bg-sky-500"></span> Async on Discord</span>
-                <span class="flex items-center gap-2"><span class="h-3 w-3 rounded-full bg-emerald-500"></span> Review</span>
-                <span class="flex items-center gap-2"><span class="h-3 w-3 rounded-full bg-amber-500"></span> BAC Closed</span>
-            </div>
-
-            <!-- ---- CYCLE 0 ---- -->
-            <h3 class="text-xl font-bold text-gray-400 uppercase tracking-widest mt-10 mb-5">Cycle 0 &mdash; The Teardown</h3>
-            <div class="space-y-4">
-
-                <div class="card rounded-lg p-5 border-l-4 border-indigo-500">
-                    <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
-                        <span class="text-sm font-bold text-indigo-400 w-24">S1 &middot; Aug 24</span>
-                        <h4 class="text-lg font-bold text-white">The Draw &amp; The Teardown Brief</h4>
+                    <div class="flex items-center">
+                        <div class="w-28 text-right mr-4"><p class="text-sm font-semibold text-indigo-400">Aug 24</p></div>
+                        <div class="relative"><div class="h-5 w-5 bg-indigo-600 rounded-full border-4 border-gray-900"></div><div class="absolute top-5 left-1/2 w-0.5 h-full bg-gray-700 -translate-x-1/2"></div></div>
+                        <div class="ml-4 flex-1">
+                            <h3 class="text-xl font-bold text-white">Week 1: Research &amp; Setup</h3>
+                            <p class="text-gray-400 mt-1"><strong class="text-gray-300">In-Class:</strong> Intro, group assignments, and assignment of your Architectural Verb and Medium. Discussing level design as narrative. Workshop on how to diagram a game space.</p>
+                            <p class="text-gray-400 mt-1"><strong class="text-gray-300">Assignment:</strong> Play your assigned game (four hours minimum) and capture footage. Begin the six required diagrams. Read Totten (Pg 37-73). <strong>Please install Rhino 8 and Unreal Engine 5 and report any issues.</strong></p>
+                        </div>
                     </div>
-                    <p class="text-sm text-gray-400 ml-0 md:ml-28"><strong class="text-gray-300">In class:</strong> Course intro and research groups. <strong class="text-indigo-300">The card draw</strong> &mdash; every student receives their Verb &times; Part &times; Medium. Workshop: how to diagram a game (level graphs, sightline cones, intensity curves).</p>
-                    <p class="text-sm text-gray-400 mt-2 ml-0 md:ml-28"><strong class="text-gray-300">Assignment:</strong> Play your group's game &mdash; minimum 4 hours, capture footage. Begin the six diagrams. Read Totten, pp. 37&ndash;73. Install Rhino 8 + Unreal Engine 5 and report any issues on Discord.</p>
-                </div>
 
-                <div class="card rounded-lg p-5 border-l-4 border-sky-500">
-                    <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
-                        <span class="text-sm font-bold text-sky-400 w-24">S2 &middot; Aug 31</span>
-                        <h4 class="text-lg font-bold text-white">Teardown Lab <span class="text-sm font-semibold text-sky-400">&mdash; ASYNC, ON DISCORD</span></h4>
+                    <div class="flex items-center">
+                        <div class="w-28 text-right mr-4"><p class="text-sm font-semibold text-sky-400">Aug 31</p></div>
+                        <div class="relative"><div class="h-5 w-5 bg-sky-500 rounded-full border-4 border-gray-900"></div><div class="absolute top-5 left-1/2 w-0.5 h-full bg-gray-700 -translate-x-1/2"></div></div>
+                        <div class="ml-4 flex-1">
+                            <h3 class="text-xl font-bold text-white">Week 2: Research - Analysis Studio (on Discord) 💬</h3>
+                            <p class="text-gray-400 mt-1"><strong class="text-sky-300">No live session.</strong> The instructor is away August 31 &ndash; September 6 and will be responsive on Discord throughout the week.</p>
+                            <p class="text-gray-400 mt-1"><strong class="text-gray-300">In-Class:</strong> A recorded lecture on level graphs and pacing is posted Monday. Each student opens a thread and posts diagrams as they develop; feedback is given in the thread.</p>
+                            <p class="text-gray-400 mt-1"><strong class="text-gray-300">Assignment:</strong> At least three of the six diagrams posted by Friday, September 4. Continue playing and capturing.</p>
+                        </div>
                     </div>
-                    <p class="text-sm text-gray-400 ml-0 md:ml-28"><strong class="text-amber-300">No live session.</strong> Instructor away Aug 31 &ndash; Sep 6, but highly responsive on Discord all week.</p>
-                    <p class="text-sm text-gray-400 mt-2 ml-0 md:ml-28"><strong class="text-gray-300">On Discord:</strong> Recorded mini-lecture posted Monday. Open a thread in <code class="text-sky-300">#teardown</code> and post diagrams as you make them &mdash; feedback comes back in-thread throughout the week.</p>
-                    <p class="text-sm text-gray-400 mt-2 ml-0 md:ml-28"><strong class="text-gray-300">Due Fri Sep 4:</strong> At least three of the six diagrams posted. Plus one <strong class="text-sky-300">&ldquo;Two Truths and a Design Lie&rdquo;</strong> about your game's level design &mdash; peers guess in-thread.</p>
-                </div>
 
-                <div class="card rounded-lg p-5 border-l-4 border-amber-500">
-                    <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                        <span class="text-sm font-bold text-amber-400 w-24">Sep 7</span>
-                        <h4 class="text-lg font-bold text-white">NO CLASS &mdash; Labor Day (BAC closed) &#127958;</h4>
+                    <div class="flex items-center">
+                        <div class="w-28 text-right mr-4"><p class="text-sm font-semibold text-amber-400">Sep 7</p></div>
+                        <div class="relative"><div class="h-5 w-5 bg-amber-500 rounded-full border-4 border-gray-900"></div><div class="absolute top-5 left-1/2 w-0.5 h-full bg-gray-700 -translate-x-1/2"></div></div>
+                        <div class="ml-4 flex-1"><h3 class="text-xl font-bold text-white">NO CLASS - Labor Day 🏖️</h3></div>
                     </div>
-                </div>
 
-                <div class="card rounded-lg p-5 border-l-4 border-emerald-500">
-                    <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
-                        <span class="text-sm font-bold text-emerald-400 w-24">S3 &middot; Sep 14</span>
-                        <h4 class="text-lg font-bold text-white">Postmortems &#127918; <span class="text-sm font-semibold text-emerald-400">&mdash; DEMO GRADE</span></h4>
+                    <div class="flex items-center">
+                        <div class="w-28 text-right mr-4"><p class="text-sm font-semibold text-indigo-400">Sep 14</p></div>
+                        <div class="relative"><div class="h-5 w-5 bg-indigo-600 rounded-full border-4 border-gray-900"></div><div class="absolute top-5 left-1/2 w-0.5 h-full bg-gray-700 -translate-x-1/2"></div></div>
+                        <div class="ml-4 flex-1">
+                            <h3 class="text-xl font-bold text-white">Week 3: Research - Analysis Presentations 🎤</h3>
+                            <p class="text-gray-400 mt-1"><strong class="text-gray-300">In-Class:</strong> Each group presents its game analysis in eight minutes, walking through all six diagrams. Group discussion follows each presentation. <strong class="text-gray-300">Graded as the Demo.</strong></p>
+                            <p class="text-gray-400 mt-1"><strong class="text-gray-300">Assignment:</strong> Redraw one diagram from your analysis in your assigned medium. Three quick studies.</p>
+                        </div>
                     </div>
-                    <p class="text-sm text-gray-400 ml-0 md:ml-28"><strong class="text-gray-300">In class:</strong> Eight-minute GDC-style postmortem per group. All six diagrams presented and defended. Peer Q&amp;A.</p>
-                    <p class="text-sm text-gray-400 mt-2 ml-0 md:ml-28"><strong class="text-gray-300">Assignment:</strong> Translate one diagram from your teardown into your assigned medium &mdash; three quick studies.</p>
+
+                    <div class="flex items-center">
+                        <div class="w-28 text-right mr-4"><p class="text-sm font-semibold text-indigo-400">Sep 21</p></div>
+                        <div class="relative"><div class="h-5 w-5 bg-indigo-600 rounded-full border-4 border-gray-900"></div><div class="absolute top-5 left-1/2 w-0.5 h-full bg-gray-700 -translate-x-1/2"></div></div>
+                        <div class="ml-4 flex-1">
+                            <h3 class="text-xl font-bold text-white">Week 4: Experimentation - Modeling in Rhino</h3>
+                            <p class="text-gray-400 mt-1"><strong class="text-gray-300">In-Class:</strong> Rhino 8 workshop on mesh-modeling and SubD. Choosing your Building Part. The Rhino to Unreal Engine pipeline: scale, pivots, and export.</p>
+                            <p class="text-gray-400 mt-1"><strong class="text-gray-300">Assignment:</strong> Model your Building Part. Upload the first pass to the class drive.</p>
+                            <p class="text-sm text-gray-500 mt-2">Criteria: Materiality</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center">
+                        <div class="w-28 text-right mr-4"><p class="text-sm font-semibold text-indigo-400">Sep 28</p></div>
+                        <div class="relative"><div class="h-5 w-5 bg-indigo-600 rounded-full border-4 border-gray-900"></div><div class="absolute top-5 left-1/2 w-0.5 h-full bg-gray-700 -translate-x-1/2"></div></div>
+                        <div class="ml-4 flex-1">
+                            <h3 class="text-xl font-bold text-white">Week 5: Creation - Intro to Unreal Engine 5</h3>
+                            <p class="text-gray-400 mt-1"><strong class="text-gray-300">In-Class:</strong> UE5 basics, importing assets from Rhino, basic lighting and materials. Setting up the camera for your assigned medium: orthographic locks, cut planes, and parallax layers.</p>
+                            <p class="text-gray-400 mt-1"><strong class="text-gray-300">Assignment:</strong> Import your model into a UE5 scene and set up a basic environment, viewed only through your medium's camera.</p>
+                            <p class="text-sm text-gray-500 mt-2">Criteria: Interaction with space / movement</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center">
+                        <div class="w-28 text-right mr-4"><p class="text-sm font-semibold text-indigo-400">Oct 5</p></div>
+                        <div class="relative"><div class="h-5 w-5 bg-indigo-600 rounded-full border-4 border-gray-900"></div><div class="absolute top-5 left-1/2 w-0.5 h-full bg-gray-700 -translate-x-1/2"></div></div>
+                        <div class="ml-4 flex-1">
+                            <h3 class="text-xl font-bold text-white">Week 6: Creation - Lighting, Sound &amp; Level Sequencer</h3>
+                            <p class="text-gray-400 mt-1"><strong class="text-gray-300">In-Class:</strong> Lighting as a narrative instrument. Sound against the intensity curve you drew in your analysis. Animating cameras and objects with Level Sequencer. Desk crits.</p>
+                            <p class="text-gray-400 mt-1"><strong class="text-gray-300">Assignment:</strong> Block out your 8-second loop and storyboard it. Develop a clear anchor idea.</p>
+                            <p class="text-sm text-gray-500 mt-2">Criteria: Lighting &middot; Narrative</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center">
+                        <div class="w-28 text-right mr-4"><p class="text-sm font-semibold text-amber-400">Oct 12</p></div>
+                        <div class="relative"><div class="h-5 w-5 bg-amber-500 rounded-full border-4 border-gray-900"></div><div class="absolute top-5 left-1/2 w-0.5 h-full bg-gray-700 -translate-x-1/2"></div></div>
+                        <div class="ml-4 flex-1"><h3 class="text-xl font-bold text-white">NO CLASS - Indigenous Peoples' Day 🍂</h3></div>
+                    </div>
+
+                    <div class="flex items-center">
+                        <div class="w-28 text-right mr-4"><p class="text-sm font-semibold text-emerald-400">Oct 19</p></div>
+                        <div class="relative"><div class="h-5 w-5 bg-emerald-500 rounded-full border-4 border-gray-900"></div></div>
+                        <div class="ml-4 flex-1">
+                            <h3 class="text-xl font-bold text-white">MIDTERM: The 8-Second Story 🏆</h3>
+                            <p class="text-gray-400 mt-1">Present your 8s UE5 loop and the narrative concept behind it, held to your assigned Verb, Part, and Medium. No text, dialogue, or interface.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- ---- CYCLE 1 ---- -->
-            <h3 class="text-xl font-bold text-gray-400 uppercase tracking-widest mt-12 mb-5">Cycle 1 &mdash; The 8-Second Loop</h3>
-            <div class="space-y-4">
+            <!-- Narrative Cycle 2 -->
+            <div class="mt-16">
+                <h2 class="text-3xl font-bold text-white mb-8 border-b-2 border-indigo-500 pb-2">Narrative Cycle 2: The Interactive World</h2>
+                <div class="space-y-12">
 
-                <div class="card rounded-lg p-5 border-l-4 border-indigo-500">
-                    <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
-                        <span class="text-sm font-bold text-indigo-400 w-24">S4 &middot; Sep 21</span>
-                        <h4 class="text-lg font-bold text-white">Modeling the Part</h4>
+                    <div class="flex items-center">
+                        <div class="w-28 text-right mr-4"><p class="text-sm font-semibold text-indigo-400">Oct 26</p></div>
+                        <div class="relative"><div class="h-5 w-5 bg-indigo-600 rounded-full border-4 border-gray-900"></div><div class="absolute top-5 left-1/2 w-0.5 h-full bg-gray-700 -translate-x-1/2"></div></div>
+                        <div class="ml-4 flex-1">
+                            <h3 class="text-xl font-bold text-white">Week 8: Research - Interactive Narratives</h3>
+                            <p class="text-gray-400 mt-1"><strong class="text-gray-300">In-Class:</strong> Midterm debrief. Discussing player agency and interactive storytelling. Turning the analysis method onto your own work.</p>
+                            <p class="text-gray-400 mt-1"><strong class="text-gray-300">Assignment:</strong> Draw the six required diagrams for your own project. Define the one verb you are giving the player and what that verb means.</p>
+                            <p class="text-sm text-gray-500 mt-2">Criteria: Interaction with space / movement &middot; Narrative</p>
+                        </div>
                     </div>
-                    <p class="text-sm text-gray-400 ml-0 md:ml-28"><strong class="text-gray-300">In class:</strong> Rhino workshop &mdash; modeling your Building Part. The Rhino &rarr; UE5 pipeline: scale, pivots, naming, export.</p>
-                    <p class="text-sm text-gray-400 mt-2 ml-0 md:ml-28"><strong class="text-gray-300">Assignment:</strong> Model your Part. First pass to <code class="text-emerald-300">#devlog</code>.</p>
-                    <p class="text-xs text-gray-500 mt-3 ml-0 md:ml-28">Criteria: Materiality</p>
-                </div>
 
-                <div class="card rounded-lg p-5 border-l-4 border-indigo-500">
-                    <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
-                        <span class="text-sm font-bold text-indigo-400 w-24">S5 &middot; Sep 28</span>
-                        <h4 class="text-lg font-bold text-white">The Camera Is Your Medium</h4>
+                    <div class="flex items-center">
+                        <div class="w-28 text-right mr-4"><p class="text-sm font-semibold text-indigo-400">Nov 2</p></div>
+                        <div class="relative"><div class="h-5 w-5 bg-indigo-600 rounded-full border-4 border-gray-900"></div><div class="absolute top-5 left-1/2 w-0.5 h-full bg-gray-700 -translate-x-1/2"></div></div>
+                        <div class="ml-4 flex-1">
+                            <h3 class="text-xl font-bold text-white">Week 9: Creation - UE5 Blueprints &amp; Interactivity</h3>
+                            <p class="text-gray-400 mt-1"><strong class="text-gray-300">In-Class:</strong> Intro to Blueprints for simple interactivity (triggers, doors, etc.). Setting up a player pawn and holding your medium's camera steady while the player moves.</p>
+                            <p class="text-gray-400 mt-1"><strong class="text-gray-300">Assignment:</strong> Implement at least one interactive element into your scene.</p>
+                            <p class="text-sm text-gray-500 mt-2">Criteria: Interaction with space / movement</p>
+                        </div>
                     </div>
-                    <p class="text-sm text-gray-400 ml-0 md:ml-28"><strong class="text-gray-300">In class:</strong> Unreal Engine 5 &mdash; import, blockout, first lighting. Then setting up <em>your</em> camera: orthographic locks, cut planes, parallax rigs, multi-cam panels.</p>
-                    <p class="text-sm text-gray-400 mt-2 ml-0 md:ml-28"><strong class="text-gray-300">Assignment:</strong> Your Part standing in a UE5 scene, seen only through your medium's camera. No cheating the angle.</p>
-                    <p class="text-xs text-gray-500 mt-3 ml-0 md:ml-28">Criteria: Interaction &amp; Movement</p>
-                </div>
 
-                <div class="card rounded-lg p-5 border-l-4 border-indigo-500">
-                    <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
-                        <span class="text-sm font-bold text-indigo-400 w-24">S6 &middot; Oct 5</span>
-                        <h4 class="text-lg font-bold text-white">Light, Sound &amp; Pacing</h4>
+                    <div class="flex items-center">
+                        <div class="w-28 text-right mr-4"><p class="text-sm font-semibold text-indigo-400">Nov 9</p></div>
+                        <div class="relative"><div class="h-5 w-5 bg-indigo-600 rounded-full border-4 border-gray-900"></div><div class="absolute top-5 left-1/2 w-0.5 h-full bg-gray-700 -translate-x-1/2"></div></div>
+                        <div class="ml-4 flex-1">
+                            <h3 class="text-xl font-bold text-white">Week 10: Experimentation - Advanced UE5 Materials</h3>
+                            <p class="text-gray-400 mt-1"><strong class="text-gray-300">In-Class:</strong> Workshop on dynamic materials and advanced lighting in UE5. Atmosphere, fog, and volumetrics.</p>
+                            <p class="text-gray-400 mt-1"><strong class="text-gray-300">Assignment:</strong> Build out your world in UE5. Test materiality and lighting against your narrative.</p>
+                            <p class="text-sm text-gray-500 mt-2">Criteria: Materiality &middot; Lighting</p>
+                        </div>
                     </div>
-                    <p class="text-sm text-gray-400 ml-0 md:ml-28"><strong class="text-gray-300">In class:</strong> Lumen, and light as narrative instrument. Sound design against your intensity curve. Level Sequencer basics. Desk crits.</p>
-                    <p class="text-sm text-gray-400 mt-2 ml-0 md:ml-28"><strong class="text-gray-300">Assignment:</strong> Block out your 8-second loop. Storyboard the beat.</p>
-                    <p class="text-xs text-gray-500 mt-3 ml-0 md:ml-28">Criteria: Lighting &middot; Narrative</p>
-                </div>
 
-                <div class="card rounded-lg p-5 border-l-4 border-amber-500">
-                    <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                        <span class="text-sm font-bold text-amber-400 w-24">Oct 12</span>
-                        <h4 class="text-lg font-bold text-white">NO CLASS &mdash; Indigenous Peoples' Day (BAC closed) &#127810;</h4>
+                    <div class="flex items-center">
+                        <div class="w-28 text-right mr-4"><p class="text-sm font-semibold text-indigo-400">Nov 16</p></div>
+                        <div class="relative"><div class="h-5 w-5 bg-indigo-600 rounded-full border-4 border-gray-900"></div><div class="absolute top-5 left-1/2 w-0.5 h-full bg-gray-700 -translate-x-1/2"></div></div>
+                        <div class="ml-4 flex-1">
+                            <h3 class="text-xl font-bold text-white">Week 11: Narrative Design &amp; Crits - Peer Playtesting</h3>
+                            <p class="text-gray-400 mt-1"><strong class="text-gray-300">In-Class:</strong> Students exchange projects. Each student walks a classmate's world with no instruction while its author watches in silence and records where they go, what they touch, and what they never find. Desk crits follow, focusing on narrative, space, and interactivity.</p>
+                            <p class="text-gray-400 mt-1"><strong class="text-gray-300">Assignment:</strong> Refine your final project based on feedback and on what the playtest revealed.</p>
+                            <p class="text-sm text-gray-500 mt-2">Criteria: Interaction with space / movement &middot; Narrative</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="card rounded-lg p-5 border-l-4 border-emerald-500 bg-emerald-900/10">
-                    <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
-                        <span class="text-sm font-bold text-emerald-400 w-24">S7 &middot; Oct 19</span>
-                        <h4 class="text-lg font-bold text-white">MIDTERM: The 8-Second Loop &#127942;</h4>
+                    <div class="flex items-center">
+                        <div class="w-28 text-right mr-4"><p class="text-sm font-semibold text-indigo-400">Nov 23</p></div>
+                        <div class="relative"><div class="h-5 w-5 bg-indigo-600 rounded-full border-4 border-gray-900"></div><div class="absolute top-5 left-1/2 w-0.5 h-full bg-gray-700 -translate-x-1/2"></div></div>
+                        <div class="ml-4 flex-1">
+                            <h3 class="text-xl font-bold text-white">Week 12: Studio &amp; Final Prep</h3>
+                            <p class="text-gray-400 mt-1"><strong class="text-gray-300">In-Class:</strong> Open studio time for final touches. Test your build on the presentation setup so nothing breaks on the day.</p>
+                            <p class="text-gray-400 mt-1"><strong class="text-gray-300">Assignment:</strong> Finalize and render your project. Prepare your presentation.</p>
+                            <p class="text-sm text-amber-400/80 mt-2">The BAC is closed Wednesday, November 25 through Friday, November 27. Monday remains in session; if you are travelling, check in on Discord.</p>
+                        </div>
                     </div>
-                    <p class="text-sm text-gray-400 ml-0 md:ml-28">Present your 8-second loop and the Verb &times; Part &times; Medium reading behind it. No text, no dialogue, no UI. If we can't read the story, the architecture isn't finished.</p>
-                </div>
-            </div>
 
-            <!-- ---- CYCLE 2 ---- -->
-            <h3 class="text-xl font-bold text-gray-400 uppercase tracking-widest mt-12 mb-5">Cycle 2 &mdash; The Playable World</h3>
-            <div class="space-y-4">
-
-                <div class="card rounded-lg p-5 border-l-4 border-indigo-500">
-                    <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
-                        <span class="text-sm font-bold text-indigo-400 w-24">S8 &middot; Oct 26</span>
-                        <h4 class="text-lg font-bold text-white">Design Your Own Loop</h4>
+                    <div class="flex items-center">
+                        <div class="w-28 text-right mr-4"><p class="text-sm font-semibold text-emerald-400">Nov 30</p></div>
+                        <div class="relative"><div class="h-5 w-5 bg-emerald-500 rounded-full border-4 border-gray-900"></div></div>
+                        <div class="ml-4 flex-1">
+                            <h3 class="text-xl font-bold text-white">FINAL PRESENTATIONS 🎉</h3>
+                            <p class="text-gray-400 mt-1">Present your final interactive digital narrative projects. Course reflections and industry outlook follow the reviews.</p>
+                        </div>
                     </div>
-                    <p class="text-sm text-gray-400 ml-0 md:ml-28"><strong class="text-gray-300">In class:</strong> Midterm debrief. Player agency and authored freedom. Then the turn: you draw <em>your own project</em> with the same six diagrams you used on a shipped game.</p>
-                    <p class="text-sm text-gray-400 mt-2 ml-0 md:ml-28"><strong class="text-gray-300">Assignment:</strong> Six diagrams for your own world. Define the one verb you are giving the player &mdash; and what it means.</p>
-                    <p class="text-xs text-gray-500 mt-3 ml-0 md:ml-28">Criteria: Interaction &amp; Movement &middot; Narrative</p>
-                </div>
-
-                <div class="card rounded-lg p-5 border-l-4 border-indigo-500">
-                    <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
-                        <span class="text-sm font-bold text-indigo-400 w-24">S9 &middot; Nov 2</span>
-                        <h4 class="text-lg font-bold text-white">Interaction &mdash; Blueprints</h4>
-                    </div>
-                    <p class="text-sm text-gray-400 ml-0 md:ml-28"><strong class="text-gray-300">In class:</strong> Blueprints for triggers, doors, and sequenced events. Setting up a player pawn &mdash; and making your medium's locked camera survive player movement.</p>
-                    <p class="text-sm text-gray-400 mt-2 ml-0 md:ml-28"><strong class="text-gray-300">Assignment:</strong> One working interactive element in your world.</p>
-                    <p class="text-xs text-gray-500 mt-3 ml-0 md:ml-28">Criteria: Interaction &amp; Movement</p>
-                </div>
-
-                <div class="card rounded-lg p-5 border-l-4 border-indigo-500">
-                    <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
-                        <span class="text-sm font-bold text-indigo-400 w-24">S10 &middot; Nov 9</span>
-                        <h4 class="text-lg font-bold text-white">Atmosphere &mdash; Materials &amp; VFX</h4>
-                    </div>
-                    <p class="text-sm text-gray-400 ml-0 md:ml-28"><strong class="text-gray-300">In class:</strong> Dynamic materials, Niagara basics, fog and volumetrics. Making the Part read as the story rather than as a model.</p>
-                    <p class="text-sm text-gray-400 mt-2 ml-0 md:ml-28"><strong class="text-gray-300">Assignment:</strong> Build out the world. Test materiality against your narrative.</p>
-                    <p class="text-xs text-gray-500 mt-3 ml-0 md:ml-28">Criteria: Materiality &middot; Lighting</p>
-                </div>
-
-                <div class="card rounded-lg p-5 border-l-4 border-rose-500 bg-rose-900/10">
-                    <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
-                        <span class="text-sm font-bold text-rose-400 w-24">S11 &middot; Nov 16</span>
-                        <h4 class="text-lg font-bold text-white">Blind Playtest &#128064;</h4>
-                    </div>
-                    <p class="text-sm text-gray-400 ml-0 md:ml-28"><strong class="text-gray-300">In class:</strong> Swap builds. Your partner walks your world with <strong class="text-rose-300">zero instruction</strong> while you watch in silence and log where they go, what they touch, and what they never see. Then reverse. Group debrief.</p>
-                    <p class="text-sm text-gray-400 mt-2 ml-0 md:ml-28"><strong class="text-gray-300">Assignment:</strong> Fix what the playtest broke. Nothing else this semester will tell you this much this fast.</p>
-                    <p class="text-xs text-gray-500 mt-3 ml-0 md:ml-28">Criteria: Interaction &amp; Movement &middot; Narrative</p>
-                </div>
-
-                <div class="card rounded-lg p-5 border-l-4 border-indigo-500">
-                    <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
-                        <span class="text-sm font-bold text-indigo-400 w-24">S12 &middot; Nov 23</span>
-                        <h4 class="text-lg font-bold text-white">Open Studio &amp; Tech Rehearsal</h4>
-                    </div>
-                    <p class="text-sm text-gray-400 ml-0 md:ml-28"><strong class="text-gray-300">In class:</strong> Open studio and final desk crits. Test your build on the presentation setup so nothing breaks on the day.</p>
-                    <p class="text-sm text-gray-400 mt-2 ml-0 md:ml-28"><strong class="text-gray-300">Assignment:</strong> Render, package, rehearse.</p>
-                    <p class="text-xs text-amber-300/80 mt-3 ml-0 md:ml-28">BAC is closed Wed Nov 25 &ndash; Fri Nov 27, but Monday is in session. If you are travelling, check in on Discord instead.</p>
-                </div>
-
-                <div class="card rounded-lg p-5 border-l-4 border-emerald-500 bg-emerald-900/10">
-                    <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-2">
-                        <span class="text-sm font-bold text-emerald-400 w-24">S13 &middot; Nov 30</span>
-                        <h4 class="text-lg font-bold text-white">FINAL PRESENTATIONS &amp; AWARDS &#127881;</h4>
-                    </div>
-                    <p class="text-sm text-gray-400 ml-0 md:ml-28">Present your playable world. Student-voted awards &mdash; Best Threshold, Most Unsettling Light, Best Use of Nothing. Publish builds, and close with the industry outlook.</p>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- ============ EVALUATION ============ -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-indigo-500 pb-2">Evaluation</h2>
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 text-center mb-6">
-                <div class="card p-4 rounded-lg">
-                    <p class="text-2xl font-bold text-white">10%</p>
+        <!-- Evaluation -->
+        <section class="mt-16 mb-12">
+            <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-indigo-500 pb-2">Evaluation Criteria</h2>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 text-center mb-8">
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <p class="font-bold text-2xl text-white">10%</p>
                     <p class="text-sm text-indigo-400 mt-1">Demo</p>
-                    <p class="text-xs text-gray-500 mt-1">Teardown postmortem</p>
+                    <p class="text-xs text-gray-500 mt-1">Analysis presentation</p>
                 </div>
-                <div class="card p-4 rounded-lg">
-                    <p class="text-2xl font-bold text-white">15%</p>
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <p class="font-bold text-2xl text-white">15%</p>
                     <p class="text-sm text-indigo-400 mt-1">Assignments</p>
-                    <p class="text-xs text-gray-500 mt-1">Weekly work</p>
                 </div>
-                <div class="card p-4 rounded-lg">
-                    <p class="text-2xl font-bold text-white">25%</p>
-                    <p class="text-sm text-indigo-400 mt-1">Participation</p>
-                    <p class="text-xs text-gray-500 mt-1">Attendance + #devlog</p>
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <p class="font-bold text-2xl text-white">25%</p>
+                    <p class="text-sm text-indigo-400 mt-1">Attendance &amp; Participation</p>
                 </div>
-                <div class="card p-4 rounded-lg">
-                    <p class="text-2xl font-bold text-white">25%</p>
-                    <p class="text-sm text-emerald-400 mt-1">Midterm</p>
-                    <p class="text-xs text-gray-500 mt-1">Oct 19</p>
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <p class="font-bold text-2xl text-white">25%</p>
+                    <p class="text-sm text-indigo-400 mt-1">Mid Review</p>
                 </div>
-                <div class="card p-4 rounded-lg">
-                    <p class="text-2xl font-bold text-white">25%</p>
-                    <p class="text-sm text-emerald-400 mt-1">Final</p>
-                    <p class="text-xs text-gray-500 mt-1">Nov 30</p>
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <p class="font-bold text-2xl text-white">25%</p>
+                    <p class="text-sm text-indigo-400 mt-1">Final Review</p>
                 </div>
             </div>
 
-            <div class="card p-6 rounded-lg">
-                <h3 class="text-lg font-bold text-white mb-3">Project Criteria &mdash; every review, both cycles</h3>
-                <div class="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-sm">
-                    <p class="text-gray-400"><strong class="text-white">Lighting</strong> &mdash; how does the quality of light shape the spatial experience?</p>
-                    <p class="text-gray-400"><strong class="text-white">Materiality</strong> &mdash; how do materials shape the digital narrative?</p>
-                    <p class="text-gray-400"><strong class="text-white">Interaction &amp; Movement</strong> &mdash; how does one move through and act on the space?</p>
-                    <p class="text-gray-400"><strong class="text-white">Narrative</strong> &mdash; what is the essential story this experience delivers?</p>
-                </div>
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <h3 class="text-xl font-bold text-white mb-4">Project Criteria</h3>
+                <ul class="text-gray-400 space-y-2 text-sm">
+                    <li><strong class="text-white">Lighting:</strong> how does the quality of light shape the spatial experience?</li>
+                    <li><strong class="text-white">Materiality:</strong> how do different materials shape the digital narrative?</li>
+                    <li><strong class="text-white">Interaction with space / movement:</strong> how does one interact with the space?</li>
+                    <li><strong class="text-white">Narrative:</strong> what is the essential narrative that this experience delivers?</li>
+                </ul>
             </div>
         </section>
 
-        <!-- ============ LOGISTICS ============ -->
+        <!-- Policies -->
         <section class="mb-12">
-            <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-indigo-500 pb-2">Logistics</h2>
-            <div class="grid md:grid-cols-2 gap-5">
-                <div class="card p-5 rounded-lg">
+            <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-indigo-500 pb-2">Attendance &amp; Assistance</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-gray-800 p-5 rounded-lg">
                     <h3 class="font-bold text-white mb-2">Attendance</h3>
-                    <p class="text-sm text-gray-400">More than three absences will reduce your grade at the instructor's discretion. Arriving more than 15 minutes late counts as an absence unless arranged in advance. For extenuating circumstances, reach out before class.</p>
+                    <p class="text-sm text-gray-400">Students are expected to be present during class. Absences accruing more than three times during the semester will result in a reduction of grades at the discretion of the instructor. Lateness of more than 15 minutes will be counted as an absence unless communicated in advance. If there are any extenuating circumstances, please reach out to the instructor.</p>
                 </div>
-                <div class="card p-5 rounded-lg">
+                <div class="bg-gray-800 p-5 rounded-lg">
                     <h3 class="font-bold text-white mb-2">Deadlines</h3>
-                    <p class="text-sm text-gray-400">Submit on time. If you need a late submission, contact the instructor <em>before</em> the deadline. In an emergency, contact both the instructor and your student advisor as soon as you can.</p>
+                    <p class="text-sm text-gray-400">Students should complete assignments to the best of their ability and submit them on time. If circumstances require a late submission, contact the instructor before the assignment is due. In the event of an emergency, contact both the instructor and your student advisor as soon as possible.</p>
                 </div>
-                <div class="card p-5 rounded-lg">
+                <div class="bg-gray-800 p-5 rounded-lg">
+                    <h3 class="font-bold text-white mb-2">Assistance</h3>
+                    <p class="text-sm text-gray-400">Tutorials will be provided throughout the course in addition to technical support on Discord. For all hardware assistance, please contact the Help Desk at help@the-bac.edu or (617) 585-0191.</p>
+                </div>
+                <div class="bg-gray-800 p-5 rounded-lg">
                     <h3 class="font-bold text-white mb-2">Software</h3>
-                    <p class="text-sm text-gray-400">Rhino 8 and Unreal Engine 5. Install both before S2 and report problems on Discord early &mdash; not the night before a review. Tutorials are linked at the top of this page. Hardware support: help@the-bac.edu / (617) 585-0191.</p>
-                </div>
-                <div class="card p-5 rounded-lg">
-                    <h3 class="font-bold text-white mb-2">Discord</h3>
-                    <p class="text-sm text-gray-400">Where the course actually lives between Mondays: <code class="text-emerald-300">#devlog</code>, <code class="text-sky-300">#teardown</code>, and tech support. The instructor is highly responsive here, including during the Aug 31 async week.</p>
+                    <p class="text-sm text-gray-400">Rhino 8 and Unreal Engine 5. Install both during Week 1 and report any problems on Discord early rather than the night before a review. Tutorials are linked at the top of this page.</p>
                 </div>
             </div>
         </section>
 
-        <footer class="text-center mt-16 py-8 border-t border-gray-700">
-            <p class="text-gray-500">Boston Architectural College &middot; DME2100 Digital Narratives &middot; Fall 2026</p>
-            <p class="text-gray-600 text-sm mt-2">hamze.machmouchi@the-bac.edu</p>
+        <footer class="text-center mt-16 py-6 border-t border-gray-700">
+            <p class="text-gray-500">Boston Architectural College - Fall 2026</p>
+            <p class="text-gray-600 text-sm mt-1">hamze.machmouchi@the-bac.edu</p>
         </footer>
 
     </div>
